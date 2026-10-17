@@ -1,7 +1,11 @@
 # site_conductor
 
-Public site and conductor shell for the EV Investment fund — Next.js 16 (App
-Router) + React 19, laid out with Feature-Sliced Design, styled with Tailwind v4.
+Conductor shell of `evinvest.ltd` — Next.js 16 (App Router) + React 19, FSD,
+Tailwind v4. The public landing moved to its own host (`INVEST_ORIGIN`, default
+`https://invest.evinvest.ltd`, repo EV-Fund/landing). This origin serves the
+coming-soon page at `/` (`views/coming-soon`), 301s every retired landing path
+there with path and locale kept (`next.config.ts` `redirects()`), and keeps the
+auth/KYC rewrites, the REA zone and the cabinet's asset/API/MFE rewrites.
 The dev port comes from the `ports` attrset in the repo's `flake.nix`.
 
 ## Layout
@@ -9,7 +13,7 @@ The dev port comes from the `ports` attrset in the repo's `flake.nix`.
 ```
 app/          routing + root layout (Server Components by default)
 views/        page composition (HomeView), agnostic of A/B
-features/     behaviour slices: analytics, ab-variant, investment-calculator
+features/     behaviour slices: analytics, ab-variant, error-monitoring, contact-message, job-application, publication-search
 entities/     domain data (team, …)
 shared/       app-agnostic ui/, lib/, config/, hooks/, mfe/ (microfrontend host)
 application/  styles/globals.css → imports @evinvest/uikit/styles/tokens.css
@@ -38,7 +42,7 @@ cd site_conductor/frontend && npm install && npm run dev
 Tailwind builds automatically inside Next via the `@tailwindcss/postcss` plugin —
 no separate step. It imports the shared tokens from
 `@evinvest/uikit/styles/tokens.css` through `application/styles/globals.css`;
-tokens are owned by [`EV-invest/lib`](https://github.com/EV-invest/lib) and
+tokens are owned by [`EV-Main/lib`](https://github.com/EV-Main/lib) and
 reach this repo through a `@evinvest/uikit` bump, never a local edit.
 
 ## Checks
@@ -49,6 +53,10 @@ npm run check                # tsc --noEmit
 ```
 
 ## Visual-regression tests
+
+> Not served on this origin since the move: `/publications`, `/whitepaper` and
+> `/apps/*` 301 to the invest host (`next.config.ts` `redirects()`); the code
+> under `app/[locale]` stays until removed.
 
 Per-section Playwright screenshots in [`tests/`](./tests) — one baseline per
 addressable section (`#hero`, `#portfolio`, `#calculator`, `#research`, `#team`,
@@ -110,13 +118,17 @@ shadow roots, and the global uikit tokens must cascade in.
   ```
 
 - **Whole page** — register an entry with `"kind": "page"`; it mounts at
-  `/apps/<name>/…` ([`app/apps/[service]/[[...slug]]`](./app/apps)) and owns the
+  `/apps/<name>/…` ([`app/[locale]/apps/[service]/[[...slug]]`](<./app/[locale]/apps>)) and owns the
   content region while site_conductor keeps its chrome. Scoped under `/apps` (not a root
   catch-all) so it never shadows the marketing routes or the real 404.
 
+  > Not served on this origin since the move: `/publications`, `/whitepaper` and
+  > `/apps/*` 301 to the invest host (`next.config.ts` `redirects()`); the code
+  > under `app/[locale]` stays until removed.
+
 **Producing a microfrontend** (other repos — site_conductor ships no producer SDK). The
 canonical, fuller recipe lives in the hub's
-[`docs/ARCHITECTURE.md` § Microfrontends](../../banking/docs/ARCHITECTURE.md); the
+[`docs/ARCHITECTURE.md` § Microfrontends](https://github.com/EV-Main/banking/blob/main/docs/ARCHITECTURE.md#microfrontends); the
 contract is shared with `cabinet`, so keep this in sync with it.
 
 - **React** — wrap a component as a custom element with
@@ -132,9 +144,13 @@ contract is shared with `cabinet`, so keep this in sync with it.
 
 ### Document remotes — `RemoteDocument`
 
+> Not served on this origin since the move: `/publications`, `/whitepaper` and
+> `/apps/*` 301 to the invest host (`next.config.ts` `redirects()`); the code
+> under `app/[locale]` stays until removed.
+
 For remotes that are a self-contained **static HTML document** (the typst-built
-[whitepaper](./app/publications/whitepaper) and
-[publications](./app/publications)) rather than a custom-element
+[whitepaper](<./app/[locale]/publications/whitepaper>) and
+[publications](<./app/[locale]/publications>)) rather than a custom-element
 bundle. The document is addressed by URL (site-relative → read from `public/`;
 absolute → fetched, so a doc service can move to its own origin) and composed into
 the page natively, keeping the host chrome and scroll.
@@ -161,7 +177,7 @@ The visual language is mirrored in a Figma file
 ([`Main`](https://www.figma.com/design/e0V2P1cQpEFRuXTeNtEMh6/Main)), kept
 **code-first**: [`application/styles/globals.css`](./application/styles/globals.css)
 plus the shared `@evinvest/uikit/styles/tokens.css` (from
-[`EV-invest/lib`](https://github.com/EV-invest/lib)) are the source of truth;
+[`EV-Main/lib`](https://github.com/EV-Main/lib)) are the source of truth;
 the Figma side is conformed to them, never the reverse.
 
 - **Tokens → Figma Variables.** Three collections mirror the CSS tokens 1:1, each

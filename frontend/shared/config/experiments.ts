@@ -1,5 +1,5 @@
-// Single source of truth for A/B experiments — plain data, importable from the
-// proxy (nodejs runtime), Server Components, and Client Components alike.
+// Single source of truth for A/B experiments — plain data, importable from
+// Server Components and Client Components alike.
 //
 // The mechanics (cookie shape, weighted pick, control fallback, sticky
 // assignment) live in `@evinvest/experiments`; this file only declares the

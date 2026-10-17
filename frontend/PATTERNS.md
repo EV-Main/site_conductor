@@ -33,27 +33,28 @@ code into the client bundle):
 
 - **`children` / props slot** — a Client Component renders `{children}`; the
   Server Component passes server-rendered elements in.
-  Example: `ExperimentTracker` (client) wraps server `<TeamA/>` / `<TeamB/>`.
+  Example: `ExperimentTracker` (client) wraps the server-rendered team grid in
+  `views/home/ui/team/ui/team.tsx`.
 - **Extract the interactive leaf** — pull just the handler into a tiny client
   component and render it from the server parent.
-  Examples: `hero/ui/cta/cabinet-first.tsx` (the only client bit of `HeroB`),
-  `team/ui/team-placeholders.tsx` (the only client bit of `TeamA`/`TeamB`).
+  Examples: `hero/ui/cta/cabinet-first.tsx` / `explore-first.tsx` (the only client
+  bits of the hero CTA row `HeroA` and `HeroB` share).
 
 **Litmus test:** if a section is static except for one button, the section is a
 Server Component and the button is the client island — not the other way around.
 
-The exception is a component that is interactive _throughout_ (e.g. `HeroA`'s
-scroll-zoom drives the whole visual from state) — that legitimately is one Client
-Component. Even then, pass static sub-sections as `ReactNode` props from the
-server wrapper so they stay out of the client bundle. Example: `HeroA` accepts
-`stats={<HeroAStats />}` — the ribbon is SSR'd, the zoom shell is client-only.
+The exception is a component that is interactive _throughout_ — that
+legitimately is one Client Component. Even then, pass static sub-sections as
+`ReactNode` props from the server wrapper so they stay out of the client bundle.
+Example: `HeroA`'s scroll-zoom shell `HeroACanvas` (client) — the server `HeroA`
+passes headline/copy as `children` and the CTA row as `cta={…}`.
 
 ### Context providers
 
 React context needs a Client Component. Put `"use client"` on the provider, have
 it accept `children`, and render it from a Server Component as deep as possible.
 Server-Component children rendered _inside_ the provider's subtree still reach
-client consumers nested below (see `TeamTracker` → `TeamPlaceholders`).
+client consumers nested below.
 
 ---
 
@@ -64,11 +65,12 @@ client consumers nested below (see `TeamTracker` → `TeamPlaceholders`).
 
 Flow:
 
-1. `proxy.ts` (root, Next 16 — nodejs runtime) assigns a sticky weighted cookie
-   `ab_<key>` on first visit, per `shared/config/experiments.ts`. `Math.random`
-   per-device, no user-id hashing.
+1. There is no `proxy.ts`. `getVariant("<key>")`
+   (`features/ab-variant/get-variant.ts`) returns the control (first) variant in
+   production without reading a cookie, so tested routes stay static; in
+   development it reads the `ab_<key>` cookie that `DevAbPanel` writes.
 2. A section's **Server** entry calls `await getVariant("<key>")`
-   (`features/ab-variant`) — reads the cookie, returns a typed variant.
+   (`features/ab-variant`) and gets a typed variant.
 3. It picks the variant **element on the server**
    (`variant === "b" ? <X/> : <Y/>`), so only the served variant's chunk ships.
 4. It wraps the chosen element in `<ExperimentTracker experiment="..." variant={v}>` —
@@ -79,7 +81,7 @@ Add an experiment: add a key to `experiments`, build a server wrapper for the
 section that branches on `getVariant` and wraps with `<ExperimentTracker>`, done.
 The dev overlay (`DevAbPanel`) picks it up automatically.
 
-> Reading the cookie makes the route dynamic — inherent to cookie-based A/B.
+> In development reading the cookie makes the route dynamic; production never reads it.
 
 ---
 
@@ -110,7 +112,7 @@ Rules:
 - **Never import `posthog-js` directly.** `@evinvest/analytics` (re-exported by
   `features/analytics`) owns init/consent in one place.
 - Analytics **records**, it never **decides** what to render (bucketing is owned
-  by `proxy.ts` + cookies).
+  by `features/ab-variant/get-variant.ts`).
 - Call only from Client Components — never from Server Components / `next/headers`.
 - Event names are `snake_case`, scoped `<surface>_<thing>_<action>`, and stable
   (they're the dashboard contract). Props are primitive and non-PII.
@@ -145,7 +147,8 @@ Practical split strategies:
 
 - `app/` — routing, root layout. Server by default.
 - `views/` — page composition (e.g. `HomeView`). Agnostic of A/B.
-- `features/` — behaviour slices: `analytics`, `ab-variant`, `investment-calculator`.
+- `features/` — behaviour slices: `analytics`, `ab-variant`, `error-monitoring`,
+  `contact-message`, `job-application`, `publication-search`.
 - `entities/` — domain data (`team`, …).
 - `shared/` — reusable, app-agnostic: `ui/`, `lib/`, `config/`, `hooks/`.
 
@@ -165,10 +168,12 @@ backend (utoipa) → backend/openapi.json → @hey-api/openapi-ts → shared/api
 - **Never hand-edit `shared/api/generated/`** — regenerate with `nix run .#gen-api`
   (dumps `openapi.json`, then runs `npm run gen:api`). Commit both.
 - **Consume via `@/shared/api`**, never reach into `generated/`. `shared/api/runtime.ts`
-  injects `baseUrl` from `NEXT_PUBLIC_API_URL` and is the only file codegen won't overwrite.
+  injects `baseUrl: API_URL_INTERNAL` (else `NEXT_PUBLIC_API_URL`) on the server,
+  `NEXT_PUBLIC_API_URL` in the browser, and is the only file codegen won't overwrite.
 - **Entities wrap the transport in domain names** — `entities/vacancy` re-exports
   `listVacancies`/`getVacancy` + types; features/views depend on the entity, not `shared/api`.
-- **Fetch in Server Components**, `export const dynamic = "force-dynamic"`, and degrade
+- **Fetch in Server Components** — either `export const dynamic = "force-dynamic"` or
+  ISR (`revalidate` + `vacancyCacheOptions`, as on `/hiring`) — and degrade
   gracefully (try/catch → empty state) so the build never needs the backend reachable.
   The hey-api client returns `{ data, error }` (no throw by default) — branch on it.
 
@@ -178,9 +183,10 @@ backend (utoipa) → backend/openapi.json → @hey-api/openapi-ts → shared/api
 
 Two sibling `@evinvest/uikit` `<Button asChild>` (Radix Slot → `<Link>`) **desync
 hydration** under React 19 and one silently drops from the client DOM. For nav CTAs
-(which are just links), render a plain styled `<Link className={…}>` or a plain
-`<button onClick>` instead — see `views/status/ui/buttons.tsx`. A single `Button
-asChild`, or a non-`asChild` `<Button onClick>`, is fine.
+(which are just links), use the uikit `<Button href>` (a plain `<a>`, no Slot), a
+plain styled `<Link className={…}>` or a plain `<button onClick>` instead — see
+`application/layout/header-cta.tsx`. A single `Button asChild`, or a non-`asChild`
+`<Button onClick>`, is fine.
 
 ---
 
@@ -199,7 +205,7 @@ transports, picked by what the remote ships:
   inside shadow roots and the global uikit tokens must cascade in. Resolved from
   `mfe-registry.json` (`findMfe`, server-only) so remotes deploy independently.
   Inline anywhere, or as a whole page at `/apps/<name>` (the home portfolio/REA
-  section is the live example).
+  section is the live example (now on the invest host, EV-Fund/landing)).
 - **Document remote — `RemoteDocument`.** The remote is a self-contained static
   HTML document (the typst-built whitepaper / blog). `isolate={false}` (default)
   injects its `<body>` into the **light DOM** so host typography (`prose`) styles
@@ -207,8 +213,7 @@ transports, picked by what the remote ships:
   research articles). `isolate` mounts a **self-styled** doc (its own CSS targets
   bare tags) in a **shadow root** via a small client island, so its styles can't
   reach the host (use for the whitepaper). `/publications/whitepaper` and
-  `/publications/[slug]` are
-  the live examples.
+  `/publications/[slug]` are the live examples (now on the invest host, EV-Fund/landing).
 
 Notes that bite:
 - **Shadow remotes are client-only.** React 19 can emit Declarative Shadow DOM
@@ -272,7 +277,7 @@ OR a missing snapshot at **build** time is a broken build (`findMfe` + `loadDocH
 both throw); the snapshot is **runtime** degradation only. The host `id` anchor stays
 on the light-DOM wrapper `<div>`; the snapshot's own inner `id` is shadow-scoped, so
 there's no `getElementById` collision. The home portfolio/REA section is the live
-example. (One producer today — the cargo-run + css-inline + anchor-grep lives in REA's
+example (now on the invest host, EV-Fund/landing). (One producer today — the cargo-run + css-inline + anchor-grep lives in REA's
 flake; extract to `v_flakes` when a second component-MFE producer appears.)
 
 ## 9. Routed zones — whole apps under conductor paths, wearing the conductor's shell
@@ -283,6 +288,10 @@ standalone deployment on its own origin, emits **chromeless** full documents,
 and the conductor is the only party that knows chrome exists — its proxy injects
 the conductor-owned AppShell (the brand header) into the zone's HTML stream.
 
+- **Cabinet pages no longer proxy here:** `/cabinet` and every
+  non-`_next`/`api`/`mfe` path under it 301 to the invest host (`next.config.ts`
+  `redirects()`); only the asset/API/MFE rewrites remain (account chip, open
+  tabs).
 - **Traffic splits by content, not path.** Asset/API traffic (`/cabinet/_next`,
   `/cabinet/api`, `/cabinet/mfe`, `/rea/assets`, `/rea/api`)
   goes straight to the zone over native `beforeFiles` rewrites (`next.config.ts`
@@ -382,6 +391,10 @@ behavior script toggles. Two traps live there:
   bookkeeping and no JS.
 
 ### Crossing the zone boundary
+
+> Historical: the landing is gone from this origin and `app/[locale]` renders
+> with `chrome={false}`, so the landing → cabinet crossing below no longer
+> happens on this origin.
 
 Landing → cabinet is a **full document load** (the cabinet is a route-handler
 proxy; no shared React tree), so the bar's "spanning" cannot be a transition

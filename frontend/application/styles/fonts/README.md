@@ -1,7 +1,8 @@
 # Fonts
 
 Four subset `.woff2` faces, loaded by [`./index.ts`](./index.ts) through
-`next/font/local`. They are committed as real bytes (not LFS — see
+`next/font/local`, plus the two Source Serif 4 faces of the coming-soon page
+([`./source-serif.ts`](./source-serif.ts), see the last section). They are committed as real bytes (not LFS — see
 [`.gitattributes`](./.gitattributes)) because `next build` reads them and the
 production image builds hermetically under Nix.
 
@@ -89,3 +90,24 @@ rm -f pf.ttf pf-Italic.ttf *VariableFont*.ttf
 Widening `BASE` is cheap for Inter and expensive for Playfair — measure before
 adding a range, and drop anything that only ever appears in source comments (the
 box-drawing rules, for one).
+
+## Source Serif 4 (coming-soon page)
+
+`SourceSerif4-Variable.woff2` (112 KB) is the upstream roman variable font from
+[google/fonts `ofl/sourceserif4`](https://github.com/google/fonts/tree/main/ofl/sourceserif4),
+with `wght` narrowed to the 300–500 the headline uses and Latin-1 plus general
+punctuation kept — the page's display copy is English in every locale.
+`SourceSerif4-Italic-Light.woff2` (35 KB) is the italic pinned at 300 and cut to
+printable ASCII: it only sets the `E[V]` label on the terrain.
+
+```sh
+python -m fontTools.varLib.instancer 'SourceSerif4[opsz,wght].ttf' wght=300:500 -o r.ttf
+python -m fontTools.varLib.instancer 'SourceSerif4-Italic[opsz,wght].ttf' wght=300:300 -o i.ttf
+FEAT='kern,liga,clig,calt,ccmp,locl,mark,mkmk,rlig,case,lnum,pnum'
+python -m fontTools.subset r.ttf --output-file=SourceSerif4-Variable.woff2 --flavor=woff2 \
+  --unicodes='U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2190-2193' \
+  --layout-features="$FEAT" --name-IDs='*' --name-legacy --notdef-outline --recalc-bounds --drop-tables+=DSIG
+python -m fontTools.subset i.ttf --output-file=SourceSerif4-Italic-Light.woff2 --flavor=woff2 \
+  --unicodes='U+0020-007E' \
+  --layout-features="$FEAT" --name-IDs='*' --name-legacy --notdef-outline --recalc-bounds --drop-tables+=DSIG
+```

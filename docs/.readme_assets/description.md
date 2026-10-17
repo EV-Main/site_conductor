@@ -1,8 +1,11 @@
-`site_conductor` is the public site and central shell for **EV Investment** — a
+`site_conductor` is the conductor shell of `evinvest.ltd` for **EV Investment** — a
 real-estate advisory and investment fund specializing in premium coastal
-developments in Quy Nhon, Vietnam. It conducts the other EV web apps: each runs
-as a standalone service on its own subdomain, and this repo composes them into
-one client-facing surface (microfrontends — custom-element remotes and routed
-zones). A Next.js 16 (App Router) front end in [`frontend/`](frontend) lives
-alongside a [`backend/`](backend) placeholder to grow the site's own API into.
-The shared design system ships as the published `@evinvest/uikit`.
+developments in Quy Nhon, Vietnam. The public landing moved to its own host,
+`invest.evinvest.ltd` (repo EV-Fund/landing); this origin now serves a
+"coming soon" page at `/` and 301s every retired landing path — `/whitepaper`,
+`/blogs/*`, `/publications/*`, `/team`, `/hiring`, … — there with path and locale
+kept. It still carries sign-in and KYC (rewrites to the concierge plane), the
+REA zone and the cabinet's asset/API/MFE rewrites. A Next.js 16 (App Router)
+front end in [`frontend/`](frontend) lives alongside an axum API in
+[`backend/`](backend). The shared design system ships as the published
+`@evinvest/uikit`.

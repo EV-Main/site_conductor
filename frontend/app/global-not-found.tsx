@@ -19,9 +19,10 @@ import { SiteDocument } from "@/application/layout";
 // `app/[locale]/not-found.tsx` still handles the other half — a `notFound()`
 // thrown from a route that *did* match, e.g. a retired /publications/<slug>.
 //
-// Copy is English-only because the uikit status pages bake their copy in; the
-// locale here only picks the chrome's language, and an unrouted URL carries no
-// reliable locale to read (the `fallback` rewrite resolves them as English).
+// Copy is English-only because the uikit status pages bake their copy in, and
+// an unrouted URL carries no reliable locale to read (the `fallback` rewrite
+// resolves them as English). Chromeless for the same reason as
+// app/[locale]/layout.tsx: this origin no longer has a landing to navigate.
 export const metadata: Metadata = {
   title: "Page not found",
   robots: { index: false },
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function GlobalNotFound() {
   return (
-    <SiteDocument locale={DEFAULT_LOCALE}>
+    <SiteDocument locale={DEFAULT_LOCALE} chrome={false}>
       <NotFound />
     </SiteDocument>
   );

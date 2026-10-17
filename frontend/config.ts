@@ -69,6 +69,16 @@ export const config = {
   get authWebUrl(): string | undefined {
     return prodRequired("AUTH_WEB_URL");
   },
+  // Where the public landing lives now that this origin only serves the
+  // coming-soon page: every retired landing path 301s here with its path kept.
+  // BUILD-TIME: redirects() is captured into the routes manifest, so a new
+  // origin needs a rebuild. Defaulted rather than prodRequired because the
+  // production value is the default — the env exists for staging and dev.
+  get investOrigin(): string {
+    return (
+      optional(process.env.INVEST_ORIGIN) ?? "https://invest.evinvest.ltd"
+    ).replace(/\/+$/, "");
+  },
   // Server/edge Sentry environment tag (instrumentation.ts).
   get appEnv(): string | undefined {
     return optional(process.env.APP_ENV);

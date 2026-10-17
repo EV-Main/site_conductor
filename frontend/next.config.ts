@@ -57,24 +57,38 @@ const nextConfig: NextConfig = {
     // without it the only way to learn the locale is `useParams()` in a Client
     // Component — which would ship all five message catalogues (~176 KB).
   },
-  // /blogs and /whitepaper were separate shelves for the same thing: documents
-  // the fund publishes. They are now one route, so the old paths keep working
-  // forever as 308s — inbound links, the old sitemap and anything already
-  // bookmarked must not break. 308 (not 307) so the method and the SEO signal
-  // both transfer.
+  // The public landing moved to its own host (config.investOrigin); this
+  // origin keeps only the coming-soon page, sign-in and the zones. Every
+  // retired landing URL 301s there with its path — and its locale prefix —
+  // kept, so inbound links, bookmarks and the indexed URLs carry over. 301
+  // rather than `permanent` (308), as the migration plan specifies: every
+  // source here is a page read with GET, so 308's method guarantee buys
+  // nothing and 301 is the code every crawler and client handles the same.
+  //
+  // They precede the /en/* collapse so `/en/team` lands in one hop, not two.
+  // The page code under app/[locale] stays in the tree and is simply never
+  // reached; removing it is a separate change.
   async redirects() {
+    const invest = config.investOrigin;
+    // Restates LOCALES from @evinvest/i18n — same CJS boundary as `unprefixed`
+    // in rewrites() below.
+    const locale = "en|ru|vi|fr|de";
+    const moved = [
+      "publications",
+      "team",
+      "hiring",
+      "contact",
+      "privacy",
+      "terms",
+      "risk",
+      "apps",
+    ];
+    const toInvest = (source: string, destination: string) => ({
+      source,
+      destination: `${invest}${destination}`,
+      statusCode: 301 as const,
+    });
     return [
-      { source: "/blogs", destination: "/publications", permanent: true },
-      {
-        source: "/blogs/:path*",
-        destination: "/publications/:path*",
-        permanent: true,
-      },
-      {
-        source: "/whitepaper",
-        destination: "/publications/whitepaper",
-        permanent: true,
-      },
       // Mails sent before concierge#150 link to `/notifications/{unsubscribe,
       // confirm}?token=…`; the account-less flow now lives under
       // `/api/auth/notifications/*` (forwarded to concierge by the rewrite
@@ -86,21 +100,45 @@ const nextConfig: NextConfig = {
         destination: "/api/auth/notifications/:path*",
         permanent: true,
       },
+      ...moved.flatMap(root => [
+        toInvest(`/${root}/:path*`, `/${root}/:path*`),
+        toInvest(
+          `/:locale(${locale})/${root}/:path*`,
+          `/:locale/${root}/:path*`
+        ),
+      ]),
+      // The cabinet's pages move; its asset, API and MFE paths do not. The
+      // account chip other surfaces mount (mfe-registry.json) and any open
+      // cabinet tab keep loading through the beforeFiles rewrites until the
+      // zone itself is retired from this host.
+      toInvest("/cabinet", "/cabinet"),
+      toInvest(
+        "/cabinet/:path((?!(?:_next|api|mfe)(?:/|$)).*)",
+        "/cabinet/:path*"
+      ),
+      toInvest(`/:locale(${locale})/cabinet/:path*`, "/:locale/cabinet/:path*"),
+      // The two old shelves of /publications, and the raw whitepaper builds
+      // the flake stages into public/.
+      toInvest("/blogs/:path*", "/publications/:path*"),
+      toInvest("/whitepaper", "/publications/whitepaper"),
+      toInvest(
+        "/:file(whitepaper\\.(?:pdf|dark\\.html|light\\.html))",
+        "/:file"
+      ),
+      toInvest("/llms.txt", "/llms.txt"),
       // Collapse the explicit /en/* form onto the unprefixed one so each page has
       // exactly one canonical URL. Cannot loop with the locale rewrite below:
       // this is external and matched against the incoming request, while the
       // rewrite is internal and never re-enters the redirect pipeline. Every
       // source here is itself /en-prefixed, so an unprefixed path never matches.
       //
-      // The cabinet is the one exception, and has to be: that zone owns
-      // `/{locale}/cabinet/*` as real routes and bounces an unprefixed
-      // `/cabinet/*` to the reader's locale itself. Collapsing `/en/cabinet/*`
-      // back answers that bounce with the path it just left —
+      // The cabinet is the one exception. The cabinet zone bounced an
+      // unprefixed `/cabinet/*` to the reader's locale itself, so collapsing
+      // `/en/cabinet/*` back answered that bounce with the path it just left —
       // `/cabinet/x` -> zone 307 -> `/en/cabinet/x` -> this 308 -> `/cabinet/x`
-      // — an endless loop for every English reader, which is most of them.
-      // `redirects()` runs before dynamic routes (the pipeline note below spells
-      // the order out), so app/[locale]/cabinet stays unreachable for English
-      // while this rule still matches it.
+      // — an endless loop for every English reader. On this origin the
+      // carve-out no longer fires: the `/:locale/cabinet/*` redirect to the
+      // invest host above matches first.
       { source: "/en", destination: "/", permanent: true },
       {
         // The carve-out is a negative lookahead on the source only; the
@@ -193,7 +231,8 @@ const nextConfig: NextConfig = {
   // proxy route handlers (app/cabinet/…, app/rea/…) instead, which is
   // why these must be beforeFiles — a bare array is afterFiles, which would
   // shadow the catch-all handlers. Env unset ⇒ no rewrites and the handler
-  // 404s, a deliberate "zone disabled" state.
+  // 404s, a deliberate "zone disabled" state. Cabinet *pages* never reach
+  // app/cabinet any more: redirects() sends them to the invest host first.
   async rewrites() {
     const beforeFiles = [];
     const cabinet = config.cabinetZoneUrl?.replace(/\/+$/, "");
@@ -272,10 +311,10 @@ const nextConfig: NextConfig = {
     // tried, rewriting /ru/team to /en/ru/team (404) while /team still resolves
     // and hides the bug. `fallback` runs last, after dynamic routes have had
     // their chance, which is the semantics actually wanted. Verified on 16.2.9 in
-    // dev and a production build — see docs/i18n-routing-spike.md.
+    // dev and a production build.
     //
     // Inlined rather than `localeRewrites()` from @evinvest/i18n/next — same
-    // reason as the Sentry exception above: this file is loaded as CJS, and the
+    // reason as the Sentry exception below: this file is loaded as CJS, and the
     // package is ESM-only, so requiring the subpath dies with
     // ERR_PACKAGE_PATH_NOT_EXPORTED. The helper is still the source of truth for
     // app-side code (localeStaticParams in app/[locale]/layout.tsx); only the

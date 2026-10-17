@@ -54,7 +54,7 @@ export const generateStaticParams = () => localeStaticParams();
 // is ambiguous with this layout's own page — with `dynamicParams = false` the
 // segment is *declined* and the request falls through to the `fallback` rewrite
 // that resolves it as English. Without it, `/team` renders the homepage with
-// locale === "team". See docs/i18n-routing-spike.md.
+// locale === "team".
 //
 // It is also why a catch-all `[locale]/[...rest]` cannot be the 404: to serve
 // one, that route needs `dynamicParams = true`, which is resolved per *route*
@@ -80,8 +80,12 @@ export default async function RootLayout({
   // The 500 boundary is a Client Component by Next's rule, so its copy is
   // resolved here — where the locale is known — and carried down as ~6 strings
   // rather than shipping the catalogues to the browser.
+  //
+  // Chromeless: every routed page left under [locale] is the coming-soon page
+  // or a status page — the landing's own pages redirect to its new host — and
+  // a landing header would only offer links that leave this origin.
   return (
-    <SiteDocument locale={locale}>
+    <SiteDocument locale={locale} chrome={false}>
       <StatusCopyProvider copy={serverErrorCopy(locale)}>
         {children}
       </StatusCopyProvider>

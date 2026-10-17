@@ -1,0 +1,73 @@
+/* Layout values of the coming-soon page (Figma 1591:1980). Local on purpose:
+   the landing's display scale and gutters are not uikit tokens yet, so they
+   live here as named properties the page's utilities read — scoped to the
+   page, so nothing else on the site picks them up. Colours and families are
+   NOT here: those come from the uikit through the page's Tailwind classes.
+
+   Unlayered, which outranks every Tailwind layer: beyond the properties, only
+   rules that must beat a uikit or base-layer rule on the same element belong
+   in this file. */
+
+[data-surface="coming-soon"] {
+  --cs-gutter: 20px;
+  --cs-bar-h: 64px;
+  --cs-bar-pt: 20px;
+  --cs-copy-cols: minmax(0, 1fr);
+  --cs-copy-gap: 24px;
+  --cs-field-mt: 24px;
+  --cs-display: clamp(50px, 7.6vw, 112px);
+  --cs-display-indent: 0.6em;
+  --cs-display-tracking: -0.025em;
+  --cs-link-size: 15px;
+  --cs-link-leading: 1.4;
+  --cs-caption-size: 13px;
+  --cs-caption-pb: max(1.5rem, env(safe-area-inset-bottom));
+  --cs-ev-note-size: 11px;
+  --cs-ev-note-tracking: 0.02em;
+}
+
+@media (min-width: 720px) {
+  [data-surface="coming-soon"] {
+    --cs-gutter: 88px;
+    --cs-bar-h: 96px;
+    --cs-bar-pt: 30px;
+    --cs-copy-cols: minmax(0, 1.75fr) minmax(0, 1fr);
+    --cs-copy-gap: 48px;
+    --cs-field-mt: 0px;
+    --cs-display-indent: 1.05em;
+  }
+}
+
+/* globals.css sets `font-family` on `*`, so every span inside the headline
+   would drop back to sans; the lines inherit the heading's serif instead. */
+[data-surface="coming-soon"] h1 * {
+  font-family: inherit;
+}
+
+/* The uikit <Logo> masks whatever `--brand-mark` names and sizes itself off
+   `--brand-aspect`; the page swaps the site-wide crown for the A lockup. Two
+   marks, one per breakpoint — the compact one is a different drawing, not a
+   scaled copy. `display` here has to beat the kit's `inline-block`. */
+.cs-logo-full {
+  --brand-mark: url("/assets/brand/logo-a-full.svg");
+  --brand-aspect: 306 / 34;
+  display: none;
+  height: 34px;
+}
+
+.cs-logo-compact {
+  --brand-mark: url("/assets/brand/logo-a-compact.svg");
+  --brand-aspect: 124 / 21;
+  display: inline-block;
+  height: 21px;
+}
+
+@media (min-width: 720px) {
+  .cs-logo-full {
+    display: inline-block;
+  }
+
+  .cs-logo-compact {
+    display: none;
+  }
+}

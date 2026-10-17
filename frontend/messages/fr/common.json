@@ -87,6 +87,18 @@
     "en": "Which of these describe you?",
     "t": "Lesquels vous correspondent ?"
   },
+  "comingSoon.admin": {
+    "en": "Admin",
+    "t": "Admin"
+  },
+  "comingSoon.caption": {
+    "en": "Illustrative — a simulated probability surface, not fund performance.",
+    "t": "Illustration — une surface de probabilité simulée, pas la performance du fonds."
+  },
+  "comingSoon.evNote": {
+    "en": "expected value",
+    "t": "valeur attendue"
+  },
   "contact.channel.general": {
     "en": "Email",
     "t": "E-mail"
@@ -870,6 +882,14 @@
   "legal.terms.verification.title": {
     "en": "Identity verification",
     "t": "Vérification d’identité"
+  },
+  "meta.comingSoon.description": {
+    "en": "Expected Value Investment — the new site is on its way.",
+    "t": "Expected Value Investment — le nouveau site arrive bientôt."
+  },
+  "meta.comingSoon.title": {
+    "en": "Expected value, arriving soon",
+    "t": "Expected value — bientôt"
   },
   "meta.contact.description": {
     "en": "Get in touch with EV Investment — hiring, investment, and our coastal developments in Quy Nhơn, Vietnam.",

@@ -34,11 +34,18 @@ const analyticsWebsiteId = config.public.analyticsWebsiteId;
 // the reason the old bare-Next 404 existed at all is that the shell lived
 // inline in the layout, where nothing outside the `[locale]` tree could reach
 // it. Keep it that way — a page that renders chrome renders it from here.
+//
+// `chrome={false}` drops the landing header and footer (and the header's own
+// scripts) while keeping the document, providers and analytics: the
+// coming-soon origin renders no navigation, but zones keep the shell header
+// the proxy injects from public/shell, which this prop does not touch.
 export function SiteDocument({
   locale,
+  chrome = true,
   children,
 }: {
   locale: Locale;
+  chrome?: boolean;
   children: ReactNode;
 }) {
   return (
@@ -57,7 +64,11 @@ export function SiteDocument({
             snap instead of narrowing on the way back from a zone. Inline and
             un-deferred for that reason alone; it reads one sessionStorage key
             and sets one attribute. */}
-        <script dangerouslySetInnerHTML={{ __html: spanEnterScript("site") }} />
+        {chrome && (
+          <script
+            dangerouslySetInnerHTML={{ __html: spanEnterScript("site") }}
+          />
+        )}
         {/* Mirrors this document's locale into the cookie the cabinet zone
             reads when an unprefixed /cabinet/* entry has to be resolved to a
             real /{locale}/cabinet/* URL. Pre-paint and un-deferred because the
@@ -72,12 +83,14 @@ export function SiteDocument({
             bytes the zone proxy loads by URL — inlined here because this
             document has no nonce CSP to satisfy and the file is a few hundred
             bytes on the critical path. See scripts/session-stamp.ts. */}
-        <script dangerouslySetInnerHTML={{ __html: shell.sessionInline }} />
+        {chrome && (
+          <script dangerouslySetInnerHTML={{ __html: shell.sessionInline }} />
+        )}
       </head>
       <body>
         {/* The header's one behavior implementation — the same content-hashed
             script the zone proxy injects (BrandHeader ships no React state). */}
-        <Script defer src={shell.js} strategy="afterInteractive" />
+        {chrome && <Script defer src={shell.js} strategy="afterInteractive" />}
         <DarkReaderHydrationFilter />
         <ErrorMonitoringProvider>
           {/* English is authored inline at each call site, so an `en` reader
@@ -101,13 +114,15 @@ export function SiteDocument({
                 <Suspense fallback={null}>
                   <PostHogPageView />
                 </Suspense>
-                <Header
-                  locale={locale}
-                  accountSlot={<HeaderAccountSlot locale={locale} />}
-                  mobileAccountSlot={<MenuAccountSlot locale={locale} />}
-                />
+                {chrome && (
+                  <Header
+                    locale={locale}
+                    accountSlot={<HeaderAccountSlot locale={locale} />}
+                    mobileAccountSlot={<MenuAccountSlot locale={locale} />}
+                  />
+                )}
                 {children}
-                <Footer />
+                {chrome && <Footer />}
               </PostHogProvider>
               <DevAbPanel />
             </Providers>
