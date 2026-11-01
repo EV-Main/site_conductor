@@ -70,7 +70,7 @@
             };
           };
         });
-        pname = "apex";
+        pname = "main-site-conductor";
         # ── ev_invest dev topology (single source of truth for ports) ───────
         # ONE shared postgres serves every sibling repo (banking/concierge mirror
         # these values). Postgres database name == app name. Web UIs cluster on
@@ -182,7 +182,7 @@
         };
         # ── frontend production image (Next.js standalone) ──────────────────
         frontendApp = pkgs.buildNpmPackage {
-          pname = "apex-frontend";
+          pname = "main-site-conductor-frontend";
           version = "1.0.0";
           src = ./frontend;
           # build node_modules straight from package-lock.json — no FOD hash to drift on release builds.
@@ -306,7 +306,7 @@
               NEXT_PUBLIC_POSTHOG_HOST = posthogHost;
               # Server Component fetches stay in-cluster instead of hairpinning
               # through the Cloudflare tunnel.
-              API_URL_INTERNAL = "http://apex-backend:58844";
+              API_URL_INTERNAL = "http://main-site-conductor-backend:58844";
             };
           };
         };
