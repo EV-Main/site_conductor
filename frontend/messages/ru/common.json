@@ -1,0 +1,1154 @@
+{
+  "apply.form.email.placeholder": {
+    "en": "jane@fund.com",
+    "t": "ivan@fund.com"
+  },
+  "apply.form.eyebrow": {
+    "en": "Open application",
+    "t": "Открытая заявка"
+  },
+  "apply.form.footnote": {
+    "en": "Reply within ~2 weeks · Quy Nhơn · HCMC",
+    "t": "Ответ примерно за 2 недели · Куинён · Хошимин"
+  },
+  "apply.form.formTag": {
+    "en": "Form · EV-Hiring",
+    "t": "Форма · EV-Hiring"
+  },
+  "apply.form.heading": {
+    "en": "Tell us where you fit.",
+    "t": "Расскажите, где вы видите себя."
+  },
+  "apply.form.intro": {
+    "en": "A few lines is enough — we read every note.",
+    "t": "Достаточно нескольких строк — мы читаем каждое письмо."
+  },
+  "apply.form.message.label": {
+    "en": "Where you'd fit",
+    "t": "Где вы видите себя"
+  },
+  "apply.form.message.placeholder": {
+    "en": "A few lines on what you'd want to own, and why EV…",
+    "t": "Несколько строк о том, за что вы хотели бы отвечать и почему EV…"
+  },
+  "apply.form.portfolio.label": {
+    "en": "Portfolio or LinkedIn (optional)",
+    "t": "Портфолио или LinkedIn (необязательно)"
+  },
+  "apply.form.portfolio.placeholder": {
+    "en": "https://…",
+    "t": "https://…"
+  },
+  "apply.form.roleTag": {
+    "en": "Role · {title}",
+    "t": "Вакансия · {title}"
+  },
+  "apply.form.sent.body": {
+    "en": "Your application has reached our team. We read every one and will be in touch.",
+    "t": "Ваша заявка дошла до команды. Мы читаем каждую и обязательно свяжемся с вами."
+  },
+  "apply.form.sent.title": {
+    "en": "Thanks — we've got it.",
+    "t": "Спасибо — мы всё получили."
+  },
+  "apply.form.sent.titleNamed": {
+    "en": "Thanks, {name} — we've got it.",
+    "t": "Спасибо, {name}, — мы всё получили."
+  },
+  "apply.form.submit": {
+    "en": "Send application",
+    "t": "Отправить заявку"
+  },
+  "apply.role.eyebrow": {
+    "en": "For this role · {title}",
+    "t": "Для этой вакансии · {title}"
+  },
+  "apply.role.screeningPlaceholder": {
+    "en": "A few lines…",
+    "t": "Несколько строк…"
+  },
+  "apply.role.which": {
+    "en": "Which of these describe you?",
+    "t": "Что из этого про вас?"
+  },
+  "comingSoon.evNote": {
+    "en": "expected value",
+    "t": "ожидаемая ценность"
+  },
+  "comingSoon.link.estate": {
+    "en": "real-estate fund",
+    "t": "фонд недвижимости"
+  },
+  "comingSoon.link.github": {
+    "en": "source code",
+    "t": "исходный код"
+  },
+  "comingSoon.link.label": {
+    "en": "EV projects",
+    "t": "Проекты EV"
+  },
+  "comingSoon.link.sa": {
+    "en": "operations panel",
+    "t": "операционная панель"
+  },
+  "contact.channel.general": {
+    "en": "Email",
+    "t": "Почта"
+  },
+  "contact.eyebrow": {
+    "en": "Contact",
+    "t": "Контакты"
+  },
+  "contact.form.email.placeholder": {
+    "en": "jane@example.com",
+    "t": "ivan@example.com"
+  },
+  "contact.form.message.label": {
+    "en": "Message",
+    "t": "Сообщение"
+  },
+  "contact.form.message.placeholder": {
+    "en": "How can we help?",
+    "t": "Чем мы можем помочь?"
+  },
+  "contact.form.sent.body": {
+    "en": "We'll reply personally, usually within two business days.",
+    "t": "Мы ответим лично, обычно в течение двух рабочих дней."
+  },
+  "contact.form.sent.title": {
+    "en": "Thanks — message received.",
+    "t": "Спасибо — сообщение получено."
+  },
+  "contact.form.sent.titleNamed": {
+    "en": "Thanks, {name} — message received.",
+    "t": "Спасибо, {name}, — сообщение получено."
+  },
+  "contact.form.submit": {
+    "en": "Send message",
+    "t": "Отправить сообщение"
+  },
+  "contact.intro": {
+    "en": "Questions about a role, an investment, or one of our coastal developments? Send a note and a person — not a bot — will reply.",
+    "t": "Вопросы о вакансии, инвестициях или одном из наших прибрежных проектов? Напишите нам — ответит человек, а не бот."
+  },
+  "contact.office.hcmc.city": {
+    "en": "Ho Chi Minh City",
+    "t": "Хошимин"
+  },
+  "contact.office.hcmc.line": {
+    "en": "Investor relations · District 1",
+    "t": "Отношения с инвесторами · Район 1"
+  },
+  "contact.office.hq.city": {
+    "en": "Quy Nhơn",
+    "t": "Куинён"
+  },
+  "contact.office.hq.line": {
+    "en": "Coastal HQ · Bình Định, Vietnam",
+    "t": "Прибрежный головной офис · Биньдинь, Вьетнам"
+  },
+  "contact.title": {
+    "en": "Let's *talk*.",
+    "t": "Давайте *поговорим*."
+  },
+  "document.downloadAria": {
+    "en": "Download {title} as PDF",
+    "t": "Скачать «{title}» в PDF"
+  },
+  "form.email.label": {
+    "en": "Email",
+    "t": "Электронная почта"
+  },
+  "form.name.label": {
+    "en": "Your name",
+    "t": "Ваше имя"
+  },
+  "form.name.placeholder": {
+    "en": "Jane Doe",
+    "t": "Иван Иванов"
+  },
+  "form.networkError": {
+    "en": "Network error — please try again.",
+    "t": "Ошибка сети — попробуйте ещё раз."
+  },
+  "form.sending": {
+    "en": "Sending…",
+    "t": "Отправляем…"
+  },
+  "form.submitError": {
+    "en": "Something went wrong. Please try again.",
+    "t": "Что-то пошло не так. Попробуйте ещё раз."
+  },
+  "hiring.board.allRoles": {
+    "en": "All roles",
+    "t": "Все вакансии"
+  },
+  "hiring.board.clear": {
+    "en": "Clear filters",
+    "t": "Сбросить фильтры"
+  },
+  "hiring.board.count": {
+    "en": "{count, plural, one {# role} other {# roles}}",
+    "t": "{count, plural, one {# вакансия} few {# вакансии} many {# вакансий} other {# вакансии}}"
+  },
+  "hiring.board.empty": {
+    "en": "No roles match your search.",
+    "t": "По вашему запросу вакансий не найдено."
+  },
+  "hiring.board.eyebrow": {
+    "en": "Open roles",
+    "t": "Открытые вакансии"
+  },
+  "hiring.board.search": {
+    "en": "Search roles, teams, or locations…",
+    "t": "Поиск по вакансиям, командам или локациям…"
+  },
+  "hiring.board.searchLabel": {
+    "en": "Search roles",
+    "t": "Поиск вакансий"
+  },
+  "hiring.board.title": {
+    "en": "Where we're *hiring*.",
+    "t": "Куда мы *нанимаем*."
+  },
+  "hiring.board.viewRole": {
+    "en": "View role",
+    "t": "Смотреть вакансию"
+  },
+  "hiring.category.advisory": {
+    "en": "Advisory",
+    "t": "Консультирование"
+  },
+  "hiring.category.all": {
+    "en": "All",
+    "t": "Все"
+  },
+  "hiring.category.development": {
+    "en": "Development",
+    "t": "Девелопмент"
+  },
+  "hiring.category.investment": {
+    "en": "Investment",
+    "t": "Инвестиции"
+  },
+  "hiring.category.operations": {
+    "en": "Operations",
+    "t": "Операции"
+  },
+  "hiring.hero.cta": {
+    "en": "View open roles",
+    "t": "Открытые вакансии"
+  },
+  "hiring.hero.eyebrow": {
+    "en": "Hiring · Join the fund",
+    "t": "Вакансии · Присоединяйтесь к фонду"
+  },
+  "hiring.hero.intro": {
+    "en": "EV Investment develops premium coastal assets in Quy Nhơn — and we're hiring senior people across investment, development, and client advisory. Find your role below.",
+    "t": "EV Investment развивает премиальные прибрежные активы в Куинёне — и мы нанимаем опытных специалистов в инвестиции, девелопмент и консультирование клиентов. Найдите свою роль ниже."
+  },
+  "hiring.hero.stat.offices": {
+    "en": "Office locations",
+    "t": "Локаций офисов"
+  },
+  "hiring.hero.stat.roles": {
+    "en": "Open roles",
+    "t": "Открытых вакансий"
+  },
+  "hiring.hero.stat.teams": {
+    "en": "Teams hiring",
+    "t": "Нанимающих команд"
+  },
+  "hiring.hero.title": {
+    "en": "Build coastal Vietnam's *next decade* with us.",
+    "t": "Постройте с нами *следующее десятилетие* прибрежного Вьетнама."
+  },
+  "hiring.process.deep.body": {
+    "en": "A real problem from our actual pipeline — no whiteboard puzzles.",
+    "t": "Реальная задача из нашего текущего пайплайна — без головоломок у доски."
+  },
+  "hiring.process.deep.title": {
+    "en": "Deep dive",
+    "t": "Погружение"
+  },
+  "hiring.process.eyebrow": {
+    "en": "How we hire",
+    "t": "Как мы нанимаем"
+  },
+  "hiring.process.intro.body": {
+    "en": "A 30-minute conversation about you and us — no scripts.",
+    "t": "30-минутный разговор о вас и о нас — без сценариев."
+  },
+  "hiring.process.intro.title": {
+    "en": "Intro call",
+    "t": "Знакомство"
+  },
+  "hiring.process.meet.body": {
+    "en": "Time with the people you'd work beside, in Quy Nhơn or remote.",
+    "t": "Время с людьми, с которыми вы будете работать — в Куинёне или удалённо."
+  },
+  "hiring.process.meet.title": {
+    "en": "Meet the team",
+    "t": "Знакомство с командой"
+  },
+  "hiring.process.offer.body": {
+    "en": "Fast, clear, and senior — usually within two weeks.",
+    "t": "Быстро, ясно и на уровне — обычно в течение двух недель."
+  },
+  "hiring.process.offer.title": {
+    "en": "Offer",
+    "t": "Оффер"
+  },
+  "hiring.process.title": {
+    "en": "A short, *honest* process.",
+    "t": "Короткий и *честный* процесс."
+  },
+  "hiring.team.advisory": {
+    "en": "Client Advisory",
+    "t": "Консультирование клиентов"
+  },
+  "hiring.team.development": {
+    "en": "Development & Projects",
+    "t": "Девелопмент и проекты"
+  },
+  "hiring.team.investment": {
+    "en": "Investment & Research",
+    "t": "Инвестиции и исследования"
+  },
+  "hiring.team.operations": {
+    "en": "Operations",
+    "t": "Операции"
+  },
+  "hiring.why.eyebrow": {
+    "en": "Why EV",
+    "t": "Почему EV"
+  },
+  "hiring.why.focus.body": {
+    "en": "A focused thesis: 100% concentration and expertise in today's most promising emerging market.",
+    "t": "Сфокусированный тезис: 100% концентрации и экспертизы в самом перспективном развивающемся рынке сегодня."
+  },
+  "hiring.why.focus.title": {
+    "en": "Focus",
+    "t": "Фокус"
+  },
+  "hiring.why.rigor.body": {
+    "en": "Data-driven research and underwriting on assets you can stand in front of.",
+    "t": "Исследования и андеррайтинг на данных — по активам, перед которыми можно встать."
+  },
+  "hiring.why.rigor.title": {
+    "en": "Institutional rigor",
+    "t": "Институциональная строгость"
+  },
+  "hiring.why.scale.body": {
+    "en": "Join early. Your work compounds into the fund's track record — and your own.",
+    "t": "Присоединяйтесь рано. Ваша работа накапливается в послужном списке фонда — и в вашем собственном."
+  },
+  "hiring.why.scale.title": {
+    "en": "Ground-floor scale",
+    "t": "Рост с самого начала"
+  },
+  "hiring.why.title": {
+    "en": "Why join *now*.",
+    "t": "Почему стоит присоединиться *сейчас*."
+  },
+  "hiring.why.upside.body": {
+    "en": "Senior contributors share in the carry they help create.",
+    "t": "Ведущие сотрудники участвуют в carry, который сами создают."
+  },
+  "hiring.why.upside.title": {
+    "en": "Aligned upside",
+    "t": "Общая выгода"
+  },
+  "legal.contactUs": {
+    "en": "Contact us",
+    "t": "Напишите нам"
+  },
+  "legal.documentInEnglish": {
+    "en": "The headings are translated; the binding text of this document is in English.",
+    "t": "Заголовки переведены; юридически обязательный текст этого документа — на английском языке."
+  },
+  "legal.draft.body": {
+    "en": "This document is a working draft and is not yet legally binding. It will be replaced with counsel-reviewed text before it takes effect.",
+    "t": "Этот документ — рабочий черновик и пока не имеет юридической силы. До вступления в силу он будет заменён текстом, проверенным юристом."
+  },
+  "legal.draft.title": {
+    "en": "Draft — pending legal review",
+    "t": "Черновик — ожидает юридической проверки"
+  },
+  "legal.effectiveDate": {
+    "en": "Effective date",
+    "t": "Дата вступления в силу"
+  },
+  "legal.eyebrow": {
+    "en": "Legal",
+    "t": "Правовая информация"
+  },
+  "legal.privacy.controller.title": {
+    "en": "Who is responsible",
+    "t": "Кто отвечает за данные"
+  },
+  "legal.privacy.cookies.title": {
+    "en": "Cookies and analytics",
+    "t": "Cookie и аналитика"
+  },
+  "legal.privacy.data.title": {
+    "en": "What we collect",
+    "t": "Что мы собираем"
+  },
+  "legal.privacy.lede": {
+    "en": "What personal data EV Investment collects, why, who processes it, and the rights you have over it.",
+    "t": "Какие персональные данные собирает EV Investment, зачем, кто их обрабатывает и какие права у вас есть."
+  },
+  "legal.privacy.purposes.title": {
+    "en": "Why we use it",
+    "t": "Зачем мы это используем"
+  },
+  "legal.privacy.retention.title": {
+    "en": "Where it goes and how long we keep it",
+    "t": "Куда передаются данные и как долго хранятся"
+  },
+  "legal.privacy.rights.title": {
+    "en": "Your rights",
+    "t": "Ваши права"
+  },
+  "legal.privacy.security.title": {
+    "en": "Security and changes",
+    "t": "Безопасность и изменения"
+  },
+  "legal.privacy.sharing.title": {
+    "en": "Who processes it",
+    "t": "Кто обрабатывает данные"
+  },
+  "legal.privacy.title": {
+    "en": "Privacy Policy",
+    "t": "Политика конфиденциальности"
+  },
+  "legal.questions": {
+    "en": "Questions about this document?",
+    "t": "Есть вопросы по этому документу?"
+  },
+  "legal.risk.advice.title": {
+    "en": "This is not advice — get your own",
+    "t": "Это не консультация — получите собственную"
+  },
+  "legal.risk.capital.title": {
+    "en": "Your capital is at risk",
+    "t": "Ваш капитал под риском"
+  },
+  "legal.risk.costs.title": {
+    "en": "Fees, tax and operations",
+    "t": "Комиссии, налоги и операционные риски"
+  },
+  "legal.risk.digital.title": {
+    "en": "Stablecoin, network and custody",
+    "t": "Стейблкоин, сеть и хранение"
+  },
+  "legal.risk.lede": {
+    "en": "What can go wrong with an investment through EV Investment. Read it before you subscribe.",
+    "t": "Что может пойти не так при инвестировании через EV Investment. Прочитайте до подписки."
+  },
+  "legal.risk.liquidity.title": {
+    "en": "Liquidity and redemption",
+    "t": "Ликвидность и погашение"
+  },
+  "legal.risk.market.title": {
+    "en": "Concentration, currency and country",
+    "t": "Концентрация, валюта и страна"
+  },
+  "legal.risk.regulatory.title": {
+    "en": "Regulatory uncertainty in the EU and Vietnam",
+    "t": "Регуляторная неопределённость в ЕС и Вьетнаме"
+  },
+  "legal.risk.targets.title": {
+    "en": "Targets are not forecasts",
+    "t": "Цели — не прогнозы"
+  },
+  "legal.risk.title": {
+    "en": "Risk Disclosure",
+    "t": "Раскрытие рисков"
+  },
+  "legal.risk.valuation.title": {
+    "en": "Valuation",
+    "t": "Оценка"
+  },
+  "legal.terms.account.title": {
+    "en": "Your account",
+    "t": "Ваш аккаунт"
+  },
+  "legal.terms.conduct.title": {
+    "en": "Acceptable use",
+    "t": "Допустимое использование"
+  },
+  "legal.terms.contact.title": {
+    "en": "Contact",
+    "t": "Контакты"
+  },
+  "legal.terms.funds.title": {
+    "en": "Deposits, withdrawals and custody",
+    "t": "Ввод, вывод и хранение средств"
+  },
+  "legal.terms.law.title": {
+    "en": "Changes, governing law and disputes",
+    "t": "Изменения, применимое право и споры"
+  },
+  "legal.terms.lede": {
+    "en": "The agreement between you and EV Investment for using this website and the investor cabinet.",
+    "t": "Соглашение между вами и EV Investment об использовании этого сайта и кабинета инвестора."
+  },
+  "legal.terms.liability.title": {
+    "en": "Liability",
+    "t": "Ответственность"
+  },
+  "legal.terms.provider.title": {
+    "en": "Who we are and what these terms cover",
+    "t": "Кто мы и что регулируют эти условия"
+  },
+  "legal.terms.risk.title": {
+    "en": "No advice; capital at risk",
+    "t": "Не является советом; капитал под риском"
+  },
+  "legal.terms.termination.title": {
+    "en": "Suspension and closure",
+    "t": "Приостановка и закрытие"
+  },
+  "legal.terms.title": {
+    "en": "Terms of Service",
+    "t": "Условия обслуживания"
+  },
+  "legal.terms.units.title": {
+    "en": "Subscriptions, redemptions and fees",
+    "t": "Подписка, погашение и комиссии"
+  },
+  "legal.terms.verification.title": {
+    "en": "Identity verification",
+    "t": "Проверка личности"
+  },
+  "meta.comingSoon.description": {
+    "en": "Expected Value Investment — the new site is on its way.",
+    "t": "Expected Value Investment — новый сайт уже в пути."
+  },
+  "meta.comingSoon.title": {
+    "en": "Expected value, arriving soon",
+    "t": "Expected value — скоро"
+  },
+  "meta.contact.description": {
+    "en": "Get in touch with EV Investment — hiring, investment, and our coastal developments in Quy Nhơn, Vietnam.",
+    "t": "Свяжитесь с EV Investment — вакансии, инвестиции и наши прибрежные проекты в Куинёне, Вьетнам."
+  },
+  "meta.contact.title": {
+    "en": "Contact",
+    "t": "Контакты"
+  },
+  "meta.hiring.description": {
+    "en": "Join EV Investment — senior roles across investment, development, and client advisory for premium coastal developments in Quy Nhơn, Vietnam.",
+    "t": "Присоединяйтесь к EV Investment — руководящие позиции в инвестициях, девелопменте и консультировании клиентов для премиальных прибрежных проектов в Куинёне, Вьетнам."
+  },
+  "meta.hiring.title": {
+    "en": "Hiring",
+    "t": "Вакансии"
+  },
+  "meta.home.description": {
+    "en": "Through Vietnam, with Quy-Nhon based fund, - we have direct pulse on Real Estate and tourist flows. Follow the money.",
+    "t": "Через Вьетнам, с фондом в Куинёне, — у нас прямой пульс рынка недвижимости и туристических потоков. Следуйте за деньгами."
+  },
+  "meta.home.tagline": {
+    "en": "Invest in China+1 narrative",
+    "t": "Инвестируйте в нарратив «Китай+1»"
+  },
+  "meta.privacy.description": {
+    "en": "What personal data EV Investment collects, why, who processes it, and your rights over it.",
+    "t": "Какие персональные данные собирает EV Investment, зачем, кто их обрабатывает и ваши права на них."
+  },
+  "meta.privacy.title": {
+    "en": "Privacy Policy",
+    "t": "Политика конфиденциальности"
+  },
+  "meta.publication.notFound": {
+    "en": "Publication not found",
+    "t": "Публикация не найдена"
+  },
+  "meta.publications.description": {
+    "en": "EV Investment publications — field notes filmed in Quy Nhơn and institutional research on Vietnam coastal real estate.",
+    "t": "Публикации EV Investment — полевые заметки, снятые в Куинёне, и институциональные исследования прибрежной недвижимости Вьетнама."
+  },
+  "meta.publications.title": {
+    "en": "Field Notes & Research",
+    "t": "Полевые заметки и исследования"
+  },
+  "meta.risk.description": {
+    "en": "The risks of investing through EV Investment — read before subscribing.",
+    "t": "Риски инвестирования через EV Investment — прочитайте до подписки."
+  },
+  "meta.risk.title": {
+    "en": "Risk Disclosure",
+    "t": "Раскрытие рисков"
+  },
+  "meta.team.description": {
+    "en": "The cross-border investment, risk and development team behind EV Investment — a Quy Nhơn–based fund building institutional access to Vietnam's premium coastal real estate.",
+    "t": "Команда по трансграничным инвестициям, рискам и девелопменту, стоящая за EV Investment — фондом из Куинёна, который строит институциональный доступ к премиальной прибрежной недвижимости Вьетнама."
+  },
+  "meta.team.title": {
+    "en": "Team",
+    "t": "Команда"
+  },
+  "meta.terms.description": {
+    "en": "The terms on which EV Investment provides its website and investor cabinet.",
+    "t": "Условия, на которых EV Investment предоставляет свой сайт и кабинет инвестора."
+  },
+  "meta.terms.title": {
+    "en": "Terms of Service",
+    "t": "Условия обслуживания"
+  },
+  "meta.vacancy.notFound": {
+    "en": "Role not found",
+    "t": "Вакансия не найдена"
+  },
+  "meta.vacancy.title": {
+    "en": "{title} — Hiring",
+    "t": "{title} — Вакансии"
+  },
+  "meta.whitepaper.description": {
+    "en": "EV Investment whitepaper — our institutional thesis on coastal real estate in Quy Nhơn, Vietnam.",
+    "t": "Whitepaper EV Investment — наш институциональный тезис о прибрежной недвижимости в Куинёне, Вьетнам."
+  },
+  "meta.whitepaper.title": {
+    "en": "Whitepaper",
+    "t": "Whitepaper"
+  },
+  "nav.publications": {
+    "en": "Publications",
+    "t": "Публикации"
+  },
+  "publications.allPublications": {
+    "en": "All publications",
+    "t": "Все публикации"
+  },
+  "publications.announce": {
+    "en": "{title} — {position} of {total}",
+    "t": "{title} — {position} из {total}"
+  },
+  "publications.cta.readNote": {
+    "en": "READ THE NOTE",
+    "t": "ЧИТАТЬ ЗАМЕТКУ"
+  },
+  "publications.cta.readReport": {
+    "en": "READ THE REPORT",
+    "t": "ЧИТАТЬ ОТЧЁТ"
+  },
+  "publications.cta.readWhitepaper": {
+    "en": "READ THE WHITEPAPER",
+    "t": "ЧИТАТЬ WHITEPAPER"
+  },
+  "publications.cta.watchNote": {
+    "en": "WATCH THE NOTE",
+    "t": "СМОТРЕТЬ ЗАМЕТКУ"
+  },
+  "publications.documentInEnglish": {
+    "en": "This summary is translated; the report itself is in English.",
+    "t": "Это резюме переведено; сам отчёт — на английском языке."
+  },
+  "publications.downloadPdf": {
+    "en": "download the PDF",
+    "t": "скачать PDF"
+  },
+  "publications.empty.filter": {
+    "en": "Nothing published under this filter yet.",
+    "t": "По этому фильтру пока ничего не опубликовано."
+  },
+  "publications.empty.search": {
+    "en": "Nothing matches “{query}”. Clear the search with Esc, or try a place name — most dispatches are titled after one.",
+    "t": "Ничего не найдено по запросу «{query}». Очистите поиск клавишей Esc или попробуйте название места — большинство репортажей названы именно так."
+  },
+  "publications.eyebrow": {
+    "en": "EV Investment · Publications",
+    "t": "EV Investment · Публикации"
+  },
+  "publications.filter.all": {
+    "en": "ALL",
+    "t": "ВСЕ"
+  },
+  "publications.filter.aria": {
+    "en": "Filter publications by kind",
+    "t": "Фильтровать публикации по типу"
+  },
+  "publications.intro": {
+    "en": "Three kinds of evidence. Research is the desk work — macro models, land sweeps, yield decomposition, published as citable PDFs. Field notes are the ground truth: our people filming the districts we underwrite. The whitepaper is the standing document behind both.",
+    "t": "Три вида доказательств. Исследования — кабинетная работа: макромодели, обследования земли, разложение доходности, публикуемые в виде цитируемых PDF. Полевые заметки — реальность на месте: наши сотрудники снимают районы, которые мы оцениваем. Whitepaper — постоянный документ, стоящий за тем и другим."
+  },
+  "publications.kind.fieldNote": {
+    "en": "FIELD NOTE",
+    "t": "ПОЛЕВАЯ ЗАМЕТКА"
+  },
+  "publications.kind.fieldNotes": {
+    "en": "FIELD NOTES",
+    "t": "ПОЛЕВЫЕ ЗАМЕТКИ"
+  },
+  "publications.kind.research": {
+    "en": "RESEARCH",
+    "t": "ИССЛЕДОВАНИЯ"
+  },
+  "publications.kind.whitepaper": {
+    "en": "WHITEPAPER",
+    "t": "WHITEPAPER"
+  },
+  "publications.latestDispatch": {
+    "en": "LATEST DISPATCH",
+    "t": "ПОСЛЕДНИЙ РЕПОРТАЖ"
+  },
+  "publications.plate": {
+    "en": "Plate {n}",
+    "t": "Илл. {n}"
+  },
+  "publications.results.none": {
+    "en": "No matches",
+    "t": "Совпадений нет"
+  },
+  "publications.results.showing": {
+    "en": "Showing 1–{shown} of {total}",
+    "t": "Показано 1–{shown} из {total}"
+  },
+  "publications.search.label": {
+    "en": "Search publications",
+    "t": "Поиск по публикациям"
+  },
+  "publications.search.placeholder": {
+    "en": "Search titles and full text…",
+    "t": "Поиск по заголовкам и полному тексту…"
+  },
+  "publications.shortcut.clear": {
+    "en": "Clear the search and unfocus",
+    "t": "Очистить поиск и снять фокус"
+  },
+  "publications.shortcut.focus": {
+    "en": "Focus the search field",
+    "t": "Перейти к полю поиска"
+  },
+  "publications.shortcut.move": {
+    "en": "Move through the results",
+    "t": "Перемещаться по результатам"
+  },
+  "publications.shortcut.open": {
+    "en": "Open the selected result",
+    "t": "Открыть выбранный результат"
+  },
+  "publications.shortcut.toggle": {
+    "en": "Toggle this dialog",
+    "t": "Показать или скрыть это окно"
+  },
+  "publications.shortcuts.title": {
+    "en": "Keyboard shortcuts",
+    "t": "Горячие клавиши"
+  },
+  "publications.stat.fieldNotes": {
+    "en": "{count, plural, one {# FIELD NOTE} other {# FIELD NOTES}}",
+    "t": "{count, plural, one {# ПОЛЕВАЯ ЗАМЕТКА} few {# ПОЛЕВЫЕ ЗАМЕТКИ} many {# ПОЛЕВЫХ ЗАМЕТОК} other {# ПОЛЕВЫЕ ЗАМЕТКИ}}"
+  },
+  "publications.stat.reports": {
+    "en": "{count, plural, one {# REPORT} other {# REPORTS}}",
+    "t": "{count, plural, one {# ОТЧЁТ} few {# ОТЧЁТА} many {# ОТЧЁТОВ} other {# ОТЧЁТА}}"
+  },
+  "publications.stat.updated": {
+    "en": "UPDATED {date}",
+    "t": "ОБНОВЛЕНО {date}"
+  },
+  "publications.stat.whitepapers": {
+    "en": "{count, plural, one {# WHITEPAPER} other {# WHITEPAPERS}}",
+    "t": "{count, plural, one {# WHITEPAPER} few {# WHITEPAPER} many {# WHITEPAPER} other {# WHITEPAPER}}"
+  },
+  "publications.title": {
+    "en": "Field Notes *& Research*",
+    "t": "Полевые заметки *и исследования*"
+  },
+  "publications.unavailable": {
+    "en": "This publication isn’t available right now —",
+    "t": "Эта публикация сейчас недоступна —"
+  },
+  "status.backHome": {
+    "en": "Back to home",
+    "t": "На главную"
+  },
+  "status.contactTeam": {
+    "en": "Contact the team",
+    "t": "Связаться с командой"
+  },
+  "status.forbidden.eyebrow": {
+    "en": "Access forbidden",
+    "t": "Доступ закрыт"
+  },
+  "status.forbidden.headlineAccent": {
+    "en": "private",
+    "t": "частная"
+  },
+  "status.forbidden.headlineLead": {
+    "en": "This harbour is ",
+    "t": "Эта гавань — "
+  },
+  "status.forbidden.subtext": {
+    "en": "You don't have the credentials to view this page. If you believe you should, our team can open the right doors.",
+    "t": "У вас нет прав для просмотра этой страницы. Если вы считаете, что это ошибка, наша команда откроет нужные двери."
+  },
+  "status.notFound.eyebrow": {
+    "en": "Page not found",
+    "t": "Страница не найдена"
+  },
+  "status.notFound.headlineAccent": {
+    "en": "open water",
+    "t": "открытое море"
+  },
+  "status.notFound.headlineLead": {
+    "en": "You've reached ",
+    "t": "Вы вышли в "
+  },
+  "status.notFound.subtext": {
+    "en": "The page you're looking for has drifted off our coastline — moved, renamed, or never charted. Let's get you back to shore.",
+    "t": "Страницу, которую вы ищете, унесло от нашего побережья — её перенесли, переименовали или никогда не наносили на карту. Вернём вас на берег."
+  },
+  "status.requestAccess": {
+    "en": "Request access",
+    "t": "Запросить доступ"
+  },
+  "status.serverError.eyebrow": {
+    "en": "Server error",
+    "t": "Ошибка сервера"
+  },
+  "status.serverError.headlineAccent": {
+    "en": "recalibrating",
+    "t": "перенастраиваются"
+  },
+  "status.serverError.headlineLead": {
+    "en": "Our systems are ",
+    "t": "Наши системы "
+  },
+  "status.serverError.subtext": {
+    "en": "Something broke on our end — not yours. We've been alerted and are restoring service. Please try again in a moment.",
+    "t": "Что-то сломалось на нашей стороне — не на вашей. Мы уже знаем об этом и восстанавливаем работу. Попробуйте через минуту."
+  },
+  "status.signIn": {
+    "en": "Sign in",
+    "t": "Войти"
+  },
+  "status.tryAgain": {
+    "en": "Try again",
+    "t": "Попробовать снова"
+  },
+  "status.unauthorized.eyebrow": {
+    "en": "Sign-in required",
+    "t": "Требуется вход"
+  },
+  "status.unauthorized.headlineAccent": {
+    "en": "crew only",
+    "t": "только для экипажа"
+  },
+  "status.unauthorized.headlineLead": {
+    "en": "This deck is ",
+    "t": "Эта палуба — "
+  },
+  "status.unauthorized.subtext": {
+    "en": "You need to be signed in to view this page. Sign in and we'll bring you right back.",
+    "t": "Чтобы открыть эту страницу, нужно войти. Войдите — и мы вернём вас сюда же."
+  },
+  "team.eyebrow": {
+    "en": "Our people",
+    "t": "Наша команда"
+  },
+  "team.intro": {
+    "en": "A partnership of investment, risk and technology specialists building institutional-grade access to Vietnam's premium coastal real estate — on the ground in Quy Nhon and Da Nang.",
+    "t": "Партнёрство специалистов по инвестициям, рискам и технологиям, создающее институциональный доступ к премиальной прибрежной недвижимости Вьетнама — с присутствием в Куинёне и Дананге."
+  },
+  "team.join.eyebrow": {
+    "en": "Get involved",
+    "t": "Присоединиться"
+  },
+  "team.join.hiring.body": {
+    "en": "We are always looking for talented analysts and asset managers in Quy Nhon and Da Nang.",
+    "t": "Мы всегда ищем талантливых аналитиков и управляющих активами в Куинёне и Дананге."
+  },
+  "team.join.hiring.cta": {
+    "en": "Hiring",
+    "t": "Вакансии"
+  },
+  "team.join.hiring.eyebrow": {
+    "en": "Open position",
+    "t": "Открытая вакансия"
+  },
+  "team.join.hiring.title": {
+    "en": "Join Us",
+    "t": "Присоединяйтесь"
+  },
+  "team.join.ir.body": {
+    "en": "Talk to us about co-investing in Vietnam's coastal real estate.",
+    "t": "Обсудите с нами соинвестирование в прибрежную недвижимость Вьетнама."
+  },
+  "team.join.ir.cta": {
+    "en": "IR Contacts",
+    "t": "Контакты IR"
+  },
+  "team.join.ir.eyebrow": {
+    "en": "Investor relations",
+    "t": "Отношения с инвесторами"
+  },
+  "team.join.ir.title": {
+    "en": "LP Partner Network",
+    "t": "Сеть партнёров-LP"
+  },
+  "team.join.title": {
+    "en": "Build the fund with us",
+    "t": "Стройте фонд вместе с нами"
+  },
+  "team.leadership.eyebrow": {
+    "en": "Leadership",
+    "t": "Руководство"
+  },
+  "team.leadership.intro": {
+    "en": "Our partners pair hands-on investment, risk-modelling and development experience with on-the-ground execution in Quy Nhon and Da Nang — local presence held to institutional discipline.",
+    "t": "Наши партнёры сочетают практический опыт в инвестициях, моделировании рисков и девелопменте с исполнением на местах в Куинёне и Дананге — локальное присутствие, подчинённое институциональной дисциплине."
+  },
+  "team.leadership.photoAlt": {
+    "en": "EV Investment boardroom in Quy Nhon",
+    "t": "Переговорная EV Investment в Куинёне"
+  },
+  "team.leadership.pillar.development.body": {
+    "en": "Specification, contractor selection and oversight of what actually gets built.",
+    "t": "Спецификация, выбор подрядчиков и надзор за тем, что действительно строится."
+  },
+  "team.leadership.pillar.development.title": {
+    "en": "Development",
+    "t": "Девелопмент"
+  },
+  "team.leadership.pillar.execution.body": {
+    "en": "Present in Quy Nhon and Da Nang — a standing presence, not a travel schedule.",
+    "t": "Присутствие в Куинёне и Дананге — постоянное, а не по графику командировок."
+  },
+  "team.leadership.pillar.execution.title": {
+    "en": "On the ground",
+    "t": "На местах"
+  },
+  "team.leadership.pillar.investment.body": {
+    "en": "Capital structure, entry pricing and the mandates we take from partners.",
+    "t": "Структура капитала, цена входа и мандаты, которые мы принимаем от партнёров."
+  },
+  "team.leadership.pillar.investment.title": {
+    "en": "Investment",
+    "t": "Инвестиции"
+  },
+  "team.leadership.pillar.risk.body": {
+    "en": "Downside first — occupancy, currency and exit-timing scenarios before any upside.",
+    "t": "Сначала риск снижения — сценарии загрузки, валюты и сроков выхода, и только потом доходность."
+  },
+  "team.leadership.pillar.risk.title": {
+    "en": "Risk modelling",
+    "t": "Моделирование рисков"
+  },
+  "team.leadership.title": {
+    "en": "Led by *Institutional Pioneers*",
+    "t": "Во главе — *институциональные первопроходцы*"
+  },
+  "team.member.ez.bio": {
+    "en": "Leads investment strategy and capital partnerships, focused on Vietnam's coastal growth corridors in Quy Nhon and Da Nang.",
+    "t": "Отвечает за инвестиционную стратегию и партнёрства по капиталу, фокус — прибрежные коридоры роста Вьетнама в Куинёне и Дананге."
+  },
+  "team.member.ez.role": {
+    "en": "Managing Partner, Co-founder",
+    "t": "Управляющий партнёр, сооснователь"
+  },
+  "team.member.vs.bio": {
+    "en": "Specializes in algorithmically-driven risk assessment and financial modelling. Previously at QuantM Alpha.",
+    "t": "Специализируется на алгоритмической оценке риска и финансовом моделировании. Ранее — QuantM Alpha."
+  },
+  "team.member.vs.role": {
+    "en": "Director of Research & Risk, CTO",
+    "t": "Директор по исследованиям и рискам, CTO"
+  },
+  "team.offices.eyebrow": {
+    "en": "Presence",
+    "t": "Присутствие"
+  },
+  "team.offices.hcmc": {
+    "en": "Ho Chi Minh Representative",
+    "t": "Представительство в Хошимине"
+  },
+  "team.offices.quynhon": {
+    "en": "Quy Nhon Head Office",
+    "t": "Головной офис в Куинёне"
+  },
+  "team.offices.title": {
+    "en": "Where we work",
+    "t": "Где мы работаем"
+  },
+  "team.philosophy.eyebrow": {
+    "en": "How we operate",
+    "t": "Как мы работаем"
+  },
+  "team.philosophy.macro.body": {
+    "en": "Every position starts from a top-down read of Vietnam's growth, urbanisation and coastal-tourism cycles — not from a single deal.",
+    "t": "Каждая позиция начинается с анализа сверху вниз: рост Вьетнама, урбанизация и циклы прибрежного туризма — а не с отдельной сделки."
+  },
+  "team.philosophy.macro.title": {
+    "en": "Macro-first research",
+    "t": "Исследования от макро"
+  },
+  "team.philosophy.risk.body": {
+    "en": "We build our own risk and research stack — algorithmic modelling and conservative leverage are set before capital is committed, so downside is sized before upside is sold.",
+    "t": "Мы строим собственный стек риска и аналитики: алгоритмическое моделирование и консервативное плечо задаются до вложения капитала, поэтому риск оценён раньше, чем продана доходность."
+  },
+  "team.philosophy.risk.title": {
+    "en": "Technology-driven risk",
+    "t": "Риск на технологиях"
+  },
+  "team.philosophy.roots.body": {
+    "en": "On-the-ground presence in Quy Nhon and Da Nang paired with the reporting, governance and transparency international partners expect.",
+    "t": "Присутствие на местах в Куинёне и Дананге вместе с отчётностью, управлением и прозрачностью, которых ждут международные партнёры."
+  },
+  "team.philosophy.roots.title": {
+    "en": "Local roots, institutional standards",
+    "t": "Местные корни, институциональные стандарты"
+  },
+  "team.philosophy.title": {
+    "en": "A discipline, not a pitch",
+    "t": "Дисциплина, а не презентация"
+  },
+  "team.title": {
+    "en": "The team behind *EV Investment*",
+    "t": "Команда *EV Investment*"
+  },
+  "vacancy.apply.eyebrow": {
+    "en": "Apply",
+    "t": "Отклик"
+  },
+  "vacancy.apply.intro": {
+    "en": "Tell us where you'd fit on the {role} role. A few lines is enough — we read every note and reply within about two weeks.",
+    "t": "Расскажите, как вы видите себя в роли {role}. Достаточно нескольких строк — мы читаем каждое письмо и отвечаем примерно в течение двух недель."
+  },
+  "vacancy.apply.point1": {
+    "en": "No cover-letter theatre — your work speaks.",
+    "t": "Без театра сопроводительных писем — за вас говорит ваша работа."
+  },
+  "vacancy.apply.point2": {
+    "en": "You'll hear back either way.",
+    "t": "Мы ответим в любом случае."
+  },
+  "vacancy.apply.point3": {
+    "en": "Questions first? admin@evinvest.ltd",
+    "t": "Есть вопросы? admin@evinvest.ltd"
+  },
+  "vacancy.apply.title": {
+    "en": "Send your *application*.",
+    "t": "Отправьте свой *отклик*."
+  },
+  "vacancy.applyCta": {
+    "en": "Apply for this role",
+    "t": "Откликнуться на вакансию"
+  },
+  "vacancy.back": {
+    "en": "All open roles",
+    "t": "Все открытые вакансии"
+  },
+  "vacancy.block.about": {
+    "en": "About the role",
+    "t": "О вакансии"
+  },
+  "vacancy.block.niceToHave": {
+    "en": "Nice to have",
+    "t": "Будет плюсом"
+  },
+  "vacancy.block.offer": {
+    "en": "What we offer",
+    "t": "Что мы предлагаем"
+  },
+  "vacancy.block.requirements": {
+    "en": "What we're looking for",
+    "t": "Что мы ищем"
+  },
+  "vacancy.block.responsibilities": {
+    "en": "What you'll do",
+    "t": "Чем предстоит заниматься"
+  },
+  "vacancy.glance": {
+    "en": "At a glance",
+    "t": "Кратко"
+  },
+  "vacancy.pill.compensation": {
+    "en": "Compensation",
+    "t": "Вознаграждение"
+  },
+  "vacancy.pill.location": {
+    "en": "Location",
+    "t": "Локация"
+  },
+  "vacancy.pill.team": {
+    "en": "Team",
+    "t": "Команда"
+  },
+  "vacancy.pill.type": {
+    "en": "Type",
+    "t": "Тип"
+  },
+  "vacancy.share": {
+    "en": "Share role",
+    "t": "Поделиться"
+  },
+  "vacancy.shareCopied": {
+    "en": "Copied",
+    "t": "Скопировано"
+  },
+  "vacancy.untranslated": {
+    "en": "Shown in English — this role hasn't been translated into your language yet.",
+    "t": "Показано на английском — эта вакансия ещё не переведена на ваш язык."
+  },
+  "validation.email.invalid": {
+    "en": "Enter a valid email address.",
+    "t": "Введите корректный адрес электронной почты."
+  },
+  "validation.email.max": {
+    "en": "Email must be {email} characters or fewer.",
+    "t": "Адрес должен быть не длиннее {email} символов."
+  },
+  "validation.message.max": {
+    "en": "Message must be {message} characters or fewer.",
+    "t": "Сообщение должно быть не длиннее {message} символов."
+  },
+  "validation.message.required": {
+    "en": "Please write a message.",
+    "t": "Пожалуйста, напишите сообщение."
+  },
+  "validation.name.charset": {
+    "en": "Use letters, spaces, and . ' - only.",
+    "t": "Используйте только буквы, пробелы и . ' -"
+  },
+  "validation.name.letters": {
+    "en": "Name must contain at least 2 letters.",
+    "t": "Имя должно содержать не менее 2 букв."
+  },
+  "validation.name.max": {
+    "en": "Name must be {name} characters or fewer.",
+    "t": "Имя должно быть не длиннее {name} символов."
+  },
+  "validation.name.min": {
+    "en": "Name must be at least 2 characters.",
+    "t": "Имя должно содержать не менее 2 символов."
+  },
+  "validation.screening.max": {
+    "en": "Answer must be {screeningAnswer} characters or fewer.",
+    "t": "Ответ должен быть не длиннее {screeningAnswer} символов."
+  },
+  "validation.url.invalid": {
+    "en": "Enter a full link starting with http:// or https://.",
+    "t": "Введите полную ссылку, начинающуюся с http:// или https://."
+  },
+  "validation.url.max": {
+    "en": "Link must be {portfolioUrl} characters or fewer.",
+    "t": "Ссылка должна быть не длиннее {portfolioUrl} символов."
+  },
+  "whitepaper.loading": {
+    "en": "Loading the whitepaper… if it doesn't appear,",
+    "t": "Загружаем белую книгу… если она не появилась,"
+  },
+  "whitepaper.name": {
+    "en": "Whitepaper",
+    "t": "Белая книга"
+  },
+  "whitepaper.title": {
+    "en": "EV Investment Whitepaper",
+    "t": "Белая книга EV Investment"
+  }
+}

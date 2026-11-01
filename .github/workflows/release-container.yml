@@ -1,0 +1,154 @@
+jobs:
+  release:
+    if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'preview')
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: true
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - if: github.ref_type == 'tag'
+        name: Validate tag (strict semver)
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [[ ! "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error::tag '$TAG' is not a strict semver vX.Y.Z[-prerelease] — refusing to release" >&2
+            exit 1
+          fi
+        shell: bash
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: lazy-trees = true
+      - name: Setup Cachix
+        uses: cachix/cachix-action@v17
+        with:
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          name: ev-invest
+      - if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
+        name: Log in to GHCR
+        uses: docker/login-action@v4
+        with:
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+      - name: SSH auth for private flake inputs
+        run: |
+          install -d -m 700 ~/.ssh
+          ssh-keyscan -t rsa,ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          key="${{ secrets.DEPLOY_KEY_BLOG }}"
+          if [ -z "$key" ]; then
+            echo "::error::DEPLOY_KEY_BLOG unset — build fetches private input 'EV-Main/blog'. Provision: git_ops init-deploy-key EV-Main/blog" >&2
+            exit 1
+          fi
+          printf '%s\n' "$key" > ~/.ssh/blog
+          chmod 600 ~/.ssh/blog
+          printf 'Host gh-blog\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/blog\n  IdentitiesOnly yes\n' >> ~/.ssh/config
+          git config --global url."ssh://git@gh-blog/EV-Main/blog".insteadOf "ssh://git@github.com/EV-Main/blog"
+          git config --global url."git@gh-blog:EV-Main/blog".insteadOf "git@github.com:EV-Main/blog"
+          key="${{ secrets.DEPLOY_KEY_BLOG }}"
+          if [ -z "$key" ]; then
+            echo "::error::DEPLOY_KEY_BLOG unset — build fetches private input 'ev-main/blog'. Provision: git_ops init-deploy-key ev-main/blog" >&2
+            exit 1
+          fi
+          printf '%s\n' "$key" > ~/.ssh/blog
+          chmod 600 ~/.ssh/blog
+          printf 'Host gh-blog\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/blog\n  IdentitiesOnly yes\n' >> ~/.ssh/config
+          git config --global url."ssh://git@gh-blog/ev-main/blog".insteadOf "ssh://git@github.com/ev-main/blog"
+          git config --global url."git@gh-blog:ev-main/blog".insteadOf "git@github.com:ev-main/blog"
+          key="${{ secrets.DEPLOY_KEY_WHITEPAPER }}"
+          if [ -z "$key" ]; then
+            echo "::error::DEPLOY_KEY_WHITEPAPER unset — build fetches private input 'EV-Estate/whitepaper'. Provision: git_ops init-deploy-key EV-Estate/whitepaper" >&2
+            exit 1
+          fi
+          printf '%s\n' "$key" > ~/.ssh/whitepaper
+          chmod 600 ~/.ssh/whitepaper
+          printf 'Host gh-whitepaper\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/whitepaper\n  IdentitiesOnly yes\n' >> ~/.ssh/config
+          git config --global url."ssh://git@gh-whitepaper/EV-Estate/whitepaper".insteadOf "ssh://git@github.com/EV-Estate/whitepaper"
+          git config --global url."git@gh-whitepaper:EV-Estate/whitepaper".insteadOf "git@github.com:EV-Estate/whitepaper"
+        shell: bash
+      - name: Build + push containers
+        run: |
+          set -euo pipefail
+          sys="$(nix eval --impure --raw --expr builtins.currentSystem)"
+          # Extract to a var first: `for x in $(cmd)` swallows cmd's exit code, so a
+          # failed eval (e.g. a flake error) would leave the loop empty and the job GREEN.
+          names="$(nix eval --impure --refresh --json ".#containers.$sys" --apply builtins.attrNames | jq -r '.[]')"
+          [ -n "$names" ] || { echo "::error::no containers found under .#containers.$sys" >&2; exit 1; }
+          # nixpkgs skopeo rejects the GH runner's v1-format /etc/containers/registries.conf
+          # ("must be in v2 format"); point it at our own minimal v2 file so it never reads the host's.
+          CONTAINERS_REGISTRIES_CONF="$(mktemp)"; export CONTAINERS_REGISTRIES_CONF
+          printf 'unqualified-search-registries = []\n' > "$CONTAINERS_REGISTRIES_CONF"
+          for name in $names; do
+            echo "::group::$name"
+            RESULT="$(nix build --impure --refresh ".#$name-container" --no-link --print-out-paths -L 2> >(gawk 'function cat(n) {
+            if      (n ~ /\.tar\.gz|layers\.json|stream-|customisation-layer|-conf\.json|-base\.json|excludePaths/) return "packaging"
+            else if (n ~ /landing-frontend|next/)      return "frontend/next"
+            else if (n ~ /-mfe|wasm/)                  return "wasm-mfe"
+            else if (n ~ /(^|-)backend/)               return "backend"
+            else if (n ~ /blog/)                       return "blog"
+            else if (n ~ /whitepaper/)                 return "whitepaper"
+            else if (n ~ /rust-std|cargo-nightly|rust-analyzer|cranelift|rust-docs/) return "rust-toolchain"
+            else if (n ~ /\.tgz/)                       return "npm-deps"
+            return "other-crates"
+          }
+          {
+            print $0 > "/dev/stderr"
+            n = ""
+            if (match($0, /\/nix\/store\/[a-z0-9]+-[^ ]*\.drv/)) { n = substr($0, RSTART, RLENGTH) }
+            else if (match($0, /^[A-Za-z0-9._-]+> /))            { n = substr($0, 1, RLENGTH-2) }
+            else next
+            c = cat(n); now = systime()
+            if (!(c in st)) st[c] = now
+            en[c] = now
+            if (t0 == 0) t0 = now
+          }
+          END {
+            if (t0 == 0) exit
+            tmax = 0; for (c in en) if (en[c] > tmax) tmax = en[c]
+            span = tmax - t0; if (span < 1) span = 1
+            W = 50; unit = (span/W >= 1 ? int(span/W) : 1)
+            printf "\n== build timeline (%dm%02ds total, each # ~ %ds) ==\n", span/60, span%60, unit > "/dev/stderr"
+            PROCINFO["sorted_in"] = "@val_num_asc"
+            for (c in st) {
+              a = int((st[c]-t0)/span*W); b = int((en[c]-t0)/span*W); if (b <= a) b = a+1
+              pad = ""; for (i=0;i<a;i++) pad = pad " "
+              fill = ""; for (i=0;i<b-a;i++) fill = fill "#"
+              printf "%-15s |%s%s  %dm%02ds\n", c, pad, fill, (en[c]-st[c])/60, (en[c]-st[c])%60 > "/dev/stderr"
+            }
+          }
+          ' >&2))"
+            if [ "${{ github.ref_type }}" = "tag" ]; then
+              nix run nixpkgs#skopeo -- copy \
+                "docker-archive:$RESULT" \
+                "docker://ghcr.io/ev-main/${name,,}:${{ github.ref_name }}"
+            elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+              [ "${{ github.ref }}" = "refs/heads/main" ] || { echo "::error::dispatch publishes main's head only, not ${{ github.ref }}" >&2; exit 1; }
+              nix run nixpkgs#skopeo -- copy \
+                "docker-archive:$RESULT" \
+                "docker://ghcr.io/ev-main/${name,,}:main-${GITHUB_SHA::8}"
+            elif [ "${{ github.event_name }}" = "pull_request" ]; then
+              head="${{ github.event.pull_request.head.sha }}"
+              nix run nixpkgs#skopeo -- copy \
+                "docker-archive:$RESULT" \
+                "docker://ghcr.io/ev-main/${name,,}:pr-${{ github.event.pull_request.number }}-${head::8}"
+            else
+              echo "cache-seed build ($name) on ${{ github.ref_name }} — skipping GHCR push"
+            fi
+            echo "::endgroup::"
+          done
+        shell: bash
+    timeout-minutes: 40
+name: Release containers
+on:
+  pull_request:
+    types:
+      - labeled
+      - synchronize
+  push:
+    tags:
+      - v[0-9]+.*
+  workflow_dispatch: {}
+permissions:
+  contents: read
+  packages: write

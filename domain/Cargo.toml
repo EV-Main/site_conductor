@@ -1,0 +1,17 @@
+[package]
+name = "domain"
+version = "0.1.0"
+edition = "2024"
+description = "Pure domain model for the EV Investment site conductor backend"
+license = "BlueOak-1.0.0"
+publish = false
+
+[dependencies]
+ev_lib = { workspace = true, features = ["i18n"] }
+jiff = { workspace = true, features = ["serde"] }
+serde.workspace = true
+thiserror.workspace = true
+uuid = { workspace = true, features = ["v4", "serde"] }
+
+[lints]
+workspace = true

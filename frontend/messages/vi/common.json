@@ -1,0 +1,1154 @@
+{
+  "apply.form.email.placeholder": {
+    "en": "jane@fund.com",
+    "t": "an@fund.com"
+  },
+  "apply.form.eyebrow": {
+    "en": "Open application",
+    "t": "Ứng tuyển tự do"
+  },
+  "apply.form.footnote": {
+    "en": "Reply within ~2 weeks · Quy Nhơn · HCMC",
+    "t": "Phản hồi trong khoảng 2 tuần · Quy Nhơn · TP.HCM"
+  },
+  "apply.form.formTag": {
+    "en": "Form · EV-Hiring",
+    "t": "Biểu mẫu · EV-Hiring"
+  },
+  "apply.form.heading": {
+    "en": "Tell us where you fit.",
+    "t": "Hãy cho chúng tôi biết bạn phù hợp ở đâu."
+  },
+  "apply.form.intro": {
+    "en": "A few lines is enough — we read every note.",
+    "t": "Chỉ vài dòng là đủ — chúng tôi đọc mọi lời nhắn."
+  },
+  "apply.form.message.label": {
+    "en": "Where you'd fit",
+    "t": "Bạn phù hợp ở đâu"
+  },
+  "apply.form.message.placeholder": {
+    "en": "A few lines on what you'd want to own, and why EV…",
+    "t": "Vài dòng về việc bạn muốn phụ trách điều gì, và vì sao chọn EV…"
+  },
+  "apply.form.portfolio.label": {
+    "en": "Portfolio or LinkedIn (optional)",
+    "t": "Portfolio hoặc LinkedIn (không bắt buộc)"
+  },
+  "apply.form.portfolio.placeholder": {
+    "en": "https://…",
+    "t": "https://…"
+  },
+  "apply.form.roleTag": {
+    "en": "Role · {title}",
+    "t": "Vị trí · {title}"
+  },
+  "apply.form.sent.body": {
+    "en": "Your application has reached our team. We read every one and will be in touch.",
+    "t": "Hồ sơ của bạn đã đến với đội ngũ của chúng tôi. Chúng tôi đọc từng hồ sơ và sẽ liên hệ lại."
+  },
+  "apply.form.sent.title": {
+    "en": "Thanks — we've got it.",
+    "t": "Cảm ơn bạn — chúng tôi đã nhận được."
+  },
+  "apply.form.sent.titleNamed": {
+    "en": "Thanks, {name} — we've got it.",
+    "t": "Cảm ơn {name} — chúng tôi đã nhận được."
+  },
+  "apply.form.submit": {
+    "en": "Send application",
+    "t": "Gửi hồ sơ"
+  },
+  "apply.role.eyebrow": {
+    "en": "For this role · {title}",
+    "t": "Cho vị trí này · {title}"
+  },
+  "apply.role.screeningPlaceholder": {
+    "en": "A few lines…",
+    "t": "Vài dòng…"
+  },
+  "apply.role.which": {
+    "en": "Which of these describe you?",
+    "t": "Điều nào dưới đây đúng với bạn?"
+  },
+  "comingSoon.evNote": {
+    "en": "expected value",
+    "t": "giá trị kỳ vọng"
+  },
+  "comingSoon.link.estate": {
+    "en": "real-estate fund",
+    "t": "quỹ bất động sản"
+  },
+  "comingSoon.link.github": {
+    "en": "source code",
+    "t": "mã nguồn"
+  },
+  "comingSoon.link.label": {
+    "en": "EV projects",
+    "t": "Các dự án EV"
+  },
+  "comingSoon.link.sa": {
+    "en": "operations panel",
+    "t": "bảng điều hành"
+  },
+  "contact.channel.general": {
+    "en": "Email",
+    "t": "Email"
+  },
+  "contact.eyebrow": {
+    "en": "Contact",
+    "t": "Liên hệ"
+  },
+  "contact.form.email.placeholder": {
+    "en": "jane@example.com",
+    "t": "an@example.com"
+  },
+  "contact.form.message.label": {
+    "en": "Message",
+    "t": "Tin nhắn"
+  },
+  "contact.form.message.placeholder": {
+    "en": "How can we help?",
+    "t": "Chúng tôi có thể giúp gì cho bạn?"
+  },
+  "contact.form.sent.body": {
+    "en": "We'll reply personally, usually within two business days.",
+    "t": "Chúng tôi sẽ trả lời trực tiếp, thường trong vòng hai ngày làm việc."
+  },
+  "contact.form.sent.title": {
+    "en": "Thanks — message received.",
+    "t": "Cảm ơn bạn — chúng tôi đã nhận được tin nhắn."
+  },
+  "contact.form.sent.titleNamed": {
+    "en": "Thanks, {name} — message received.",
+    "t": "Cảm ơn {name} — chúng tôi đã nhận được tin nhắn."
+  },
+  "contact.form.submit": {
+    "en": "Send message",
+    "t": "Gửi tin nhắn"
+  },
+  "contact.intro": {
+    "en": "Questions about a role, an investment, or one of our coastal developments? Send a note and a person — not a bot — will reply.",
+    "t": "Bạn có câu hỏi về một vị trí, một khoản đầu tư, hay một trong những dự án ven biển của chúng tôi? Hãy gửi tin nhắn — một con người, không phải bot, sẽ trả lời."
+  },
+  "contact.office.hcmc.city": {
+    "en": "Ho Chi Minh City",
+    "t": "Thành phố Hồ Chí Minh"
+  },
+  "contact.office.hcmc.line": {
+    "en": "Investor relations · District 1",
+    "t": "Quan hệ nhà đầu tư · Quận 1"
+  },
+  "contact.office.hq.city": {
+    "en": "Quy Nhơn",
+    "t": "Quy Nhơn"
+  },
+  "contact.office.hq.line": {
+    "en": "Coastal HQ · Bình Định, Vietnam",
+    "t": "Trụ sở ven biển · Bình Định, Việt Nam"
+  },
+  "contact.title": {
+    "en": "Let's *talk*.",
+    "t": "Hãy *trò chuyện*."
+  },
+  "document.downloadAria": {
+    "en": "Download {title} as PDF",
+    "t": "Tải {title} dưới dạng PDF"
+  },
+  "form.email.label": {
+    "en": "Email",
+    "t": "Email"
+  },
+  "form.name.label": {
+    "en": "Your name",
+    "t": "Họ và tên của bạn"
+  },
+  "form.name.placeholder": {
+    "en": "Jane Doe",
+    "t": "Nguyễn Văn A"
+  },
+  "form.networkError": {
+    "en": "Network error — please try again.",
+    "t": "Lỗi kết nối — vui lòng thử lại."
+  },
+  "form.sending": {
+    "en": "Sending…",
+    "t": "Đang gửi…"
+  },
+  "form.submitError": {
+    "en": "Something went wrong. Please try again.",
+    "t": "Đã có lỗi xảy ra. Vui lòng thử lại."
+  },
+  "hiring.board.allRoles": {
+    "en": "All roles",
+    "t": "Tất cả vị trí"
+  },
+  "hiring.board.clear": {
+    "en": "Clear filters",
+    "t": "Xóa bộ lọc"
+  },
+  "hiring.board.count": {
+    "en": "{count, plural, one {# role} other {# roles}}",
+    "t": "{count, plural, other {# vị trí}}"
+  },
+  "hiring.board.empty": {
+    "en": "No roles match your search.",
+    "t": "Không có vị trí nào khớp với tìm kiếm của bạn."
+  },
+  "hiring.board.eyebrow": {
+    "en": "Open roles",
+    "t": "Vị trí đang tuyển"
+  },
+  "hiring.board.search": {
+    "en": "Search roles, teams, or locations…",
+    "t": "Tìm theo vị trí, nhóm hoặc địa điểm…"
+  },
+  "hiring.board.searchLabel": {
+    "en": "Search roles",
+    "t": "Tìm kiếm vị trí"
+  },
+  "hiring.board.title": {
+    "en": "Where we're *hiring*.",
+    "t": "Nơi chúng tôi đang *tuyển dụng*."
+  },
+  "hiring.board.viewRole": {
+    "en": "View role",
+    "t": "Xem vị trí"
+  },
+  "hiring.category.advisory": {
+    "en": "Advisory",
+    "t": "Tư vấn"
+  },
+  "hiring.category.all": {
+    "en": "All",
+    "t": "Tất cả"
+  },
+  "hiring.category.development": {
+    "en": "Development",
+    "t": "Phát triển dự án"
+  },
+  "hiring.category.investment": {
+    "en": "Investment",
+    "t": "Đầu tư"
+  },
+  "hiring.category.operations": {
+    "en": "Operations",
+    "t": "Vận hành"
+  },
+  "hiring.hero.cta": {
+    "en": "View open roles",
+    "t": "Xem vị trí đang tuyển"
+  },
+  "hiring.hero.eyebrow": {
+    "en": "Hiring · Join the fund",
+    "t": "Tuyển dụng · Gia nhập quỹ"
+  },
+  "hiring.hero.intro": {
+    "en": "EV Investment develops premium coastal assets in Quy Nhơn — and we're hiring senior people across investment, development, and client advisory. Find your role below.",
+    "t": "EV Investment phát triển các tài sản ven biển cao cấp tại Quy Nhơn — và chúng tôi đang tuyển nhân sự cấp cao cho các mảng đầu tư, phát triển dự án và tư vấn khách hàng. Hãy tìm vị trí của bạn bên dưới."
+  },
+  "hiring.hero.stat.offices": {
+    "en": "Office locations",
+    "t": "Địa điểm văn phòng"
+  },
+  "hiring.hero.stat.roles": {
+    "en": "Open roles",
+    "t": "Vị trí đang tuyển"
+  },
+  "hiring.hero.stat.teams": {
+    "en": "Teams hiring",
+    "t": "Nhóm đang tuyển"
+  },
+  "hiring.hero.title": {
+    "en": "Build coastal Vietnam's *next decade* with us.",
+    "t": "Cùng chúng tôi kiến tạo *thập kỷ tới* của vùng ven biển Việt Nam."
+  },
+  "hiring.process.deep.body": {
+    "en": "A real problem from our actual pipeline — no whiteboard puzzles.",
+    "t": "Một bài toán thực tế từ danh mục hiện tại của chúng tôi — không có câu đố trên bảng trắng."
+  },
+  "hiring.process.deep.title": {
+    "en": "Deep dive",
+    "t": "Đi sâu chuyên môn"
+  },
+  "hiring.process.eyebrow": {
+    "en": "How we hire",
+    "t": "Cách chúng tôi tuyển dụng"
+  },
+  "hiring.process.intro.body": {
+    "en": "A 30-minute conversation about you and us — no scripts.",
+    "t": "Cuộc trò chuyện 30 phút về bạn và về chúng tôi — không kịch bản."
+  },
+  "hiring.process.intro.title": {
+    "en": "Intro call",
+    "t": "Cuộc gọi làm quen"
+  },
+  "hiring.process.meet.body": {
+    "en": "Time with the people you'd work beside, in Quy Nhơn or remote.",
+    "t": "Thời gian với những người bạn sẽ làm việc cùng, tại Quy Nhơn hoặc từ xa."
+  },
+  "hiring.process.meet.title": {
+    "en": "Meet the team",
+    "t": "Gặp gỡ đội ngũ"
+  },
+  "hiring.process.offer.body": {
+    "en": "Fast, clear, and senior — usually within two weeks.",
+    "t": "Nhanh chóng, rõ ràng và ở cấp cao — thường trong vòng hai tuần."
+  },
+  "hiring.process.offer.title": {
+    "en": "Offer",
+    "t": "Đề nghị tuyển dụng"
+  },
+  "hiring.process.title": {
+    "en": "A short, *honest* process.",
+    "t": "Một quy trình ngắn gọn và *trung thực*."
+  },
+  "hiring.team.advisory": {
+    "en": "Client Advisory",
+    "t": "Tư vấn khách hàng"
+  },
+  "hiring.team.development": {
+    "en": "Development & Projects",
+    "t": "Phát triển & Dự án"
+  },
+  "hiring.team.investment": {
+    "en": "Investment & Research",
+    "t": "Đầu tư & Nghiên cứu"
+  },
+  "hiring.team.operations": {
+    "en": "Operations",
+    "t": "Vận hành"
+  },
+  "hiring.why.eyebrow": {
+    "en": "Why EV",
+    "t": "Vì sao chọn EV"
+  },
+  "hiring.why.focus.body": {
+    "en": "A focused thesis: 100% concentration and expertise in today's most promising emerging market.",
+    "t": "Một luận điểm tập trung: 100% sự tập trung và chuyên môn vào thị trường mới nổi triển vọng nhất hiện nay."
+  },
+  "hiring.why.focus.title": {
+    "en": "Focus",
+    "t": "Tập trung"
+  },
+  "hiring.why.rigor.body": {
+    "en": "Data-driven research and underwriting on assets you can stand in front of.",
+    "t": "Nghiên cứu và thẩm định dựa trên dữ liệu, cho những tài sản bạn có thể đứng trước tận mắt."
+  },
+  "hiring.why.rigor.title": {
+    "en": "Institutional rigor",
+    "t": "Sự chặt chẽ của tổ chức"
+  },
+  "hiring.why.scale.body": {
+    "en": "Join early. Your work compounds into the fund's track record — and your own.",
+    "t": "Gia nhập sớm. Công việc của bạn tích lũy vào thành tích của quỹ — và của chính bạn."
+  },
+  "hiring.why.scale.title": {
+    "en": "Ground-floor scale",
+    "t": "Quy mô từ những ngày đầu"
+  },
+  "hiring.why.title": {
+    "en": "Why join *now*.",
+    "t": "Vì sao nên gia nhập *ngay lúc này*."
+  },
+  "hiring.why.upside.body": {
+    "en": "Senior contributors share in the carry they help create.",
+    "t": "Các nhân sự cấp cao được chia phần lợi nhuận mà chính họ góp phần tạo ra."
+  },
+  "hiring.why.upside.title": {
+    "en": "Aligned upside",
+    "t": "Lợi ích song hành"
+  },
+  "legal.contactUs": {
+    "en": "Contact us",
+    "t": "Liên hệ với chúng tôi"
+  },
+  "legal.documentInEnglish": {
+    "en": "The headings are translated; the binding text of this document is in English.",
+    "t": "Các tiêu đề đã được dịch; văn bản có giá trị pháp lý của tài liệu này là bản tiếng Anh."
+  },
+  "legal.draft.body": {
+    "en": "This document is a working draft and is not yet legally binding. It will be replaced with counsel-reviewed text before it takes effect.",
+    "t": "Tài liệu này là bản nháp và chưa có hiệu lực pháp lý. Nó sẽ được thay thế bằng văn bản đã được luật sư rà soát trước khi có hiệu lực."
+  },
+  "legal.draft.title": {
+    "en": "Draft — pending legal review",
+    "t": "Bản nháp — đang chờ rà soát pháp lý"
+  },
+  "legal.effectiveDate": {
+    "en": "Effective date",
+    "t": "Ngày hiệu lực"
+  },
+  "legal.eyebrow": {
+    "en": "Legal",
+    "t": "Pháp lý"
+  },
+  "legal.privacy.controller.title": {
+    "en": "Who is responsible",
+    "t": "Ai chịu trách nhiệm"
+  },
+  "legal.privacy.cookies.title": {
+    "en": "Cookies and analytics",
+    "t": "Cookie và phân tích"
+  },
+  "legal.privacy.data.title": {
+    "en": "What we collect",
+    "t": "Chúng tôi thu thập gì"
+  },
+  "legal.privacy.lede": {
+    "en": "What personal data EV Investment collects, why, who processes it, and the rights you have over it.",
+    "t": "EV Investment thu thập dữ liệu cá nhân nào, vì sao, ai xử lý và bạn có những quyền gì đối với dữ liệu đó."
+  },
+  "legal.privacy.purposes.title": {
+    "en": "Why we use it",
+    "t": "Vì sao chúng tôi sử dụng"
+  },
+  "legal.privacy.retention.title": {
+    "en": "Where it goes and how long we keep it",
+    "t": "Dữ liệu đi đâu và được lưu bao lâu"
+  },
+  "legal.privacy.rights.title": {
+    "en": "Your rights",
+    "t": "Quyền của bạn"
+  },
+  "legal.privacy.security.title": {
+    "en": "Security and changes",
+    "t": "Bảo mật và thay đổi"
+  },
+  "legal.privacy.sharing.title": {
+    "en": "Who processes it",
+    "t": "Ai xử lý dữ liệu"
+  },
+  "legal.privacy.title": {
+    "en": "Privacy Policy",
+    "t": "Chính sách quyền riêng tư"
+  },
+  "legal.questions": {
+    "en": "Questions about this document?",
+    "t": "Có câu hỏi về tài liệu này?"
+  },
+  "legal.risk.advice.title": {
+    "en": "This is not advice — get your own",
+    "t": "Đây không phải là tư vấn — hãy tự tìm tư vấn riêng"
+  },
+  "legal.risk.capital.title": {
+    "en": "Your capital is at risk",
+    "t": "Vốn của bạn có rủi ro"
+  },
+  "legal.risk.costs.title": {
+    "en": "Fees, tax and operations",
+    "t": "Phí, thuế và vận hành"
+  },
+  "legal.risk.digital.title": {
+    "en": "Stablecoin, network and custody",
+    "t": "Stablecoin, mạng lưới và lưu ký"
+  },
+  "legal.risk.lede": {
+    "en": "What can go wrong with an investment through EV Investment. Read it before you subscribe.",
+    "t": "Điều gì có thể xảy ra khi đầu tư qua EV Investment. Hãy đọc trước khi đăng ký mua."
+  },
+  "legal.risk.liquidity.title": {
+    "en": "Liquidity and redemption",
+    "t": "Thanh khoản và rút vốn"
+  },
+  "legal.risk.market.title": {
+    "en": "Concentration, currency and country",
+    "t": "Tập trung, tiền tệ và quốc gia"
+  },
+  "legal.risk.regulatory.title": {
+    "en": "Regulatory uncertainty in the EU and Vietnam",
+    "t": "Sự bất định về pháp lý ở EU và Việt Nam"
+  },
+  "legal.risk.targets.title": {
+    "en": "Targets are not forecasts",
+    "t": "Mục tiêu không phải dự báo"
+  },
+  "legal.risk.title": {
+    "en": "Risk Disclosure",
+    "t": "Công bố rủi ro"
+  },
+  "legal.risk.valuation.title": {
+    "en": "Valuation",
+    "t": "Định giá"
+  },
+  "legal.terms.account.title": {
+    "en": "Your account",
+    "t": "Tài khoản của bạn"
+  },
+  "legal.terms.conduct.title": {
+    "en": "Acceptable use",
+    "t": "Sử dụng được phép"
+  },
+  "legal.terms.contact.title": {
+    "en": "Contact",
+    "t": "Liên hệ"
+  },
+  "legal.terms.funds.title": {
+    "en": "Deposits, withdrawals and custody",
+    "t": "Nạp, rút và lưu ký"
+  },
+  "legal.terms.law.title": {
+    "en": "Changes, governing law and disputes",
+    "t": "Thay đổi, luật điều chỉnh và tranh chấp"
+  },
+  "legal.terms.lede": {
+    "en": "The agreement between you and EV Investment for using this website and the investor cabinet.",
+    "t": "Thỏa thuận giữa bạn và EV Investment về việc sử dụng trang web này và tài khoản nhà đầu tư."
+  },
+  "legal.terms.liability.title": {
+    "en": "Liability",
+    "t": "Trách nhiệm pháp lý"
+  },
+  "legal.terms.provider.title": {
+    "en": "Who we are and what these terms cover",
+    "t": "Chúng tôi là ai và các điều khoản này áp dụng cho gì"
+  },
+  "legal.terms.risk.title": {
+    "en": "No advice; capital at risk",
+    "t": "Không phải lời khuyên; vốn có rủi ro"
+  },
+  "legal.terms.termination.title": {
+    "en": "Suspension and closure",
+    "t": "Tạm ngưng và đóng tài khoản"
+  },
+  "legal.terms.title": {
+    "en": "Terms of Service",
+    "t": "Điều khoản dịch vụ"
+  },
+  "legal.terms.units.title": {
+    "en": "Subscriptions, redemptions and fees",
+    "t": "Đăng ký mua, rút vốn và phí"
+  },
+  "legal.terms.verification.title": {
+    "en": "Identity verification",
+    "t": "Xác minh danh tính"
+  },
+  "meta.comingSoon.description": {
+    "en": "Expected Value Investment — the new site is on its way.",
+    "t": "Expected Value Investment — trang web mới sắp ra mắt."
+  },
+  "meta.comingSoon.title": {
+    "en": "Expected value, arriving soon",
+    "t": "Expected value — sắp ra mắt"
+  },
+  "meta.contact.description": {
+    "en": "Get in touch with EV Investment — hiring, investment, and our coastal developments in Quy Nhơn, Vietnam.",
+    "t": "Liên hệ với EV Investment — tuyển dụng, đầu tư và các dự án ven biển của chúng tôi tại Quy Nhơn, Việt Nam."
+  },
+  "meta.contact.title": {
+    "en": "Contact",
+    "t": "Liên hệ"
+  },
+  "meta.hiring.description": {
+    "en": "Join EV Investment — senior roles across investment, development, and client advisory for premium coastal developments in Quy Nhơn, Vietnam.",
+    "t": "Gia nhập EV Investment — các vị trí cấp cao về đầu tư, phát triển dự án và tư vấn khách hàng cho những dự án ven biển cao cấp tại Quy Nhơn, Việt Nam."
+  },
+  "meta.hiring.title": {
+    "en": "Hiring",
+    "t": "Tuyển dụng"
+  },
+  "meta.home.description": {
+    "en": "Through Vietnam, with Quy-Nhon based fund, - we have direct pulse on Real Estate and tourist flows. Follow the money.",
+    "t": "Thông qua Việt Nam, với quỹ đặt tại Quy Nhơn — chúng tôi nắm mạch trực tiếp của bất động sản và dòng khách du lịch. Lần theo dòng tiền."
+  },
+  "meta.home.tagline": {
+    "en": "Invest in China+1 narrative",
+    "t": "Đầu tư vào câu chuyện Trung Quốc+1"
+  },
+  "meta.privacy.description": {
+    "en": "What personal data EV Investment collects, why, who processes it, and your rights over it.",
+    "t": "EV Investment thu thập dữ liệu cá nhân nào, vì sao, ai xử lý và quyền của bạn đối với dữ liệu đó."
+  },
+  "meta.privacy.title": {
+    "en": "Privacy Policy",
+    "t": "Chính sách quyền riêng tư"
+  },
+  "meta.publication.notFound": {
+    "en": "Publication not found",
+    "t": "Không tìm thấy ấn phẩm"
+  },
+  "meta.publications.description": {
+    "en": "EV Investment publications — field notes filmed in Quy Nhơn and institutional research on Vietnam coastal real estate.",
+    "t": "Ấn phẩm của EV Investment — ghi chép thực địa quay tại Quy Nhơn và nghiên cứu theo chuẩn tổ chức về bất động sản ven biển Việt Nam."
+  },
+  "meta.publications.title": {
+    "en": "Field Notes & Research",
+    "t": "Ghi chép thực địa & nghiên cứu"
+  },
+  "meta.risk.description": {
+    "en": "The risks of investing through EV Investment — read before subscribing.",
+    "t": "Rủi ro khi đầu tư qua EV Investment — đọc trước khi đăng ký mua."
+  },
+  "meta.risk.title": {
+    "en": "Risk Disclosure",
+    "t": "Công bố rủi ro"
+  },
+  "meta.team.description": {
+    "en": "The cross-border investment, risk and development team behind EV Investment — a Quy Nhơn–based fund building institutional access to Vietnam's premium coastal real estate.",
+    "t": "Đội ngũ đầu tư xuyên biên giới, quản trị rủi ro và phát triển dự án đứng sau EV Investment — quỹ đặt tại Quy Nhơn, xây dựng kênh tiếp cận bất động sản ven biển cao cấp của Việt Nam theo chuẩn tổ chức."
+  },
+  "meta.team.title": {
+    "en": "Team",
+    "t": "Đội ngũ"
+  },
+  "meta.terms.description": {
+    "en": "The terms on which EV Investment provides its website and investor cabinet.",
+    "t": "Các điều khoản theo đó EV Investment cung cấp trang web và tài khoản nhà đầu tư."
+  },
+  "meta.terms.title": {
+    "en": "Terms of Service",
+    "t": "Điều khoản dịch vụ"
+  },
+  "meta.vacancy.notFound": {
+    "en": "Role not found",
+    "t": "Không tìm thấy vị trí"
+  },
+  "meta.vacancy.title": {
+    "en": "{title} — Hiring",
+    "t": "{title} — Tuyển dụng"
+  },
+  "meta.whitepaper.description": {
+    "en": "EV Investment whitepaper — our institutional thesis on coastal real estate in Quy Nhơn, Vietnam.",
+    "t": "Sách trắng của EV Investment — luận điểm đầu tư theo chuẩn tổ chức về bất động sản ven biển tại Quy Nhơn, Việt Nam."
+  },
+  "meta.whitepaper.title": {
+    "en": "Whitepaper",
+    "t": "Sách trắng"
+  },
+  "nav.publications": {
+    "en": "Publications",
+    "t": "Ấn phẩm"
+  },
+  "publications.allPublications": {
+    "en": "All publications",
+    "t": "Tất cả ấn phẩm"
+  },
+  "publications.announce": {
+    "en": "{title} — {position} of {total}",
+    "t": "{title} — {position} trong {total}"
+  },
+  "publications.cta.readNote": {
+    "en": "READ THE NOTE",
+    "t": "ĐỌC GHI CHÉP"
+  },
+  "publications.cta.readReport": {
+    "en": "READ THE REPORT",
+    "t": "ĐỌC BÁO CÁO"
+  },
+  "publications.cta.readWhitepaper": {
+    "en": "READ THE WHITEPAPER",
+    "t": "ĐỌC SÁCH TRẮNG"
+  },
+  "publications.cta.watchNote": {
+    "en": "WATCH THE NOTE",
+    "t": "XEM GHI CHÉP"
+  },
+  "publications.documentInEnglish": {
+    "en": "This summary is translated; the report itself is in English.",
+    "t": "Phần tóm tắt này đã được dịch; bản báo cáo là tiếng Anh."
+  },
+  "publications.downloadPdf": {
+    "en": "download the PDF",
+    "t": "tải PDF"
+  },
+  "publications.empty.filter": {
+    "en": "Nothing published under this filter yet.",
+    "t": "Chưa có ấn phẩm nào theo bộ lọc này."
+  },
+  "publications.empty.search": {
+    "en": "Nothing matches “{query}”. Clear the search with Esc, or try a place name — most dispatches are titled after one.",
+    "t": "Không có kết quả cho “{query}”. Nhấn Esc để xóa tìm kiếm, hoặc thử một địa danh — phần lớn bản tin được đặt tên theo địa danh."
+  },
+  "publications.eyebrow": {
+    "en": "EV Investment · Publications",
+    "t": "EV Investment · Ấn phẩm"
+  },
+  "publications.filter.all": {
+    "en": "ALL",
+    "t": "TẤT CẢ"
+  },
+  "publications.filter.aria": {
+    "en": "Filter publications by kind",
+    "t": "Lọc ấn phẩm theo loại"
+  },
+  "publications.intro": {
+    "en": "Three kinds of evidence. Research is the desk work — macro models, land sweeps, yield decomposition, published as citable PDFs. Field notes are the ground truth: our people filming the districts we underwrite. The whitepaper is the standing document behind both.",
+    "t": "Ba loại bằng chứng. Nghiên cứu là công việc bàn giấy — mô hình vĩ mô, khảo sát quỹ đất, phân tách lợi suất, công bố dưới dạng PDF có thể trích dẫn. Ghi chép thực địa là thực tế tại chỗ: đội ngũ của chúng tôi quay lại các khu vực đang thẩm định. Sách trắng là tài liệu nền tảng cho cả hai."
+  },
+  "publications.kind.fieldNote": {
+    "en": "FIELD NOTE",
+    "t": "GHI CHÉP THỰC ĐỊA"
+  },
+  "publications.kind.fieldNotes": {
+    "en": "FIELD NOTES",
+    "t": "GHI CHÉP THỰC ĐỊA"
+  },
+  "publications.kind.research": {
+    "en": "RESEARCH",
+    "t": "NGHIÊN CỨU"
+  },
+  "publications.kind.whitepaper": {
+    "en": "WHITEPAPER",
+    "t": "SÁCH TRẮNG"
+  },
+  "publications.latestDispatch": {
+    "en": "LATEST DISPATCH",
+    "t": "BẢN TIN MỚI NHẤT"
+  },
+  "publications.plate": {
+    "en": "Plate {n}",
+    "t": "Hình {n}"
+  },
+  "publications.results.none": {
+    "en": "No matches",
+    "t": "Không có kết quả"
+  },
+  "publications.results.showing": {
+    "en": "Showing 1–{shown} of {total}",
+    "t": "Hiển thị 1–{shown} trong {total}"
+  },
+  "publications.search.label": {
+    "en": "Search publications",
+    "t": "Tìm kiếm ấn phẩm"
+  },
+  "publications.search.placeholder": {
+    "en": "Search titles and full text…",
+    "t": "Tìm theo tiêu đề và toàn văn…"
+  },
+  "publications.shortcut.clear": {
+    "en": "Clear the search and unfocus",
+    "t": "Xóa tìm kiếm và bỏ chọn ô nhập"
+  },
+  "publications.shortcut.focus": {
+    "en": "Focus the search field",
+    "t": "Chuyển tới ô tìm kiếm"
+  },
+  "publications.shortcut.move": {
+    "en": "Move through the results",
+    "t": "Di chuyển giữa các kết quả"
+  },
+  "publications.shortcut.open": {
+    "en": "Open the selected result",
+    "t": "Mở kết quả đã chọn"
+  },
+  "publications.shortcut.toggle": {
+    "en": "Toggle this dialog",
+    "t": "Bật/tắt hộp thoại này"
+  },
+  "publications.shortcuts.title": {
+    "en": "Keyboard shortcuts",
+    "t": "Phím tắt"
+  },
+  "publications.stat.fieldNotes": {
+    "en": "{count, plural, one {# FIELD NOTE} other {# FIELD NOTES}}",
+    "t": "{count, plural, other {# GHI CHÉP THỰC ĐỊA}}"
+  },
+  "publications.stat.reports": {
+    "en": "{count, plural, one {# REPORT} other {# REPORTS}}",
+    "t": "{count, plural, other {# BÁO CÁO}}"
+  },
+  "publications.stat.updated": {
+    "en": "UPDATED {date}",
+    "t": "CẬP NHẬT {date}"
+  },
+  "publications.stat.whitepapers": {
+    "en": "{count, plural, one {# WHITEPAPER} other {# WHITEPAPERS}}",
+    "t": "{count, plural, other {# SÁCH TRẮNG}}"
+  },
+  "publications.title": {
+    "en": "Field Notes *& Research*",
+    "t": "Ghi chép thực địa *& nghiên cứu*"
+  },
+  "publications.unavailable": {
+    "en": "This publication isn’t available right now —",
+    "t": "Ấn phẩm này hiện chưa khả dụng —"
+  },
+  "status.backHome": {
+    "en": "Back to home",
+    "t": "Về trang chủ"
+  },
+  "status.contactTeam": {
+    "en": "Contact the team",
+    "t": "Liên hệ đội ngũ"
+  },
+  "status.forbidden.eyebrow": {
+    "en": "Access forbidden",
+    "t": "Truy cập bị từ chối"
+  },
+  "status.forbidden.headlineAccent": {
+    "en": "private",
+    "t": "riêng tư"
+  },
+  "status.forbidden.headlineLead": {
+    "en": "This harbour is ",
+    "t": "Bến cảng này là "
+  },
+  "status.forbidden.subtext": {
+    "en": "You don't have the credentials to view this page. If you believe you should, our team can open the right doors.",
+    "t": "Bạn không có quyền xem trang này. Nếu bạn cho rằng mình nên có, đội ngũ của chúng tôi có thể mở đúng cánh cửa."
+  },
+  "status.notFound.eyebrow": {
+    "en": "Page not found",
+    "t": "Không tìm thấy trang"
+  },
+  "status.notFound.headlineAccent": {
+    "en": "open water",
+    "t": "vùng biển khơi"
+  },
+  "status.notFound.headlineLead": {
+    "en": "You've reached ",
+    "t": "Bạn đã ra tới "
+  },
+  "status.notFound.subtext": {
+    "en": "The page you're looking for has drifted off our coastline — moved, renamed, or never charted. Let's get you back to shore.",
+    "t": "Trang bạn tìm đã trôi khỏi bờ biển của chúng tôi — được chuyển đi, đổi tên, hoặc chưa từng có trên hải đồ. Hãy để chúng tôi đưa bạn về bờ."
+  },
+  "status.requestAccess": {
+    "en": "Request access",
+    "t": "Yêu cầu quyền truy cập"
+  },
+  "status.serverError.eyebrow": {
+    "en": "Server error",
+    "t": "Lỗi máy chủ"
+  },
+  "status.serverError.headlineAccent": {
+    "en": "recalibrating",
+    "t": "hiệu chỉnh lại"
+  },
+  "status.serverError.headlineLead": {
+    "en": "Our systems are ",
+    "t": "Hệ thống của chúng tôi đang "
+  },
+  "status.serverError.subtext": {
+    "en": "Something broke on our end — not yours. We've been alerted and are restoring service. Please try again in a moment.",
+    "t": "Sự cố xảy ra từ phía chúng tôi — không phải từ bạn. Chúng tôi đã được cảnh báo và đang khôi phục dịch vụ. Vui lòng thử lại sau giây lát."
+  },
+  "status.signIn": {
+    "en": "Sign in",
+    "t": "Đăng nhập"
+  },
+  "status.tryAgain": {
+    "en": "Try again",
+    "t": "Thử lại"
+  },
+  "status.unauthorized.eyebrow": {
+    "en": "Sign-in required",
+    "t": "Cần đăng nhập"
+  },
+  "status.unauthorized.headlineAccent": {
+    "en": "crew only",
+    "t": "chỉ dành cho thủy thủ đoàn"
+  },
+  "status.unauthorized.headlineLead": {
+    "en": "This deck is ",
+    "t": "Boong tàu này "
+  },
+  "status.unauthorized.subtext": {
+    "en": "You need to be signed in to view this page. Sign in and we'll bring you right back.",
+    "t": "Bạn cần đăng nhập để xem trang này. Hãy đăng nhập và chúng tôi sẽ đưa bạn trở lại ngay."
+  },
+  "team.eyebrow": {
+    "en": "Our people",
+    "t": "Đội ngũ của chúng tôi"
+  },
+  "team.intro": {
+    "en": "A partnership of investment, risk and technology specialists building institutional-grade access to Vietnam's premium coastal real estate — on the ground in Quy Nhon and Da Nang.",
+    "t": "Sự hợp tác của các chuyên gia đầu tư, rủi ro và công nghệ, xây dựng khả năng tiếp cận đạt chuẩn tổ chức tới bất động sản ven biển cao cấp của Việt Nam — hiện diện tại Quy Nhơn và Đà Nẵng."
+  },
+  "team.join.eyebrow": {
+    "en": "Get involved",
+    "t": "Tham gia cùng chúng tôi"
+  },
+  "team.join.hiring.body": {
+    "en": "We are always looking for talented analysts and asset managers in Quy Nhon and Da Nang.",
+    "t": "Chúng tôi luôn tìm kiếm các chuyên viên phân tích và quản lý tài sản tài năng tại Quy Nhơn và Đà Nẵng."
+  },
+  "team.join.hiring.cta": {
+    "en": "Hiring",
+    "t": "Tuyển dụng"
+  },
+  "team.join.hiring.eyebrow": {
+    "en": "Open position",
+    "t": "Vị trí đang tuyển"
+  },
+  "team.join.hiring.title": {
+    "en": "Join Us",
+    "t": "Gia nhập cùng chúng tôi"
+  },
+  "team.join.ir.body": {
+    "en": "Talk to us about co-investing in Vietnam's coastal real estate.",
+    "t": "Trao đổi với chúng tôi về việc đồng đầu tư vào bất động sản ven biển Việt Nam."
+  },
+  "team.join.ir.cta": {
+    "en": "IR Contacts",
+    "t": "Liên hệ IR"
+  },
+  "team.join.ir.eyebrow": {
+    "en": "Investor relations",
+    "t": "Quan hệ nhà đầu tư"
+  },
+  "team.join.ir.title": {
+    "en": "LP Partner Network",
+    "t": "Mạng lưới đối tác LP"
+  },
+  "team.join.title": {
+    "en": "Build the fund with us",
+    "t": "Cùng chúng tôi xây dựng quỹ"
+  },
+  "team.leadership.eyebrow": {
+    "en": "Leadership",
+    "t": "Ban lãnh đạo"
+  },
+  "team.leadership.intro": {
+    "en": "Our partners pair hands-on investment, risk-modelling and development experience with on-the-ground execution in Quy Nhon and Da Nang — local presence held to institutional discipline.",
+    "t": "Các đối tác của chúng tôi kết hợp kinh nghiệm thực tiễn về đầu tư, mô hình hóa rủi ro và phát triển dự án với việc triển khai tại chỗ ở Quy Nhơn và Đà Nẵng — hiện diện địa phương theo chuẩn mực tổ chức."
+  },
+  "team.leadership.photoAlt": {
+    "en": "EV Investment boardroom in Quy Nhon",
+    "t": "Phòng họp của EV Investment tại Quy Nhơn"
+  },
+  "team.leadership.pillar.development.body": {
+    "en": "Specification, contractor selection and oversight of what actually gets built.",
+    "t": "Đặc tả kỹ thuật, chọn nhà thầu và giám sát những gì thực sự được xây."
+  },
+  "team.leadership.pillar.development.title": {
+    "en": "Development",
+    "t": "Phát triển dự án"
+  },
+  "team.leadership.pillar.execution.body": {
+    "en": "Present in Quy Nhon and Da Nang — a standing presence, not a travel schedule.",
+    "t": "Hiện diện ở Quy Nhơn và Đà Nẵng — thường trực, không phải theo lịch công tác."
+  },
+  "team.leadership.pillar.execution.title": {
+    "en": "On the ground",
+    "t": "Tại thực địa"
+  },
+  "team.leadership.pillar.investment.body": {
+    "en": "Capital structure, entry pricing and the mandates we take from partners.",
+    "t": "Cấu trúc vốn, giá vào và các uỷ thác chúng tôi nhận từ đối tác."
+  },
+  "team.leadership.pillar.investment.title": {
+    "en": "Investment",
+    "t": "Đầu tư"
+  },
+  "team.leadership.pillar.risk.body": {
+    "en": "Downside first — occupancy, currency and exit-timing scenarios before any upside.",
+    "t": "Rủi ro giảm giá trước — kịch bản lấp đầy, tỷ giá và thời điểm thoái vốn, rồi mới đến lợi nhuận."
+  },
+  "team.leadership.pillar.risk.title": {
+    "en": "Risk modelling",
+    "t": "Mô hình rủi ro"
+  },
+  "team.leadership.title": {
+    "en": "Led by *Institutional Pioneers*",
+    "t": "Dẫn dắt bởi *những người tiên phong tổ chức*"
+  },
+  "team.member.ez.bio": {
+    "en": "Leads investment strategy and capital partnerships, focused on Vietnam's coastal growth corridors in Quy Nhon and Da Nang.",
+    "t": "Phụ trách chiến lược đầu tư và quan hệ đối tác vốn, tập trung vào các hành lang tăng trưởng ven biển của Việt Nam tại Quy Nhơn và Đà Nẵng."
+  },
+  "team.member.ez.role": {
+    "en": "Managing Partner, Co-founder",
+    "t": "Đối tác điều hành, Đồng sáng lập"
+  },
+  "team.member.vs.bio": {
+    "en": "Specializes in algorithmically-driven risk assessment and financial modelling. Previously at QuantM Alpha.",
+    "t": "Chuyên về đánh giá rủi ro bằng thuật toán và mô hình hóa tài chính. Trước đây công tác tại QuantM Alpha."
+  },
+  "team.member.vs.role": {
+    "en": "Director of Research & Risk, CTO",
+    "t": "Giám đốc Nghiên cứu & Rủi ro, CTO"
+  },
+  "team.offices.eyebrow": {
+    "en": "Presence",
+    "t": "Hiện diện"
+  },
+  "team.offices.hcmc": {
+    "en": "Ho Chi Minh Representative",
+    "t": "Văn phòng đại diện TP. Hồ Chí Minh"
+  },
+  "team.offices.quynhon": {
+    "en": "Quy Nhon Head Office",
+    "t": "Trụ sở chính Quy Nhơn"
+  },
+  "team.offices.title": {
+    "en": "Where we work",
+    "t": "Nơi chúng tôi làm việc"
+  },
+  "team.philosophy.eyebrow": {
+    "en": "How we operate",
+    "t": "Cách chúng tôi vận hành"
+  },
+  "team.philosophy.macro.body": {
+    "en": "Every position starts from a top-down read of Vietnam's growth, urbanisation and coastal-tourism cycles — not from a single deal.",
+    "t": "Mỗi vị thế đều bắt đầu từ góc nhìn tổng thể về tăng trưởng, đô thị hóa và chu kỳ du lịch ven biển của Việt Nam — chứ không từ một thương vụ đơn lẻ."
+  },
+  "team.philosophy.macro.title": {
+    "en": "Macro-first research",
+    "t": "Nghiên cứu từ vĩ mô"
+  },
+  "team.philosophy.risk.body": {
+    "en": "We build our own risk and research stack — algorithmic modelling and conservative leverage are set before capital is committed, so downside is sized before upside is sold.",
+    "t": "Chúng tôi tự xây dựng hệ thống rủi ro và nghiên cứu — mô hình thuật toán và đòn bẩy thận trọng được thiết lập trước khi giải ngân, nên rủi ro được định lượng trước khi lợi nhuận được chào bán."
+  },
+  "team.philosophy.risk.title": {
+    "en": "Technology-driven risk",
+    "t": "Quản trị rủi ro bằng công nghệ"
+  },
+  "team.philosophy.roots.body": {
+    "en": "On-the-ground presence in Quy Nhon and Da Nang paired with the reporting, governance and transparency international partners expect.",
+    "t": "Hiện diện trực tiếp tại Quy Nhơn và Đà Nẵng, đi cùng chế độ báo cáo, quản trị và minh bạch mà các đối tác quốc tế mong đợi."
+  },
+  "team.philosophy.roots.title": {
+    "en": "Local roots, institutional standards",
+    "t": "Gốc rễ địa phương, chuẩn mực tổ chức"
+  },
+  "team.philosophy.title": {
+    "en": "A discipline, not a pitch",
+    "t": "Một kỷ luật, không phải một bài chào mời"
+  },
+  "team.title": {
+    "en": "The team behind *EV Investment*",
+    "t": "Đội ngũ đằng sau *EV Investment*"
+  },
+  "vacancy.apply.eyebrow": {
+    "en": "Apply",
+    "t": "Ứng tuyển"
+  },
+  "vacancy.apply.intro": {
+    "en": "Tell us where you'd fit on the {role} role. A few lines is enough — we read every note and reply within about two weeks.",
+    "t": "Hãy cho chúng tôi biết bạn phù hợp ở đâu với vị trí {role}. Vài dòng là đủ — chúng tôi đọc mọi thư và phản hồi trong khoảng hai tuần."
+  },
+  "vacancy.apply.point1": {
+    "en": "No cover-letter theatre — your work speaks.",
+    "t": "Không cần thư xin việc hoa mỹ — công việc của bạn tự nói lên tất cả."
+  },
+  "vacancy.apply.point2": {
+    "en": "You'll hear back either way.",
+    "t": "Chúng tôi sẽ phản hồi dù kết quả thế nào."
+  },
+  "vacancy.apply.point3": {
+    "en": "Questions first? admin@evinvest.ltd",
+    "t": "Có câu hỏi trước? admin@evinvest.ltd"
+  },
+  "vacancy.apply.title": {
+    "en": "Send your *application*.",
+    "t": "Gửi *hồ sơ ứng tuyển* của bạn."
+  },
+  "vacancy.applyCta": {
+    "en": "Apply for this role",
+    "t": "Ứng tuyển vị trí này"
+  },
+  "vacancy.back": {
+    "en": "All open roles",
+    "t": "Tất cả vị trí đang tuyển"
+  },
+  "vacancy.block.about": {
+    "en": "About the role",
+    "t": "Về vị trí này"
+  },
+  "vacancy.block.niceToHave": {
+    "en": "Nice to have",
+    "t": "Điểm cộng"
+  },
+  "vacancy.block.offer": {
+    "en": "What we offer",
+    "t": "Chúng tôi mang lại"
+  },
+  "vacancy.block.requirements": {
+    "en": "What we're looking for",
+    "t": "Điều chúng tôi tìm kiếm"
+  },
+  "vacancy.block.responsibilities": {
+    "en": "What you'll do",
+    "t": "Công việc của bạn"
+  },
+  "vacancy.glance": {
+    "en": "At a glance",
+    "t": "Tổng quan"
+  },
+  "vacancy.pill.compensation": {
+    "en": "Compensation",
+    "t": "Mức lương"
+  },
+  "vacancy.pill.location": {
+    "en": "Location",
+    "t": "Địa điểm"
+  },
+  "vacancy.pill.team": {
+    "en": "Team",
+    "t": "Nhóm"
+  },
+  "vacancy.pill.type": {
+    "en": "Type",
+    "t": "Hình thức"
+  },
+  "vacancy.share": {
+    "en": "Share role",
+    "t": "Chia sẻ vị trí"
+  },
+  "vacancy.shareCopied": {
+    "en": "Copied",
+    "t": "Đã sao chép"
+  },
+  "vacancy.untranslated": {
+    "en": "Shown in English — this role hasn't been translated into your language yet.",
+    "t": "Hiển thị bằng tiếng Anh — vị trí này chưa được dịch sang ngôn ngữ của bạn."
+  },
+  "validation.email.invalid": {
+    "en": "Enter a valid email address.",
+    "t": "Vui lòng nhập địa chỉ email hợp lệ."
+  },
+  "validation.email.max": {
+    "en": "Email must be {email} characters or fewer.",
+    "t": "Email không được vượt quá {email} ký tự."
+  },
+  "validation.message.max": {
+    "en": "Message must be {message} characters or fewer.",
+    "t": "Tin nhắn không được vượt quá {message} ký tự."
+  },
+  "validation.message.required": {
+    "en": "Please write a message.",
+    "t": "Vui lòng viết nội dung tin nhắn."
+  },
+  "validation.name.charset": {
+    "en": "Use letters, spaces, and . ' - only.",
+    "t": "Chỉ dùng chữ cái, khoảng trắng và . ' -"
+  },
+  "validation.name.letters": {
+    "en": "Name must contain at least 2 letters.",
+    "t": "Tên phải chứa ít nhất 2 chữ cái."
+  },
+  "validation.name.max": {
+    "en": "Name must be {name} characters or fewer.",
+    "t": "Tên không được vượt quá {name} ký tự."
+  },
+  "validation.name.min": {
+    "en": "Name must be at least 2 characters.",
+    "t": "Tên phải có ít nhất 2 ký tự."
+  },
+  "validation.screening.max": {
+    "en": "Answer must be {screeningAnswer} characters or fewer.",
+    "t": "Câu trả lời không được vượt quá {screeningAnswer} ký tự."
+  },
+  "validation.url.invalid": {
+    "en": "Enter a full link starting with http:// or https://.",
+    "t": "Nhập đường dẫn đầy đủ bắt đầu bằng http:// hoặc https://."
+  },
+  "validation.url.max": {
+    "en": "Link must be {portfolioUrl} characters or fewer.",
+    "t": "Đường dẫn không được vượt quá {portfolioUrl} ký tự."
+  },
+  "whitepaper.loading": {
+    "en": "Loading the whitepaper… if it doesn't appear,",
+    "t": "Đang tải whitepaper… nếu không hiển thị,"
+  },
+  "whitepaper.name": {
+    "en": "Whitepaper",
+    "t": "Whitepaper"
+  },
+  "whitepaper.title": {
+    "en": "EV Investment Whitepaper",
+    "t": "Whitepaper của EV Investment"
+  }
+}

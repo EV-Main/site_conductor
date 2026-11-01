@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- SVG favicon (Next file convention → served at /icon.svg with sizes="any").
+     The shortened EV mark (skyline only, no wordmark) on a transparent field —
+     GitHub-style, no brand chip. Sourced from the Logo Figma file (node 8:16).
+     It paints in limestone-mist ivory by default (dark browser chrome) and
+     flips to brand navy under a light color scheme so it stays legible either
+     way. The committed raster icons (apple-icon.png / public/icon-*.png) keep
+     the navy field — a chip is correct for home-screen / PWA contexts. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
+<style>
+  path { fill: #e6e1d3; }
+  @media (prefers-color-scheme: light) { path { fill: #001e4e; } }
+</style>
+<svg x="32" y="223" width="576" height="194" viewBox="0 0 593 200">
+<path d="M0.120056 199.339L216.12 170.839V93.8392L239.62 99.3392V159.555L251.12 157.839V101.339L274.12 105.839V155.839L285.12 153.839V92.8392L240.12 73.3392L184.12 91.8392V153.839L0.120056 199.339Z"/>
+<path d="M327.62 170.839L364.62 174.339L364.12 0.839203L310.12 29.8392V110.839L327.62 118.839V170.839Z"/>
+<path d="M369.62 0.839203L424.12 30.3392V179.339L400.12 176.339V39.8392L369.62 23.8392V0.839203Z"/>
+<path d="M437.12 180.839L592.62 193.839L467.12 167.339V112.839L437.12 96.8392V180.839Z"/>
+</svg>
+</svg>

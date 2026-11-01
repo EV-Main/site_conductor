@@ -1,0 +1,9 @@
+# These fonts are deliberately NOT git-lfs. `next/font/local` reads them at
+# `next build`, and the frontend image builds hermetically under Nix — which
+# copies git-tracked *blobs* (LFS pointers, not the media), so LFS fonts make
+# the build fall back to fetching from Google Fonts, which the sandbox blocks.
+# Storing the real bytes in git (~800 KB of subset .woff2 — see README.md)
+# keeps the build offline-correct.
+*.ttf -text
+*.otf -text
+*.woff2 -text

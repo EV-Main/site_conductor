@@ -1,0 +1,298 @@
+{
+  "vietnam_coastal_2026": {
+    "ru": {
+      "title": {
+        "en": "Vietnam Coastal Macro Report 2026",
+        "t": "Макроотчёт по побережью Вьетнама, 2026"
+      },
+      "dek": {
+        "en": "Capital flows out of the constrained primary markets and into coastal secondary cities: FDI registrations, land-use approvals and domestic wealth formation, 2019–2026.",
+        "t": "Капитал уходит из перегруженных первичных рынков в прибрежные города второго эшелона: регистрации ПИИ, разрешения на землепользование и формирование внутреннего благосостояния, 2019–2026."
+      },
+      "quote": {
+        "en": "Vietnam's coastal secondary cities are absorbing institutional capital that the primary markets can no longer place, on infrastructure delivery rather than sentiment.",
+        "t": "Прибрежные города второго эшелона во Вьетнаме принимают институциональный капитал, который первичные рынки уже не в состоянии разместить, — и делают это за счёт ввода инфраструктуры, а не настроений."
+      },
+      "category": {
+        "en": "Macroeconomics",
+        "t": "Макроэкономика"
+      }
+    },
+    "vi": {
+      "title": {
+        "en": "Vietnam Coastal Macro Report 2026",
+        "t": "Báo cáo Vĩ mô Ven biển Việt Nam 2026"
+      },
+      "dek": {
+        "en": "Capital flows out of the constrained primary markets and into coastal secondary cities: FDI registrations, land-use approvals and domestic wealth formation, 2019–2026.",
+        "t": "Dòng vốn rời các thị trường sơ cấp đã chật chội để đến các đô thị ven biển cấp hai: đăng ký FDI, phê duyệt sử dụng đất và sự hình thành của cải trong nước, 2019–2026."
+      },
+      "quote": {
+        "en": "Vietnam's coastal secondary cities are absorbing institutional capital that the primary markets can no longer place, on infrastructure delivery rather than sentiment.",
+        "t": "Các đô thị ven biển cấp hai của Việt Nam đang hấp thụ dòng vốn tổ chức mà thị trường sơ cấp không còn chỗ để đặt, dựa trên tiến độ hạ tầng chứ không phải tâm lý thị trường."
+      },
+      "category": {
+        "en": "Macroeconomics",
+        "t": "Kinh tế vĩ mô"
+      }
+    },
+    "fr": {
+      "title": {
+        "en": "Vietnam Coastal Macro Report 2026",
+        "t": "Rapport macroéconomique côtier Viêt Nam 2026"
+      },
+      "dek": {
+        "en": "Capital flows out of the constrained primary markets and into coastal secondary cities: FDI registrations, land-use approvals and domestic wealth formation, 2019–2026.",
+        "t": "Le capital quitte des marchés primaires saturés pour les villes côtières secondaires : enregistrements d'IDE, autorisations d'usage des sols et formation du patrimoine domestique, 2019-2026."
+      },
+      "quote": {
+        "en": "Vietnam's coastal secondary cities are absorbing institutional capital that the primary markets can no longer place, on infrastructure delivery rather than sentiment.",
+        "t": "Les villes côtières secondaires du Viêt Nam absorbent des capitaux institutionnels que les marchés primaires ne peuvent plus placer, portées par la livraison d'infrastructures et non par le sentiment de marché."
+      },
+      "category": {
+        "en": "Macroeconomics",
+        "t": "Macroéconomie"
+      }
+    },
+    "de": {
+      "title": {
+        "en": "Vietnam Coastal Macro Report 2026",
+        "t": "Makrobericht Küste Vietnam 2026"
+      },
+      "dek": {
+        "en": "Capital flows out of the constrained primary markets and into coastal secondary cities: FDI registrations, land-use approvals and domestic wealth formation, 2019–2026.",
+        "t": "Kapital verlässt die überfüllten Primärmärkte und fließt in sekundäre Küstenstädte: FDI-Registrierungen, Baulandgenehmigungen und inländische Vermögensbildung, 2019–2026."
+      },
+      "quote": {
+        "en": "Vietnam's coastal secondary cities are absorbing institutional capital that the primary markets can no longer place, on infrastructure delivery rather than sentiment.",
+        "t": "Vietnams sekundäre Küstenstädte nehmen institutionelles Kapital auf, das die Primärmärkte nicht mehr unterbringen können — getragen von realisierter Infrastruktur, nicht von Stimmung."
+      },
+      "category": {
+        "en": "Macroeconomics",
+        "t": "Makroökonomie"
+      }
+    }
+  },
+  "vietnam_tail_risk": {
+    "ru": {
+      "title": {
+        "en": "Vietnam Tail Risk Analysis",
+        "t": "Анализ хвостовых рисков Вьетнама"
+      },
+      "dek": {
+        "en": "The four exposures we model against a Vietnam coastal position — credit tightening, currency, typhoon frequency, and single-buyer tourism concentration — and what each costs at the fifth percentile.",
+        "t": "Четыре риска, которые мы моделируем для прибрежной позиции во Вьетнаме, — ужесточение кредита, валюта, частота тайфунов и концентрация туризма на одном источнике спроса, — и цена каждого из них на пятом процентиле."
+      },
+      "quote": {
+        "en": "The binding constraint is not demand but the developer credit channel; every scenario we run degrades through it first.",
+        "t": "Ограничивающий фактор — не спрос, а кредитный канал застройщиков: любой сценарий, который мы прогоняем, деградирует сначала через него."
+      },
+      "category": {
+        "en": "Risk",
+        "t": "Риск"
+      }
+    },
+    "vi": {
+      "title": {
+        "en": "Vietnam Tail Risk Analysis",
+        "t": "Phân tích Rủi ro Đuôi Việt Nam"
+      },
+      "dek": {
+        "en": "The four exposures we model against a Vietnam coastal position — credit tightening, currency, typhoon frequency, and single-buyer tourism concentration — and what each costs at the fifth percentile.",
+        "t": "Bốn rủi ro chúng tôi mô hình hóa cho một vị thế ven biển Việt Nam — thắt chặt tín dụng, tỷ giá, tần suất bão và sự tập trung nguồn khách du lịch — cùng cái giá của mỗi rủi ro ở phân vị thứ năm."
+      },
+      "quote": {
+        "en": "The binding constraint is not demand but the developer credit channel; every scenario we run degrades through it first.",
+        "t": "Ràng buộc thực sự không phải là cầu mà là kênh tín dụng của chủ đầu tư; mọi kịch bản chúng tôi chạy đều suy giảm qua kênh đó trước tiên."
+      },
+      "category": {
+        "en": "Risk",
+        "t": "Rủi ro"
+      }
+    },
+    "fr": {
+      "title": {
+        "en": "Vietnam Tail Risk Analysis",
+        "t": "Analyse du risque extrême au Viêt Nam"
+      },
+      "dek": {
+        "en": "The four exposures we model against a Vietnam coastal position — credit tightening, currency, typhoon frequency, and single-buyer tourism concentration — and what each costs at the fifth percentile.",
+        "t": "Les quatre expositions que nous modélisons pour une position côtière au Viêt Nam — resserrement du crédit, change, fréquence des typhons et concentration touristique sur un seul bassin — et ce que chacune coûte au cinquième centile."
+      },
+      "quote": {
+        "en": "The binding constraint is not demand but the developer credit channel; every scenario we run degrades through it first.",
+        "t": "La contrainte déterminante n'est pas la demande mais le canal de crédit des promoteurs ; tous les scénarios que nous simulons s'y dégradent en premier."
+      },
+      "category": {
+        "en": "Risk",
+        "t": "Risque"
+      }
+    },
+    "de": {
+      "title": {
+        "en": "Vietnam Tail Risk Analysis",
+        "t": "Tail-Risk-Analyse Vietnam"
+      },
+      "dek": {
+        "en": "The four exposures we model against a Vietnam coastal position — credit tightening, currency, typhoon frequency, and single-buyer tourism concentration — and what each costs at the fifth percentile.",
+        "t": "Die vier Risiken, die wir für eine vietnamesische Küstenposition modellieren — Kreditverknappung, Währung, Taifunhäufigkeit und Konzentration auf eine einzige Touristenquelle — und was jedes davon im fünften Perzentil kostet."
+      },
+      "quote": {
+        "en": "The binding constraint is not demand but the developer credit channel; every scenario we run degrades through it first.",
+        "t": "Die bindende Restriktion ist nicht die Nachfrage, sondern der Kreditkanal der Entwickler; jedes Szenario, das wir rechnen, bricht zuerst dort ein."
+      },
+      "category": {
+        "en": "Risk",
+        "t": "Risiko"
+      }
+    }
+  },
+  "hospitality_yield_shifts": {
+    "ru": {
+      "title": {
+        "en": "Post-Pandemic Hospitality Yield Shifts",
+        "t": "Сдвиги доходности гостиничного сегмента после пандемии"
+      },
+      "dek": {
+        "en": "Operating data from eleven coastal estates: how ADR, occupancy and staffing cost per key moved between 2019 and 2025, and where low-density stock now sits against hotel product.",
+        "t": "Операционные данные одиннадцати прибрежных комплексов: как менялись ADR, загрузка и расходы на персонал в расчёте на номер с 2019 по 2025 год и где малоэтажный формат стоит сегодня относительно отельного продукта."
+      },
+      "quote": {
+        "en": "Low-density estates hold rate through the shoulder season; the volume-led hotel format recovers occupancy first and rate last.",
+        "t": "Малоэтажные комплексы удерживают ставку в межсезонье; отельный формат, ориентированный на объём, сначала восстанавливает загрузку и лишь потом ставку."
+      },
+      "category": {
+        "en": "Asset Format",
+        "t": "Формат актива"
+      }
+    },
+    "vi": {
+      "title": {
+        "en": "Post-Pandemic Hospitality Yield Shifts",
+        "t": "Dịch chuyển Lợi suất Lưu trú Hậu đại dịch"
+      },
+      "dek": {
+        "en": "Operating data from eleven coastal estates: how ADR, occupancy and staffing cost per key moved between 2019 and 2025, and where low-density stock now sits against hotel product.",
+        "t": "Dữ liệu vận hành từ mười một khu nghỉ ven biển: ADR, công suất phòng và chi phí nhân sự trên mỗi phòng đã thay đổi ra sao giai đoạn 2019–2025, và sản phẩm mật độ thấp hiện đứng ở đâu so với khách sạn."
+      },
+      "quote": {
+        "en": "Low-density estates hold rate through the shoulder season; the volume-led hotel format recovers occupancy first and rate last.",
+        "t": "Khu nghỉ mật độ thấp giữ được giá phòng qua mùa thấp điểm; mô hình khách sạn thiên về số lượng phục hồi công suất trước và giá phòng sau cùng."
+      },
+      "category": {
+        "en": "Asset Format",
+        "t": "Loại hình tài sản"
+      }
+    },
+    "fr": {
+      "title": {
+        "en": "Post-Pandemic Hospitality Yield Shifts",
+        "t": "Évolution des rendements hôteliers après la pandémie"
+      },
+      "dek": {
+        "en": "Operating data from eleven coastal estates: how ADR, occupancy and staffing cost per key moved between 2019 and 2025, and where low-density stock now sits against hotel product.",
+        "t": "Données d'exploitation de onze domaines côtiers : évolution du prix moyen par chambre, du taux d'occupation et du coût de personnel par clé entre 2019 et 2025, et positionnement actuel du produit de faible densité face à l'hôtellerie."
+      },
+      "quote": {
+        "en": "Low-density estates hold rate through the shoulder season; the volume-led hotel format recovers occupancy first and rate last.",
+        "t": "Les domaines de faible densité tiennent leurs prix en moyenne saison ; le format hôtelier, porté par le volume, récupère l'occupation d'abord et le prix en dernier."
+      },
+      "category": {
+        "en": "Asset Format",
+        "t": "Format d'actif"
+      }
+    },
+    "de": {
+      "title": {
+        "en": "Post-Pandemic Hospitality Yield Shifts",
+        "t": "Renditeverschiebungen in der Hotellerie nach der Pandemie"
+      },
+      "dek": {
+        "en": "Operating data from eleven coastal estates: how ADR, occupancy and staffing cost per key moved between 2019 and 2025, and where low-density stock now sits against hotel product.",
+        "t": "Betriebsdaten aus elf Küstenanlagen: wie sich ADR, Auslastung und Personalkosten je Zimmer zwischen 2019 und 2025 entwickelt haben und wo geringverdichtete Bestände heute gegenüber Hotelprodukten stehen."
+      },
+      "quote": {
+        "en": "Low-density estates hold rate through the shoulder season; the volume-led hotel format recovers occupancy first and rate last.",
+        "t": "Geringverdichtete Anlagen halten ihre Rate durch die Nebensaison; das volumengetriebene Hotelformat erholt sich zuerst bei der Auslastung und zuletzt beim Preis."
+      },
+      "category": {
+        "en": "Asset Format",
+        "t": "Anlageformat"
+      }
+    }
+  },
+  "whitepaper": {
+    "ru": {
+      "title": {
+        "en": "EV Investment — Fund Whitepaper",
+        "t": "EV Investment — Белая книга фонда"
+      },
+      "dek": {
+        "en": "Mandate, structure, fee terms and the underwriting standard applied to every asset in the Quy Nhơn coastal programme.",
+        "t": "Мандат, структура, условия вознаграждения и стандарт андеррайтинга, применяемый к каждому активу прибрежной программы в Куинёне."
+      },
+      "quote": {
+        "en": "The fund buys land and operating estates in one district and states its assumptions in full, including the ones we expect to be wrong.",
+        "t": "Фонд покупает землю и действующие комплексы в одном районе и полностью раскрывает свои допущения — включая те, в которых мы рассчитываем ошибиться."
+      },
+      "category": {
+        "en": "Fund",
+        "t": "Фонд"
+      }
+    },
+    "vi": {
+      "title": {
+        "en": "EV Investment — Fund Whitepaper",
+        "t": "EV Investment — Sách trắng Quỹ"
+      },
+      "dek": {
+        "en": "Mandate, structure, fee terms and the underwriting standard applied to every asset in the Quy Nhơn coastal programme.",
+        "t": "Phạm vi đầu tư, cấu trúc, điều khoản phí và chuẩn thẩm định áp dụng cho mọi tài sản trong chương trình ven biển Quy Nhơn."
+      },
+      "quote": {
+        "en": "The fund buys land and operating estates in one district and states its assumptions in full, including the ones we expect to be wrong.",
+        "t": "Quỹ mua đất và các khu vận hành trong cùng một địa bàn, và công bố đầy đủ các giả định của mình — kể cả những giả định chúng tôi cho rằng sẽ sai."
+      },
+      "category": {
+        "en": "Fund",
+        "t": "Quỹ"
+      }
+    },
+    "fr": {
+      "title": {
+        "en": "EV Investment — Fund Whitepaper",
+        "t": "EV Investment — Livre blanc du fonds"
+      },
+      "dek": {
+        "en": "Mandate, structure, fee terms and the underwriting standard applied to every asset in the Quy Nhơn coastal programme.",
+        "t": "Mandat, structure, conditions de frais et standard d'analyse appliqué à chaque actif du programme côtier de Quy Nhơn."
+      },
+      "quote": {
+        "en": "The fund buys land and operating estates in one district and states its assumptions in full, including the ones we expect to be wrong.",
+        "t": "Le fonds acquiert du foncier et des domaines en exploitation dans un même district, et expose ses hypothèses en entier — y compris celles que nous nous attendons à voir démenties."
+      },
+      "category": {
+        "en": "Fund",
+        "t": "Fonds"
+      }
+    },
+    "de": {
+      "title": {
+        "en": "EV Investment — Fund Whitepaper",
+        "t": "EV Investment — Fonds-Whitepaper"
+      },
+      "dek": {
+        "en": "Mandate, structure, fee terms and the underwriting standard applied to every asset in the Quy Nhơn coastal programme.",
+        "t": "Mandat, Struktur, Gebührenkonditionen und der Bewertungsstandard, der für jeden Vermögenswert im Küstenprogramm Quy Nhơn gilt."
+      },
+      "quote": {
+        "en": "The fund buys land and operating estates in one district and states its assumptions in full, including the ones we expect to be wrong.",
+        "t": "Der Fonds kauft Grundstücke und laufende Anlagen in einem Distrikt und legt seine Annahmen vollständig offen — auch die, bei denen wir mit einem Irrtum rechnen."
+      },
+      "category": {
+        "en": "Fund",
+        "t": "Fonds"
+      }
+    }
+  }
+}

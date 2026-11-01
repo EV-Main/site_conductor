@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@evinvest/uikit/styles/tokens.css";
+
+/* `prose` typography for document microfrontends rendered in light DOM
+   (research articles — see shared/mfe/RemoteDocument). */
+@plugin "@tailwindcss/typography";
+
+/* The shared UI kit ships compiled, so its utility classes live in node_modules.
+   Tailwind ignores node_modules by default — point it at the kit's dist so the
+   classes baked into `@evinvest/uikit` components are generated. */
+@source "../../node_modules/@evinvest/uikit/dist";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* The brand mark uikit's `Logo` masks. The kit ships no artwork, so these two
+     are the whole contract: the lockup itself (staged into public/assets from the
+     ev_assets input by flake.nix, never hand-edited) and its 387×335 canvas — a
+     CSS-masked <span> has no intrinsic size the way an inline <svg viewBox> does,
+     so the ratio has to be stated for `w-auto` to resolve. */
+  --brand-mark: url("/assets/logo.svg");
+  --brand-aspect: 387 / 335;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring;
+    font-family: var(--font-sans);
+  }
+  body {
+    @apply bg-background text-ink antialiased selection:bg-primary-ink/30 selection:text-ink;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-serif-display {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+  }
+
+  /* Uppercase tracking + tabular nums; Inter carries the label texture
+     that Space Mono used to provide, while keeping column-aligned digits. */
+  .font-mono-tech {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  /* The page container is now the uikit <Container> (token-driven gutter +
+     max width, with the responsive mobile padding from @evinvest/uikit). */
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070d18;
+}
+::-webkit-scrollbar-thumb {
+  background: #1b2742;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-ink);
+}

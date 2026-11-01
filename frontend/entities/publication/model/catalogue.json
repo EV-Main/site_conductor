@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "vietnam_coastal_2026",
+    "title": "Vietnam Coastal Macro Report 2026",
+    "date": "2026-05-01",
+    "kind": "research",
+    "dek": "Capital flows out of the constrained primary markets and into coastal secondary cities: FDI registrations, land-use approvals and domestic wealth formation, 2019–2026.",
+    "quote": "Vietnam's coastal secondary cities are absorbing institutional capital that the primary markets can no longer place, on infrastructure delivery rather than sentiment.",
+    "pages": 62,
+    "readingMinutes": 34,
+    "category": "Macroeconomics"
+  },
+  {
+    "slug": "vietnam_tail_risk",
+    "title": "Vietnam Tail Risk Analysis",
+    "date": "2026-04-01",
+    "kind": "research",
+    "dek": "The four exposures we model against a Vietnam coastal position — credit tightening, currency, typhoon frequency, and single-buyer tourism concentration — and what each costs at the fifth percentile.",
+    "quote": "The binding constraint is not demand but the developer credit channel; every scenario we run degrades through it first.",
+    "pages": 48,
+    "readingMinutes": 27,
+    "category": "Risk"
+  },
+  {
+    "slug": "hospitality_yield_shifts",
+    "title": "Post-Pandemic Hospitality Yield Shifts",
+    "date": "2026-03-01",
+    "kind": "research",
+    "dek": "Operating data from eleven coastal estates: how ADR, occupancy and staffing cost per key moved between 2019 and 2025, and where low-density stock now sits against hotel product.",
+    "quote": "Low-density estates hold rate through the shoulder season; the volume-led hotel format recovers occupancy first and rate last.",
+    "pages": 39,
+    "readingMinutes": 22,
+    "category": "Asset Format"
+  }
+]

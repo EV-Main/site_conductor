@@ -1,0 +1,556 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "EV Investment site conductor API",
+    "description": "Source of truth for vacancies, applications and contact messages.",
+    "license": {
+      "name": "BlueOak-1.0.0",
+      "identifier": "BlueOak-1.0.0"
+    },
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/v1/applications": {
+      "post": {
+        "tags": [
+          "applications"
+        ],
+        "summary": "`POST /applications` — submit a job application (general or for a role).\nReturns `202 Accepted`: the application is persisted synchronously, while\nthe confirmation/notification emails are dispatched best-effort.",
+        "operationId": "create_application",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateApplicationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Application received",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationAccepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation failed"
+          },
+          "404": {
+            "description": "Referenced role not found"
+          }
+        }
+      }
+    },
+    "/api/v1/contact": {
+      "post": {
+        "tags": [
+          "contact"
+        ],
+        "summary": "`POST /contact` — submit a vacancy-agnostic contact message.",
+        "operationId": "create_contact",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Message received",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactAccepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation failed"
+          }
+        }
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Liveness probe.",
+        "operationId": "health",
+        "responses": {
+          "200": {
+            "description": "Service is live"
+          }
+        }
+      }
+    },
+    "/api/v1/newsletter": {
+      "post": {
+        "tags": [
+          "newsletter"
+        ],
+        "summary": "`POST /newsletter` — subscribe to the newsletter.",
+        "operationId": "subscribe_newsletter",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeNewsletterRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Subscribed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubscribeNewsletterAccepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation failed"
+          },
+          "409": {
+            "description": "Already subscribed"
+          }
+        }
+      }
+    },
+    "/api/v1/vacancies": {
+      "get": {
+        "tags": [
+          "vacancies"
+        ],
+        "summary": "`GET /vacancies?category=&q=&locale=` — the searchable board.",
+        "operationId": "list_vacancies",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Filter by discipline (`investment` | `development` | `advisory` | `operations`).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Free-text search over title and summary, in whichever language the role\nis being served in.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Reader's locale (`en` | `ru` | `vi` | `fr` | `de`). Absent or\nunrecognised means `en`, matching `splitLocalePath` on the front end —\nan unknown value is a reader we cannot place, not an error worth a 400.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching open roles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VacancySummary"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unknown category"
+          }
+        }
+      }
+    },
+    "/api/v1/vacancies/{slug}": {
+      "get": {
+        "tags": [
+          "vacancies"
+        ],
+        "summary": "`GET /vacancies/{slug}` — one role for the detail-page template.",
+        "operationId": "get_vacancy",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "description": "Role slug, e.g. investment-analyst",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "See [`ListVacanciesQuery::locale`].",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VacancyDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Role not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApplicationAccepted": {
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "ContactAccepted": {
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateApplicationRequest": {
+        "type": "object",
+        "description": "Inbound payload for `POST /applications`. `vacancy_slug == None` is a\ngeneral talent-pool application; `confirmed_requirements` and\n`screening_answer` are only meaningful when applying to a specific role.",
+        "required": [
+          "name",
+          "email",
+          "message"
+        ],
+        "properties": {
+          "confirmed_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20
+          },
+          "email": {
+            "type": "string",
+            "example": "jane@example.com",
+            "maxLength": 254
+          },
+          "message": {
+            "type": "string",
+            "example": "I underwrote 40 coastal deals at...",
+            "maxLength": 5000,
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "Jane Doe",
+            "maxLength": 100,
+            "minLength": 2
+          },
+          "portfolio_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "screening_answer": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 5000
+          },
+          "vacancy_slug": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "example": "investment-analyst"
+          }
+        }
+      },
+      "CreateContactRequest": {
+        "type": "object",
+        "required": [
+          "name",
+          "email",
+          "message"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "jane@example.com",
+            "maxLength": 254
+          },
+          "message": {
+            "type": "string",
+            "example": "I'd like to learn more about the Quy Nhơn fund.",
+            "maxLength": 5000,
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "Jane Doe",
+            "maxLength": 100,
+            "minLength": 2
+          }
+        }
+      },
+      "SubscribeNewsletterAccepted": {
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "SubscribeNewsletterRequest": {
+        "type": "object",
+        "required": [
+          "email"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "investor@example.com",
+            "maxLength": 254
+          }
+        }
+      },
+      "VacancyDetail": {
+        "type": "object",
+        "description": "Full role for the detail page template.",
+        "required": [
+          "id",
+          "slug",
+          "title",
+          "category",
+          "category_label",
+          "location",
+          "employment_type",
+          "summary",
+          "about",
+          "responsibilities",
+          "requirements",
+          "nice_to_have",
+          "offer",
+          "screening_question",
+          "compensation",
+          "created_at",
+          "locale",
+          "translated"
+        ],
+        "properties": {
+          "about": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "category_label": {
+            "type": "string"
+          },
+          "compensation": {
+            "type": "string",
+            "description": "Always \"Negotiable\" — the public site never publishes a figure."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "employment_type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "locale": {
+            "type": "string",
+            "description": "See [`VacancySummary::locale`]."
+          },
+          "location": {
+            "type": "string"
+          },
+          "nice_to_have": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "offer": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "responsibilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "screening_question": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "translated": {
+            "type": "boolean",
+            "description": "See [`VacancySummary::translated`]."
+          }
+        }
+      },
+      "VacancySummary": {
+        "type": "object",
+        "description": "Board row — the lightweight projection for the searchable list.",
+        "required": [
+          "id",
+          "slug",
+          "title",
+          "category",
+          "category_label",
+          "location",
+          "employment_type",
+          "summary",
+          "locale",
+          "translated"
+        ],
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Stable key for filtering (`investment` | `development` | `advisory` | `operations`)."
+          },
+          "category_label": {
+            "type": "string",
+            "description": "Human label for the chip."
+          },
+          "employment_type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "locale": {
+            "type": "string",
+            "description": "The locale that was asked for — echoed so a cached response is never\nmistaken for a different language's."
+          },
+          "location": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "translated": {
+            "type": "boolean",
+            "description": "`false` ⇒ the text above is canonical English, either because no\ntranslation exists for this locale or because the one that does is stale.\nThe caller cannot distinguish the two, and should not: both mean the same\nthing to a reader. Mark it; never imply a translation that is not there."
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "vacancies",
+      "description": "Open roles"
+    },
+    {
+      "name": "applications",
+      "description": "Job applications"
+    },
+    {
+      "name": "contact",
+      "description": "Contact messages"
+    },
+    {
+      "name": "newsletter",
+      "description": "Newsletter subscriptions"
+    },
+    {
+      "name": "health",
+      "description": "Liveness"
+    }
+  ]
+}

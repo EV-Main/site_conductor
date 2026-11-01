@@ -1,0 +1,41 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2024"
+description = "Backend API for the EV Investment site conductor"
+license = "BlueOak-1.0.0"
+publish = false
+default-run = "backend"
+
+[features]
+# `swagger` serves the Swagger UI at /swagger-ui. Default-on for dev, but its
+# build script downloads the UI bundle over the network — disable it for the
+# hermetic/offline production build (`nix build .#backend` → --no-default-features).
+default = ["swagger"]
+swagger = ["dep:utoipa-swagger-ui"]
+
+[dependencies]
+async-trait.workspace = true
+axum.workspace = true
+color-eyre.workspace = true
+domain.workspace = true
+dotenvy.workspace = true
+ev_lib = { workspace = true, features = ["analytics", "error_monitoring", "otel", "settings", "settings_drift"] }
+jiff = { workspace = true, features = ["serde"] }
+lettre.workspace = true
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+sqlx = { workspace = true, features = ["runtime-tokio", "tls-rustls", "postgres", "uuid", "time", "migrate"] }
+thiserror.workspace = true
+time.workspace = true
+tokio = { workspace = true, features = ["full"] }
+tower.workspace = true
+tower-http = { workspace = true, features = ["trace", "cors"] }
+tracing.workspace = true
+tracing-subscriber = { workspace = true, features = ["env-filter", "fmt"] }
+utoipa = { workspace = true, features = ["uuid"] }
+utoipa-swagger-ui = { workspace = true, features = ["axum"], optional = true }
+uuid = { workspace = true, features = ["v4", "serde"] }
+
+[lints]
+workspace = true
