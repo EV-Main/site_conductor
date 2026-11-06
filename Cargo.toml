@@ -42,4 +42,4 @@ debug = "line-tables-only"
 debug = false
 
 #[patch.crates-io]
-#ev_lib.path = "../lib/rust"
+#ev_lib.path = "../web_std/rust"

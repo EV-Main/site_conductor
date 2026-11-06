@@ -40,7 +40,7 @@ cd site_conductor/frontend && npm install && npm run dev
 Tailwind builds automatically inside Next via the `@tailwindcss/postcss` plugin —
 no separate step. It imports the shared tokens from
 `@evinvest/uikit/styles/tokens.css` through `application/styles/globals.css`;
-tokens are owned by [`EV-Main/lib`](https://github.com/EV-Main/lib) and
+tokens are owned by [`EV-Main/web_std`](https://github.com/EV-Main/web_std) and
 reach this repo through a `@evinvest/uikit` bump, never a local edit.
 
 ## Checks
@@ -110,7 +110,7 @@ The visual language is mirrored in a Figma file
 ([`Main`](https://www.figma.com/design/e0V2P1cQpEFRuXTeNtEMh6/Main)), kept
 **code-first**: [`application/styles/globals.css`](./application/styles/globals.css)
 plus the shared `@evinvest/uikit/styles/tokens.css` (from
-[`EV-Main/lib`](https://github.com/EV-Main/lib)) are the source of truth;
+[`EV-Main/web_std`](https://github.com/EV-Main/web_std)) are the source of truth;
 the Figma side is conformed to them, never the reverse.
 
 - **Tokens → Figma Variables.** Three collections mirror the CSS tokens 1:1, each
