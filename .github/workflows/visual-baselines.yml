@@ -11,6 +11,8 @@ jobs:
         with:
           lfs: true
       - uses: ./.github/actions/nix-env
+        with:
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - continue-on-error: true
         id: gate
         name: Gate
