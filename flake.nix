@@ -143,6 +143,7 @@
             other.augment = [ "loc-badge" ];
           };
           lfs = true;
+          visualBaselines = { dir = "frontend/tests/__screenshots__"; render = "accept-test"; gate = "test"; paths = [ "frontend/**" "flake.nix" "flake.lock" ]; };
         };
         readme = v_flakes.readme-fw {
           inherit pkgs pname;
