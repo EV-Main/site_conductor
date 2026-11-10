@@ -69,7 +69,7 @@ export function ComingSoonView({
           <Headline
             first={
               <>
-                <b className="font-medium">Expected</b> value,
+                <b className="font-medium">EV</b> Invest,
               </>
             }
             second="arriving soon..."
