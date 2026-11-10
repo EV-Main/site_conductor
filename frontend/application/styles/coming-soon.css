@@ -45,8 +45,8 @@
    marks, one per breakpoint — the compact one is a different drawing, not a
    scaled copy. `display` here has to beat the kit's `inline-block`. */
 .cs-logo-full {
-  --brand-mark: url("/assets/brand/logo-ev-invest-full.svg");
-  --brand-aspect: 106 / 34;
+  --brand-mark: url("/assets/brand/logo-ev-investment-fund.svg");
+  --brand-aspect: 231 / 34;
   display: none;
   height: 34px;
 }

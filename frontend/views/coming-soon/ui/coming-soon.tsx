@@ -63,7 +63,7 @@ export function ComingSoonView({
         <header className="flex h-(--cs-bar-h) shrink-0 items-start pt-(--cs-bar-pt) text-ink">
           <Logo className="cs-logo-full" />
           <Logo className="cs-logo-compact" />
-          <span className="sr-only">{SITE.shortName}</span>
+          <span className="sr-only">{SITE.name}</span>
         </header>
         <main className="grid grid-cols-(--cs-copy-cols) items-end gap-(--cs-copy-gap) pt-(--band-py)">
           <Headline
