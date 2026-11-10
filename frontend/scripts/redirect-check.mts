@@ -52,7 +52,11 @@ function applyRule(r: { source: string; destination: string }, pathname: string)
   // `validate: false` is what Next itself passes when it resolves a redirect.
   // With validation on, a multi-segment capture is rejected and this harness
   // reports a break that production does not have.
-  return compile(r.destination, { validate: false })(params);
+  // Next compiles only the path of an external destination; `https:` read as a
+  // parameter is a lexer error.
+  const external = /^https?:\/\//.test(r.destination) ? new URL(r.destination) : null;
+  const path = compile(external?.pathname ?? r.destination, { validate: false })(params);
+  return external ? external.origin + path : path;
 }
 
 const apply = (pathname: string) => applyRule(rule, pathname);
