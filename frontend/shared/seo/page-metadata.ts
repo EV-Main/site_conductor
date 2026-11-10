@@ -40,7 +40,7 @@ const OG_LOCALES: Record<Locale, string> = {
  * The `og:locale` / `og:locale:alternate` pair for a page.
  *
  * Exported because the homepage cannot go through {@link pageMetadata} — its
- * title is the root `title.default` ("EV Investment: …"), not a page title the
+ * title is the root `title.default` ("EV Investment Fund: …"), not a page title the
  * template appends the brand to — but it still needs these two fields to differ
  * per locale. Without it every `/xx` homepage shipped `og:locale=en_US`, telling
  * every social crawler that the German homepage is English.

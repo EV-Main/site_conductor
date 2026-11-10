@@ -1,6 +1,7 @@
 import type { Locale, Translate } from "@evinvest/i18n";
 import { Logo } from "@evinvest/uikit";
 import { translate } from "@/shared/config/i18n";
+import { SITE } from "@/shared/config/site";
 import { Headline } from "./headline";
 import { TerrainHero } from "./terrain-hero";
 
@@ -62,7 +63,7 @@ export function ComingSoonView({
         <header className="flex h-(--cs-bar-h) shrink-0 items-start pt-(--cs-bar-pt) text-ink">
           <Logo className="cs-logo-full" />
           <Logo className="cs-logo-compact" />
-          <span className="sr-only">Expected Value Investment</span>
+          <span className="sr-only">{SITE.name}</span>
         </header>
         <main className="grid grid-cols-(--cs-copy-cols) items-end gap-(--cs-copy-gap) pt-(--band-py)">
           <Headline

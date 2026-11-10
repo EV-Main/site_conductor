@@ -13,7 +13,7 @@ import "@/application/styles/coming-soon.css";
 // all of them — so every locale canonicalises to `/` and the sitemap lists `/`
 // alone. Per-locale hreflang would announce five URLs for one page.
 //
-// `title: { absolute }` bypasses the `%s | EV Investment` template, which
+// `title: { absolute }` bypasses the `%s | ${SITE.name}` template, which
 // would otherwise stamp the brand twice.
 //
 // The social card is spelled out whole rather than spread from the base:
@@ -29,10 +29,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = translate(isLocale(locale) ? locale : DEFAULT_LOCALE);
   const title = `${SITE.name}: ${t("meta.comingSoon.title", "Expected value, arriving soon")}`;
-  const description = t(
-    "meta.comingSoon.description",
-    "Expected Value Investment — the new site is on its way."
-  );
+  const description = `${SITE.name} — ${t("meta.comingSoon.description", "the new site is on its way.")}`;
   return {
     title: { absolute: title },
     description,

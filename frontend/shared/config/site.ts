@@ -16,7 +16,8 @@ export const SITE_URL = (
 
 export const SITE = {
   url: SITE_URL,
-  name: "EV Investment",
+  name: "EV Investment Fund",
+  shortName: "EV Invest",
   alternateName: "Quy Nhon Fund",
   tagline: "Invest in China+1 narrative",
   // Reused as the default meta description, the Organization / WebSite

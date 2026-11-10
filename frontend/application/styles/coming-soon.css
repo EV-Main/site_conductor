@@ -46,14 +46,14 @@
    scaled copy. `display` here has to beat the kit's `inline-block`. */
 .cs-logo-full {
   --brand-mark: url("/assets/brand/logo-a-full.svg");
-  --brand-aspect: 306 / 34;
+  --brand-aspect: 231 / 34;
   display: none;
   height: 34px;
 }
 
 .cs-logo-compact {
   --brand-mark: url("/assets/brand/logo-a-compact.svg");
-  --brand-aspect: 124 / 21;
+  --brand-aspect: 79 / 21;
   display: inline-block;
   height: 21px;
 }
