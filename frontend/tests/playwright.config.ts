@@ -1,8 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
-// Visual-regression config. Browsers come from nixpkgs (see flake.nix:
-// PLAYWRIGHT_BROWSERS_PATH), pinned to the same revision as @playwright/test,
-// so screenshots render identically across every machine on this flake.
+// Visual-regression config. Playwright and its browsers come from nixpkgs
+// (flake.nix, v_flakes' `js.playwright`), pinned together, so screenshots render identically across every machine on this flake.
 // Env fallbacks live in flake.nix only — run via `nix run .#test`.
 const PORT = process.env.SITE_CONDUCTOR_FRONTEND_PORT;
 if (!PORT)
@@ -11,9 +10,9 @@ if (!PORT)
   );
 
 export default defineConfig({
-  testDir: "./tests",
+  testDir: ".",
   // Bail with a clear error if the browser binary is missing (see global-setup).
-  globalSetup: "./tests/global-setup.ts",
+  globalSetup: "./global-setup.ts",
   // Baselines live beside the test file: tests/sections.spec.ts-snapshots/.
   snapshotPathTemplate: "{testDir}/__screenshots__/{arg}{ext}",
   fullyParallel: true,
@@ -30,7 +29,7 @@ export default defineConfig({
   // last one with `playwright show-report`.
   reporter: process.env.CI
     ? "github"
-    : [["./tests/visual-reporter.ts"], ["html", { open: "on-failure" }]],
+    : [["./visual-reporter.ts"], ["html", { open: "on-failure" }]],
 
   // A pixel diff above this fraction fails the test. Small allowance absorbs
   // sub-pixel font rasterisation jitter without masking real layout changes.
@@ -87,6 +86,7 @@ export default defineConfig({
 
   webServer: {
     command: "npm run dev -- --port " + PORT,
+    cwd: "..",
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

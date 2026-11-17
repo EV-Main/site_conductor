@@ -12,7 +12,8 @@ export them, so nothing here hardcodes a number.
 | `nix run .#backend` | axum API only (ensures the shared postgres) |
 | `nix run .#db` | ensure the shared ev_invest postgres is up (+ this repo's `site_conductor` db) |
 | `nix run .#gen-api` | regenerate `backend/openapi.json` + the TS client (run after any DTO/handler change; commit both) |
-| `nix run .#test` | frontend typecheck + Playwright visual regression |
+| `nix run .#test` | every check (v_flakes particles: rust tests, frontend typecheck/lint/static gates, visual regression), in parallel; `-- --help` lists them |
+| `nix run .#visual` | the Playwright visual regression alone |
 | `nix run .#accept-test` | accept new screenshots (all, or `-- <names>`) |
 | `nix run .#publish` | bump latest remote `vX.Y.Z` tag (`-- major\|minor\|patch`) + push |
 

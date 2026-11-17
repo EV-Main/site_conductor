@@ -30,10 +30,10 @@
         # the nix store dedups it and sccache cross-references compilations.
         rust = v_flakes.rs.default_nightly system;
         rustBuild = v_flakes.rs.build_nightly system;
-        # v_flakes ships the treefmt hook; we extend it with the same `.#test`
-        # derivation (typecheck + Playwright visual regression). Kept on pre-push,
-        # not pre-commit — a full visual run per commit is too slow; flip `stages`
-        # to ["pre-commit"] if you want it on every commit.
+        # v_flakes ships the treefmt hook; we extend it with the error particles
+        # (`nix run .#test`). Kept on pre-push, not pre-commit — a full visual run
+        # per commit is too slow; flip `stages` to ["pre-commit"] if you want it
+        # on every commit.
         preCommitBase = v_flakes.files.preCommit {
           inherit pkgs;
           # next/image decodes the source on every cache miss on the weak pod (#236)
@@ -45,7 +45,7 @@
           hooks = preCommitBase.hooks // {
             test = {
               enable = true;
-              name = "nix run .#test (typecheck + visual regression)";
+              name = "nix run .#test -- --severity errors";
               entry = "${runTestHook}/bin/run-test-hook";
               pass_filenames = false;
               stages = [ "pre-push" ];
@@ -58,13 +58,13 @@
             # Deliberately NOT folded into the `test` hook above, which skips
             # unprotected refs and unchanged trees: this is a repo invariant, so it
             # runs on every push with no exemptions. It costs ~1.5s (an AST walk,
-            # no type checker), which is what makes that affordable. `nix run
-            # .#test` and `prebuild` run it too; this is the one that cannot be
-            # bypassed, since the container build calls `next build` directly.
+            # no type checker), which is what makes that affordable. `prebuild`
+            # runs it too; this is the one that cannot be bypassed, since the
+            # container build calls `next build` directly.
             i18n = {
               enable = true;
               name = "i18n catalogue matches code (translation policy 1.1/1.2)";
-              entry = "${runI18nCheck}/bin/run-i18n-check";
+              entry = "${pkgs.lib.getExe github.test} frontend-i18n";
               pass_filenames = false;
               stages = [ "pre-push" ];
             };
@@ -99,8 +99,36 @@
         logoSrc = "${ev_assets}/logo/logo.svg";
 
         rs = v_flakes.rs { inherit pkgs rust; };
+        js = v_flakes.js { inherit pkgs; packages = [ "frontend" ]; };
+        # a package script as a particle, installed by the js module's own `prepare`
+        frontendScript = name: script: {
+          inherit name;
+          inherit (builtins.head js.particles.errors) prepare ciCache;
+          program = pkgs.writeShellApplication {
+            inherit name;
+            runtimeInputs = with pkgs; [ nodejs git ];
+            text = ''
+              cd "$(git rev-parse --show-toplevel)/frontend"
+              exec npm run ${script}
+            '';
+          };
+        };
+        playwrightEnv = ''
+          ${portEnv}
+          export NEXT_PUBLIC_API_URL="''${NEXT_PUBLIC_API_URL:-http://localhost:$SITE_CONDUCTOR_BACKEND_PORT}"
+        '';
+        visual = js.playwright {
+          name = "visual";
+          package = "frontend";
+          config = "tests";
+          run = ''
+            ${populateDocs}/bin/populate-docs
+            ${playwrightEnv}
+            exec playwright test -c tests "$@"
+          '';
+        };
         github = v_flakes.github {
-          inherit pkgs pname rs;
+          inherit pkgs pname rs js;
           enable = true;
           # Public repo → public Cachix (`ev-invest`); pull deps + push built paths.
           # Pushing needs the CACHIX_AUTH_TOKEN secret. See v_flakes cache.nix.
@@ -139,11 +167,25 @@
             .claude/
           '';
           jobs = {
-            warnings.augment = [ "tokei" "code-duplication" ];
+            errors = {
+              default = true;
+              exclude = [ "frontend-test" ]; # no unit tests: the front end's suite is the `visual` particle
+              augment = [
+                (frontendScript "frontend-i18n" "i18n:check") # translation policy 1.1/1.2
+                # `cn` panics on a conflict only in dev, and only once the offending
+                # combination of branches is rendered. This reaches all of them.
+                (frontendScript "frontend-css-conflicts" "css:check")
+                # The /en/* collapse + English afterFiles rewrite: a wrong locale list
+                # 404s a locale, a wrong carve-out loops 307 (next.config.ts).
+                (frontendScript "frontend-redirects" "redirects:check")
+                visual
+              ];
+            };
+            warnings.augment = [ "tokei" "code-duplication" ] ++ js.particles.warnings;
             other.augment = [ "loc-badge" ];
           };
           lfs = true;
-          visualBaselines = { dir = "frontend/tests/__screenshots__"; render = "accept-test"; gate = "test"; paths = [ "frontend/**" "flake.nix" "flake.lock" ]; };
+          visualBaselines = { dir = "frontend/tests/__screenshots__"; render = "accept-test"; gate = "visual"; paths = [ "frontend/**" "flake.nix" "flake.lock" ]; };
         };
         readme = v_flakes.readme-fw {
           inherit pkgs pname;
@@ -153,7 +195,7 @@
           # No crate is published yet (the backend is a placeholder), so keep only the badge that always resolves.
           badges = [ "msrv" ];
         };
-        combined = v_flakes.utils.combine { inherit rust; modules = [ rs github readme ]; };
+        combined = v_flakes.utils.combine { inherit rust; modules = [ rs js github readme ]; };
 
         # ── production backend: binary + OCI image ──────────────────────────
         rustPlatform = pkgs.makeRustPlatform { cargo = rustBuild; rustc = rustBuild; };
@@ -530,67 +572,9 @@
           '';
         };
 
-        # ── i18n gate: the pre-push hook above, standalone ──────────────────
-        # Its own derivation rather than a line in `runTest` because the hook has
-        # to run it without dragging in Playwright and its browser closure.
-        runI18nCheck = pkgs.writeShellApplication {
-          name = "run-i18n-check";
-          runtimeInputs = with pkgs; [ nodejs git ];
-          text = ''
-            repo="$(git rev-parse --show-toplevel)"
-            cd "$repo/frontend"
-            [ -d node_modules/.bin ] || npm ci
-            exec npm run i18n:check
-          '';
-        };
-
-        # ── test suite: frontend typecheck + static gates + visual regression ──
-        # No Rust tests exist yet; add `cargo test --workspace` here when they do.
-        runTest = pkgs.writeShellApplication {
-          name = "run-test";
-          runtimeInputs = with pkgs; [ nodejs git ];
-          text = ''
-            repo="$(git rev-parse --show-toplevel)"
-            ${populateDocs}/bin/populate-docs || true
-            cd "$repo/frontend"
-            [ -d node_modules/.bin ] || npm ci
-
-            echo "▶ typecheck (tsc --noEmit)"
-            npm run check
-
-            echo "▶ i18n drift (translation policy 1.1/1.2)"
-            npm run i18n:check
-
-            # `cn` panics on a conflict only in dev, and only once the offending
-            # combination of branches is rendered. This reaches all of them.
-            echo "▶ tailwind class conflicts (every cn() branch)"
-            npm run css:check
-
-            # The /en/* collapse + English afterFiles rewrite: a wrong locale list
-            # 404s a locale, a wrong carve-out loops 307 (next.config.ts).
-            echo "▶ redirect/rewrite rules (next.config.ts)"
-            npm run redirects:check
-
-            echo "▶ visual regression (playwright)"
-            ${portEnv}
-            export NEXT_PUBLIC_API_URL="''${NEXT_PUBLIC_API_URL:-http://localhost:$SITE_CONDUCTOR_BACKEND_PORT}"
-            # The nixpkgs browsers — npm-downloaded ones link libs absent on NixOS.
-            export PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}"
-            export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD="1"
-            export PLAYWRIGHT_HOST_PLATFORM_OVERRIDE="nixos"
-            # The html reporter auto-opens the Expected/Actual/Diff view only when
-            # stdin is a TTY; under the pre-commit hook it is /dev/null, so hand the
-            # terminal back when there is one.
-            if (: < /dev/tty) 2>/dev/null; then
-              exec npm run test:visual < /dev/tty
-            fi
-            exec npm run test:visual
-          '';
-        };
-
-        # pre-push wrapper: run the (slow) visual suite only when pushing a protected
+        # pre-push wrapper: run the (slow) error particles only when pushing a protected
         # ref / tag, and skip even then if the pushed tip's tree matches the remote's
-        # (a squash/reword that leaves content identical can't change a screenshot).
+        # (a squash/reword that leaves content identical can't change a result).
         # pre-commit sets REMOTE_BRANCH/FROM_REF/TO_REF on pre-push.
         runTestHook = pkgs.writeShellApplication {
           name = "run-test-hook";
@@ -599,7 +583,7 @@
             # Only gate the protected refs / releases; feature-branch pushes run nothing.
             case "''${PRE_COMMIT_REMOTE_BRANCH:-}" in
               refs/heads/main|refs/heads/dev|refs/heads/release|refs/tags/*) ;;
-              *) echo "not a protected ref / tag — skipping visual regression"; exit 0 ;;
+              *) echo "not a protected ref / tag — skipping the checks"; exit 0 ;;
             esac
 
             from="''${PRE_COMMIT_FROM_REF:-}"
@@ -607,34 +591,28 @@
             # Missing refs (new branch / refs unavailable) → don't skip; run the suite.
             if [ -n "$from" ] && [ -n "$to" ] && git rev-parse -q --verify "$from^{tree}" >/dev/null 2>&1; then
               if [ "$(git rev-parse "$from^{tree}")" = "$(git rev-parse "$to^{tree}")" ]; then
-                echo "tip tree unchanged since remote — skipping visual regression"
+                echo "tip tree unchanged since remote — skipping the checks"
                 exit 0
               fi
             fi
-            exec ${runTest}/bin/run-test
+            exec ${pkgs.lib.getExe github.test} --severity errors
           '';
         };
 
         # ── accept new screenshots: `.#accept-test` (all) or with -- <names> ──
-        runAcceptTest = pkgs.writeShellApplication {
+        runAcceptTest = (js.playwright {
           name = "accept-test";
-          runtimeInputs = with pkgs; [ nodejs git ];
-          text = ''
-            repo="$(git rev-parse --show-toplevel)"
-            cd "$repo/frontend"
-            [ -d node_modules/.bin ] || npm ci
-            ${portEnv}
-            export NEXT_PUBLIC_API_URL="''${NEXT_PUBLIC_API_URL:-http://localhost:$SITE_CONDUCTOR_BACKEND_PORT}"
-            export PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}"
-            export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD="1"
-            export PLAYWRIGHT_HOST_PLATFORM_OVERRIDE="nixos"
+          package = "frontend";
+          config = "tests";
+          run = ''
+            ${playwrightEnv}
             if [ "$#" -eq 0 ]; then
-              exec npm run test:visual:update
+              exec playwright test -c tests --update-snapshots
             fi
             # playwright -g takes one regex; alternate the names so multiple match.
-            exec npm run test:visual:update -- -g "$(IFS='|'; echo "$*")"
+            exec playwright test -c tests --update-snapshots -g "$(IFS='|'; echo "$*")"
           '';
-        };
+        }).program;
 
         # ── bump latest remote vX.Y.Z tag and push: `.#publish major|minor|patch [note]` ──
         runPublish = pkgs.writeShellApplication {
@@ -697,6 +675,7 @@
               ${pkgs.lib.concatStringsSep "\n" (
                 pkgs.lib.mapAttrsToList (n: c: "  ${pad n}${c.about}") runnable
               )}
+                ${pad "test"}every check (v_flakes particles), in parallel; `-- --help` lists them
 
               nix build .#<package>
                 ${pkgs.lib.concatStringsSep ", " (builtins.attrNames packagesOut)}
@@ -710,8 +689,8 @@
             db = { program = "${runPostgres}/bin/run-postgres"; about = "ensure the SHARED ev_invest Postgres is up (+ this repo's databases)"; };
             pull-prod-db = { program = "${runPullProdDb}/bin/pull-prod-db"; about = "replace the local site_conductor db with prod's (rpi5)"; };
             gen-api = { program = "${runGenApi}/bin/run-gen-api"; about = "regenerate openapi.json + the TS client"; };
-            test = { program = "${runTest}/bin/run-test"; about = "frontend typecheck + Playwright visual regression"; };
-            accept-test = { program = "${runAcceptTest}/bin/accept-test"; about = "accept new screenshots (all, or `-- <names>`)"; };
+            visual = { program = pkgs.lib.getExe visual.program; about = "the Playwright visual regression alone; args go to `playwright test`"; };
+            accept-test = { program = pkgs.lib.getExe runAcceptTest; about = "accept new screenshots (all, or `-- <names>`)"; };
             publish = { program = "${runPublish}/bin/publish"; about = "bump latest remote vX.Y.Z tag (major|minor|patch [note]) + push"; };
             help = { program = "${runHelp}/bin/help"; about = "print this list"; };
           };
@@ -755,16 +734,10 @@
               rust
               mold
               postgresql
-              playwright-driver.browsers
             ] ++ pre-commit-check.enabledPackages ++ combined.enabledPackages;
 
             env.RUST_BACKTRACE = 1;
             env.RUST_LIB_BACKTRACE = 0;
-
-            # Drive the nixpkgs browsers (npm-downloaded ones link libs absent on NixOS). @playwright/test version MUST match playwright-driver's.
-            env.PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
-            env.PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1";
-            env.PLAYWRIGHT_HOST_PLATFORM_OVERRIDE = "nixos";
           };
       }
     );

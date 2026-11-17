@@ -11,7 +11,7 @@ const eslintConfig = [
   {
     // shared/api/generated is an auto-generated artifact (npm run gen:api);
     // it's already prettier-formatted by codegen, so keep it out of lint churn.
-    ignores: [".next/**", "node_modules/**", "dist/**", "public/**", "shared/api/generated/**"],
+    ignores: [".next/**", "node_modules/**", "dist/**", "public/**", "shared/api/generated/**", "test-results/", "playwright-report/"], // the latter two rewritten by a concurrent `visual` particle
   },
   {
     rules: {
@@ -30,9 +30,9 @@ const eslintConfig = [
     // typed `config` object instead of reaching into process.env. config.ts is
     // the reader (config.assert.ts is its Node-only boot check); instrumentation.ts
     // needs literal NEXT_RUNTIME checks for edge dead-code elimination;
-    // playwright.config.ts and its harness run under tsx outside
+    // tests/ (playwright.config.ts and its harness) runs under tsx outside
     // Next's alias/transpile, so they read the flake's port/CI vars directly.
-    ignores: ["config.ts", "config.assert.ts", "instrumentation.ts", "playwright.config.ts", "tests/**"],
+    ignores: ["config.ts", "config.assert.ts", "instrumentation.ts", "tests/**"],
     rules: {
       "no-restricted-properties": [
         "error",

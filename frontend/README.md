@@ -47,7 +47,7 @@ reach this repo through a `@evinvest/uikit` bump, never a local edit.
 
 ```sh
 npm run lint                 # eslint
-npm run check                # tsc --noEmit
+npm run typecheck            # tsc --noEmit
 ```
 
 ## Visual-regression tests
@@ -57,11 +57,11 @@ npm run check                # tsc --noEmit
 > `app/[locale]` stays until removed.
 
 Playwright screenshots of the coming-soon page in [`tests/`](./tests) — one
-baseline per viewport. Browsers come from nixpkgs, pinned to the `@playwright/test`
-revision via the flake, so screenshots are reproducible.
+baseline per viewport. Playwright and its browsers come from nixpkgs, pinned
+together via the flake, so screenshots are reproducible.
 ```sh
-npm run test:visual          # compare against committed baselines
-npm run test:visual:update   # regenerate baselines after an intentional UI change
+nix run .#visual             # compare against committed baselines
+nix run .#accept-test        # regenerate baselines after an intentional UI change
 ```
 > Linux-only via nix; skip locally on macOS.
 
