@@ -12,6 +12,8 @@ jobs:
       code-duplication_status: ${{ steps.run.outputs['code-duplication_status'] }}
       frontend-lint_seconds: ${{ steps.run.outputs['frontend-lint_seconds'] }}
       frontend-lint_status: ${{ steps.run.outputs['frontend-lint_status'] }}
+      frontend-stylelint_seconds: ${{ steps.run.outputs['frontend-stylelint_seconds'] }}
+      frontend-stylelint_status: ${{ steps.run.outputs['frontend-stylelint_status'] }}
       tokei_seconds: ${{ steps.run.outputs['tokei_seconds'] }}
       tokei_status: ${{ steps.run.outputs['tokei_status'] }}
     runs-on: ubuntu-latest
@@ -43,7 +45,7 @@ jobs:
           path: ~/.npm
           restore-keys: particles-warnings-${{ runner.os }}-
       - id: run
-        run: nix run .#test -- --severity warnings --serial tokei code-duplication frontend-lint
+        run: nix run .#test -- --severity warnings --serial tokei code-duplication frontend-stylelint frontend-lint
     timeout-minutes: 90
   report:
     if: always() && github.ref_name == github.event.repository.default_branch
@@ -54,7 +56,7 @@ jobs:
     steps:
       - env:
           NEEDS: ${{ toJSON(needs) }}
-          PARTICLES: '[{"generic":true,"name":"tokei"},{"generic":true,"name":"code-duplication"},{"generic":true,"name":"frontend-lint"}]'
+          PARTICLES: '[{"generic":true,"name":"tokei"},{"generic":true,"name":"code-duplication"},{"generic":true,"name":"frontend-stylelint"},{"generic":true,"name":"frontend-lint"}]'
         name: Tally the particles
         run: |
           read -r failed total seconds incomplete < <(jq -rn --argjson needs "$NEEDS" --argjson spec "$PARTICLES" '

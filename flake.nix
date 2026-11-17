@@ -181,7 +181,7 @@
                 visual
               ];
             };
-            warnings.augment = [ "tokei" "code-duplication" ] ++ js.particles.warnings;
+            warnings.augment = [ "tokei" "code-duplication" (frontendScript "frontend-stylelint" "lint:css") ] ++ js.particles.warnings;
             other.augment = [ "loc-badge" ];
           };
           lfs = true;
