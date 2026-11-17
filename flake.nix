@@ -64,7 +64,7 @@
             i18n = {
               enable = true;
               name = "i18n catalogue matches code (translation policy 1.1/1.2)";
-              entry = "${pkgs.lib.getExe github.test} frontend-i18n";
+              entry = "${pkgs.lib.getExe github.test} frontend-i18n-check";
               pass_filenames = false;
               stages = [ "pre-push" ];
             };
@@ -100,19 +100,6 @@
 
         rs = v_flakes.rs { inherit pkgs rust; };
         js = v_flakes.js { inherit pkgs; packages = [ "frontend" ]; };
-        # a package script as a particle, installed by the js module's own `prepare`
-        frontendScript = name: script: {
-          inherit name;
-          inherit (builtins.head js.particles.errors) prepare ciCache;
-          program = pkgs.writeShellApplication {
-            inherit name;
-            runtimeInputs = with pkgs; [ nodejs git ];
-            text = ''
-              cd "$(git rev-parse --show-toplevel)/frontend"
-              exec npm run ${script}
-            '';
-          };
-        };
         playwrightEnv = ''
           ${portEnv}
           export NEXT_PUBLIC_API_URL="''${NEXT_PUBLIC_API_URL:-http://localhost:$SITE_CONDUCTOR_BACKEND_PORT}"
@@ -171,17 +158,17 @@
               default = true;
               exclude = [ "frontend-test" ]; # no unit tests: the front end's suite is the `visual` particle
               augment = [
-                (frontendScript "frontend-i18n" "i18n:check") # translation policy 1.1/1.2
+                (js.script "frontend" "i18n:check") # translation policy 1.1/1.2
                 # `cn` panics on a conflict only in dev, and only once the offending
                 # combination of branches is rendered. This reaches all of them.
-                (frontendScript "frontend-css-conflicts" "css:check")
+                (js.script "frontend" "css:check")
                 # The /en/* collapse + English afterFiles rewrite: a wrong locale list
                 # 404s a locale, a wrong carve-out loops 307 (next.config.ts).
-                (frontendScript "frontend-redirects" "redirects:check")
+                (js.script "frontend" "redirects:check")
                 visual
               ];
             };
-            warnings.augment = [ "tokei" "code-duplication" (frontendScript "frontend-stylelint" "lint:css") ] ++ js.particles.warnings;
+            warnings.augment = [ "tokei" "code-duplication" (js.script "frontend" "lint:css") ] ++ js.particles.warnings;
             other.augment = [ "loc-badge" ];
           };
           lfs = true;

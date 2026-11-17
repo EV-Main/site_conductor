@@ -8,12 +8,12 @@ jobs:
   particles:
     name: Particles
     outputs:
-      frontend-css-conflicts_seconds: ${{ steps.run.outputs['frontend-css-conflicts_seconds'] }}
-      frontend-css-conflicts_status: ${{ steps.run.outputs['frontend-css-conflicts_status'] }}
-      frontend-i18n_seconds: ${{ steps.run.outputs['frontend-i18n_seconds'] }}
-      frontend-i18n_status: ${{ steps.run.outputs['frontend-i18n_status'] }}
-      frontend-redirects_seconds: ${{ steps.run.outputs['frontend-redirects_seconds'] }}
-      frontend-redirects_status: ${{ steps.run.outputs['frontend-redirects_status'] }}
+      frontend-css-check_seconds: ${{ steps.run.outputs['frontend-css-check_seconds'] }}
+      frontend-css-check_status: ${{ steps.run.outputs['frontend-css-check_status'] }}
+      frontend-i18n-check_seconds: ${{ steps.run.outputs['frontend-i18n-check_seconds'] }}
+      frontend-i18n-check_status: ${{ steps.run.outputs['frontend-i18n-check_status'] }}
+      frontend-redirects-check_seconds: ${{ steps.run.outputs['frontend-redirects-check_seconds'] }}
+      frontend-redirects-check_status: ${{ steps.run.outputs['frontend-redirects-check_status'] }}
       frontend-typecheck_seconds: ${{ steps.run.outputs['frontend-typecheck_seconds'] }}
       frontend-typecheck_status: ${{ steps.run.outputs['frontend-typecheck_status'] }}
       visual_seconds: ${{ steps.run.outputs['visual_seconds'] }}
@@ -47,7 +47,7 @@ jobs:
           path: ~/.npm
           restore-keys: particles-errors-${{ runner.os }}-
       - id: run
-        run: nix run .#test -- --severity errors --serial frontend-typecheck frontend-i18n frontend-css-conflicts frontend-redirects visual
+        run: nix run .#test -- --severity errors --serial frontend-typecheck frontend-i18n-check frontend-css-check frontend-redirects-check visual
     timeout-minutes: 90
   pre_ci:
     uses: valeratrades/.github/.github/workflows/pre_ci.yml@main
@@ -61,7 +61,7 @@ jobs:
     steps:
       - env:
           NEEDS: ${{ toJSON(needs) }}
-          PARTICLES: '[{"generic":false,"name":"rust-tests"},{"generic":true,"name":"frontend-typecheck"},{"generic":true,"name":"frontend-i18n"},{"generic":true,"name":"frontend-css-conflicts"},{"generic":true,"name":"frontend-redirects"},{"generic":true,"name":"visual"}]'
+          PARTICLES: '[{"generic":false,"name":"rust-tests"},{"generic":true,"name":"frontend-typecheck"},{"generic":true,"name":"frontend-i18n-check"},{"generic":true,"name":"frontend-css-check"},{"generic":true,"name":"frontend-redirects-check"},{"generic":true,"name":"visual"}]'
         name: Tally the particles
         run: |
           read -r failed total seconds incomplete < <(jq -rn --argjson needs "$NEEDS" --argjson spec "$PARTICLES" '
