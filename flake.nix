@@ -114,13 +114,14 @@
             exec playwright test -c tests "$@"
           '';
         };
+        oldestSupportedVersion = "nightly-2026-06-29";
         github = v_flakes.github {
           inherit pkgs pname rs js;
           enable = true;
           # Public repo → public Cachix (`ev-invest`); pull deps + push built paths.
           # Pushing needs the CACHIX_AUTH_TOKEN secret. See v_flakes cache.nix.
           cache = { cachix = "ev-invest"; };
-          lastSupportedVersion = "nightly-2026-05-12";
+          inherit oldestSupportedVersion;
           # The frontend image bakes private inputs (blog, whitepaper),
           # so the release runner needs read access to each — one read-only deploy key
           # per repo (provision: `git_ops init-deploy-key <owner>/<repo>`).
@@ -177,7 +178,7 @@
         readme = v_flakes.readme-fw {
           inherit pkgs pname;
           defaults = true;
-          lastSupportedVersion = "nightly-1.92";
+          inherit oldestSupportedVersion;
           rootDir = ./.;
           # No crate is published yet (the backend is a placeholder), so keep only the badge that always resolves.
           badges = [ "msrv" ];

@@ -1,5 +1,5 @@
 # main-site-conductor
-![Minimum Supported Rust Version](https://img.shields.io/badge/nightly-1.92+-ab6000.svg)
+![Minimum Supported Rust Version](https://img.shields.io/badge/nightly-2026--06--29+-ab6000.svg)
 ![Build time](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/valeratrades/b48e6f02c61942200e7d1e3eeabf9bcb/raw/main-site-conductor-build.json)
 ![Test time](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/valeratrades/b48e6f02c61942200e7d1e3eeabf9bcb/raw/main-site-conductor-test.json)
 
@@ -84,7 +84,7 @@ and [`frontend/README.md`](./frontend/README.md).
 
 <br>
 
-<sup>Links for devs:</sup>
+#### Dev links
 - <sup><a href="./docs/ARCHITECTURE.md">architecture</a></sup>
 - <sup><a href="https://github.com/EV-Main/.github/blob/main/code/STYLE.md">style</a></sup>
 - <sup><a href="https://github.com/EV-Main/.github/tree/main/code/conventions">conventions</a></sup>
